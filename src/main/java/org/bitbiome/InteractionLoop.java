@@ -10,7 +10,9 @@ public class InteractionLoop {
         boolean isRunning = true;
         while (isRunning) {
             String line = input.nextLine().toLowerCase();
-            System.out.println(line);
+            if (!Boot.instance.getCmdListener().perform(line.toLowerCase().split(" ")[0], input, isRunning, line)) {
+                System.out.println("Unknown Command");
+            }
         }
     }
 
