@@ -1,0 +1,17 @@
+{
+  "name": "null",
+  "gold": 0,
+  "hp": 10,
+  "currentLocation": "Wald",
+  "inventory": [
+    {
+      "name": "Holz",
+      "amount": "5",
+      "durability": 1000
+    },{
+      "name": "Stein",
+      "amount": "5",
+      "durability": 1000
+    }
+  ]
+}

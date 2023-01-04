@@ -1,0 +1,38 @@
+{
+  "shopitems": [
+    {
+      "name": "Holz",
+      "amount": 10,
+      "gold": 10
+    },
+    {
+      "name": "Heiliges Schwert der Engel",
+      "amount": 1,
+      "gold": 1000
+    },
+    {
+      "name": "Stein",
+      "amount": 5,
+      "gold": 100
+    }
+  ],
+  "locations": [
+    {
+      "name": "Wald",
+      "items": [
+        "Holz",
+        "Stein"
+      ],
+      "mobs": [
+        {
+          "name": "Big Foot",
+          "hp": 50,
+          "damage": "10-15",
+          "items": [
+            "Fell"
+          ]
+        }
+      ]
+    }
+  ]
+}
