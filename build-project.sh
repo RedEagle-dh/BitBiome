@@ -1,3 +1,3 @@
 mvn test
 
-mvn compile exec:java -Dexec.mainClass="org.example.Main"
+mvn compile exec:java -Dexec.mainClass="org.bitbiome.Main"
