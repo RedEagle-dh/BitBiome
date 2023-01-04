@@ -11,6 +11,9 @@ public class CommandListener {
         commands = new HashMap<>();
 
         commands.put("help", new HelpCommand());
+
+        commands.put("exit", new QuitCommand());
+        commands.put("quit", new QuitCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {
