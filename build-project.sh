@@ -1,3 +1,3 @@
 mvn test
 
-java src/main/java/org/example/Main.java
+mvn compile exec:java -Dexec.mainClass="org.example.Main"
