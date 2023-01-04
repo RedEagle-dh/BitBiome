@@ -10,13 +10,7 @@ public class CommandListener {
     public CommandListener() {
         commands = new HashMap<>();
 
-        /*
-        * Commandfield
-        *
-        * commands.put("CommandName", new CommandClass());
-        *
-        *
-         */
+        commands.put("help", new HelpCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {
