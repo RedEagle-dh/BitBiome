@@ -1,8 +1,5 @@
 package org.bitbiome;
 
-import org.json.JSONObject;
-
-import java.util.Scanner;
 
 public class Main {
 
