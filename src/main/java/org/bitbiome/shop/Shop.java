@@ -7,7 +7,13 @@ public class Shop {
     public ArrayList<Item> currentShopItems;
 
     public Shop(){
-        allItems = loadItems();
+        //allItems = loadItems();
+        allItems = new ArrayList<Item>();
+        allItems.add(new Item("Holz", 10, 10));
+        allItems.add(new Item("Holz2", 11, 10));
+        allItems.add(new Item("Holz3", 12, 10));
+        allItems.add(new Item("Holz4", 13, 10));
+        //currentShopItems = itemRotation(allItems, 3);
     }
 
     public boolean buy(){
@@ -28,8 +34,8 @@ public class Shop {
         return null;
     }
 
-    public ArrayList<Item> getCurrentShopItems(){
-        return currentShopItems;
+    public void getCurrentShopItems(){
+        printArrayList(allItems);
     }
 
     public void quiz(){
@@ -39,7 +45,7 @@ public class Shop {
     private void printArrayList(ArrayList<Item> arrayList){
         System.out.println("");
         for(int i = 0; i < arrayList.size(); i++){
-            System.out.println(arrayList.get(i).getName() + " | " + arrayList.get(i).getAmount() + " | " + arrayList.get(i).getGold());
+            System.out.println(arrayList.get(i).getName() + " | Anzahl: " + arrayList.get(i).getAmount() + " | Kosten: " + arrayList.get(i).getGold());
         }
         System.out.println("");
     }
