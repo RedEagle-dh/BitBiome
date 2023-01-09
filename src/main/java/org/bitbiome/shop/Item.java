@@ -2,15 +2,14 @@ package org.bitbiome.shop;
 
 public class Item {
     public String name;
-    public String damage;
-    public boolean crafting;
-    public int durability;
+    public int amount;
+    public int gold;
 
-    public Item(String name, String damage, boolean crafting, int durability){
+
+    public Item(String name, int amount, int gold){
         this.name = name;
-        this.damage = damage;
-        this.crafting = crafting;
-        this.durability = durability;
+        this.amount = amount;
+        this.gold = gold;
     }
 
     public String getName() {
@@ -21,27 +20,19 @@ public class Item {
         this.name = name;
     }
 
-    public String getDamage() {
-        return damage;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setDamage(String damage) {
-        this.damage = damage;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public boolean isCrafting() {
-        return crafting;
+    public int getGold() {
+        return gold;
     }
 
-    public void setCrafting(boolean crafting) {
-        this.crafting = crafting;
-    }
-
-    public int getDurability() {
-        return durability;
-    }
-
-    public void setDurability(int durability) {
-        this.durability = durability;
+    public void setGold(int gold) {
+        this.gold = gold;
     }
 }
