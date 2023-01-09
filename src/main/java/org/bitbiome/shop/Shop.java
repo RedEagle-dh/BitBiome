@@ -25,7 +25,7 @@ public class Shop {
         return null;
     }
 
-    public ArrayList<Item> aktuellImShop(){
+    public ArrayList<Item> getCurrentShopItems(){
         return null;
     }
 
