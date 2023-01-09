@@ -35,7 +35,7 @@ public class ShopCommand implements CommandAPI{
         }
     }
 
-    private boolean validInput(String input){
+    public static boolean validInput(String input){
         return (input.equals("1") || input.equals("2") || input.equals("3"));
     }
 
