@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Holz",
+    "damage": "1-3",
+    "crafting": true,
+    "durability": 1000
+  },
+  {
+    "name": "Heiliges Schwert der Engel",
+    "damage": "1000",
+    "crafting": false,
+    "durability": 1000
+  },
+  {
+    "name": "Stein",
+    "damage": "5-10",
+    "crafting": true,
+    "durability": 1000
+  },
+  {
+    "name": "Fell",
+    "damage": "0",
+    "crafting": true,
+    "durability": 1000
+  }
+]
