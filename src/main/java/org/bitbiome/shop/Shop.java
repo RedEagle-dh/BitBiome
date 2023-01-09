@@ -3,17 +3,20 @@ package org.bitbiome.shop;
 import java.util.ArrayList;
 
 public class Shop {
+    public ArrayList<Item> allItems;
+    public ArrayList<Item> currentShopItems;
+
     public Shop(){
 
     }
 
-    public boolean kaufen(){
+    public boolean buy(){
         //ToDo
 
         return true;
     }
 
-    private ArrayList itemsLaden(){
+    private ArrayList loadItems(){
         //ToDo
 
         return null;
@@ -26,10 +29,10 @@ public class Shop {
     }
 
     public ArrayList<Item> getCurrentShopItems(){
-        return null;
+        return currentShopItems;
     }
 
-    public void Quiz(){
+    public void quiz(){
         //ToDo
     }
 }
