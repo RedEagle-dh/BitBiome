@@ -22,7 +22,7 @@ public class Shop {
         return null;
     }
 
-    public ArrayList<Item> itemRotation(ArrayList<Item> alleItems, int anzahlItemsImShop){
+    public ArrayList<Item> itemRotation(ArrayList<Item> alleItems, int itemCount){
         //ToDo
 
         return null;
