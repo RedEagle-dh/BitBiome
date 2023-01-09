@@ -13,4 +13,35 @@ public class Item {
         this.durability = durability;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDamage() {
+        return damage;
+    }
+
+    public void setDamage(String damage) {
+        this.damage = damage;
+    }
+
+    public boolean isCrafting() {
+        return crafting;
+    }
+
+    public void setCrafting(boolean crafting) {
+        this.crafting = crafting;
+    }
+
+    public int getDurability() {
+        return durability;
+    }
+
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
 }
