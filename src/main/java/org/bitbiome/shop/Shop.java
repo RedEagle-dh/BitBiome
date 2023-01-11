@@ -58,8 +58,8 @@ public class Shop {
         return arrayList;
     }
 
-    public void getCurrentShopItems(){
-        printArrayList(allItems);
+    public void printCurrentShopItems(){
+        printArrayList(currentShopItems);
     }
 
     public void quiz(){

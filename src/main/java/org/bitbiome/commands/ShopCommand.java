@@ -11,7 +11,7 @@ public class ShopCommand implements CommandAPI{
     public void performCommand(Scanner scanner, boolean isRunning, String message) {
         System.out.println("Willkommen im Shop!");
         System.out.println("Folgende Items sind aktuell im Shop:");
-        shop.getCurrentShopItems();
+        shop.printCurrentShopItems();
         System.out.println("Was willst Du hier im Shop?");
         System.out.println("Etwas kaufen: 1");
         System.out.println("Das Quiz spielen: 2");
