@@ -58,7 +58,9 @@ public class Shop {
     private void printArrayList(ArrayList<Item> arrayList){
         System.out.println("");
         for(int i = 0; i < arrayList.size(); i++){
-            System.out.println(arrayList.get(i).getName() + " | Anzahl: " + arrayList.get(i).getAmount() + " | Kosten: " + arrayList.get(i).getGold());
+            if(arrayList.get(i).getAmount() != 0) {
+                System.out.println(arrayList.get(i).getName() + " | Anzahl: " + arrayList.get(i).getAmount() + " | Kosten: " + arrayList.get(i).getGold());
+            }
         }
         System.out.println("");
     }
