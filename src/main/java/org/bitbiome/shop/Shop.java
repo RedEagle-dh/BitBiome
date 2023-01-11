@@ -1,5 +1,11 @@
 package org.bitbiome.shop;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Shop {
@@ -7,13 +13,7 @@ public class Shop {
     public ArrayList<Item> currentShopItems;
 
     public Shop(){
-        //allItems = loadItems();
-        allItems = new ArrayList<Item>();
-        allItems.add(new Item("Holz", 10, 10));
-        allItems.add(new Item("Holz2", 11, 10));
-        allItems.add(new Item("Holz3", 12, 10));
-        allItems.add(new Item("Holz4", 13, 10));
-        //currentShopItems = itemRotation(allItems, 3);
+        allItems = loadItems();
     }
 
     public boolean buy(){
@@ -23,9 +23,22 @@ public class Shop {
     }
 
     private ArrayList loadItems(){
-        //ToDo
+        File file = new File("src/main/resources/gameconfig.json");
+        ArrayList arrayList = new ArrayList<Item>();
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(file.toURI())), "UTF-8");
+            JSONObject jsonObject = new JSONObject(content);
 
-        return null;
+            JSONArray jsonArray = jsonObject.getJSONArray("shopitems");
+            for(int i = 0; i < jsonArray.length(); i++){
+                JSONObject tempJSON = jsonArray.getJSONObject(i);
+                arrayList.add(new Item(tempJSON.getString("name"), tempJSON.getInt("amount"), tempJSON.getInt("gold")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return arrayList;
     }
 
     public ArrayList<Item> itemRotation(ArrayList<Item> alleItems, int itemCount){
