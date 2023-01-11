@@ -7,6 +7,8 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
 
 public class Shop {
     public ArrayList<Item> allItems;
@@ -14,6 +16,7 @@ public class Shop {
 
     public Shop(){
         allItems = loadItems();
+        currentShopItems = itemRotation(allItems, 2);
     }
 
     public boolean buy(){
@@ -41,10 +44,18 @@ public class Shop {
         return arrayList;
     }
 
-    public ArrayList<Item> itemRotation(ArrayList<Item> alleItems, int itemCount){
-        //ToDo
-
-        return null;
+    public ArrayList itemRotation(ArrayList<Item> alleItems, int itemCount){
+        ArrayList arrayList = new ArrayList<Item>();
+        HashSet<Integer> hashSet = new HashSet<>();
+        Random random = new Random();
+        while (hashSet.size() < itemCount){
+            int rand = random.nextInt(alleItems.size());
+            if(!hashSet.contains(rand)){
+                hashSet.add(rand);
+                arrayList.add(alleItems.get(rand));
+            }
+        }
+        return arrayList;
     }
 
     public void getCurrentShopItems(){
