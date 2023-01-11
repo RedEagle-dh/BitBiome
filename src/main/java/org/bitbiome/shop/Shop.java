@@ -44,7 +44,7 @@ public class Shop {
         return arrayList;
     }
 
-    public ArrayList loadPartofItems(ArrayList<Item> alleItems, int itemCount){
+    private ArrayList loadPartofItems(ArrayList<Item> alleItems, int itemCount){
         ArrayList arrayList = new ArrayList<Item>();
         HashSet<Integer> hashSet = new HashSet<>();
         Random random = new Random();
@@ -56,6 +56,10 @@ public class Shop {
             }
         }
         return arrayList;
+    }
+
+    public void itemRotation(){
+        currentShopItems = loadPartofItems(allItems, 2);
     }
 
     public void printCurrentShopItems(){
