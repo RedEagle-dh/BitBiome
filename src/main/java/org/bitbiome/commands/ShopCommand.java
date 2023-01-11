@@ -19,7 +19,6 @@ public class ShopCommand implements CommandAPI{
 
         while (true){
             String input = scanner.nextLine();
-
             if(validInput(input)){
                 if(input.equals("1")){
                     //shop.buy();

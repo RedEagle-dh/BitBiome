@@ -16,7 +16,7 @@ public class Shop {
 
     public Shop(){
         allItems = loadItems();
-        currentShopItems = itemRotation(allItems, 2);
+        currentShopItems = loadPartofItems(allItems, 2);
     }
 
     public boolean buy(){
@@ -44,7 +44,7 @@ public class Shop {
         return arrayList;
     }
 
-    public ArrayList itemRotation(ArrayList<Item> alleItems, int itemCount){
+    public ArrayList loadPartofItems(ArrayList<Item> alleItems, int itemCount){
         ArrayList arrayList = new ArrayList<Item>();
         HashSet<Integer> hashSet = new HashSet<>();
         Random random = new Random();
