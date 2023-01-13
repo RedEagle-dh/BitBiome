@@ -1,5 +1,6 @@
 package org.bitbiome;
 
+import org.bitbiome.classes.InteractionLoop;
 import org.bitbiome.commands.CommandListener;
 
 public class Boot {
