@@ -21,7 +21,6 @@ public class Shop {
     }
 
     public boolean buy(String itemName, int amount){
-        System.out.println("Hallo");
         //Create File Objects
         File filePlayerConfig = new File("src/main/resources/playerconfig.json");
         File fileGameConfig = new File("src/main/resources/gameconfig.json");
@@ -64,6 +63,25 @@ public class Shop {
             //Player gold subtract
             gold -= costs;
             playerConfig.put("gold", gold);
+
+            //Gameconfig amount reduese
+            JSONArray jsonArray2 = gameConfig.getJSONArray("shopitems");
+            int intNewAmount;
+
+            for(int i = 0; i < jsonArray2.length(); i++) {
+                JSONObject tempJSON = jsonArray2.getJSONObject(i);
+                if (tempJSON.getString("name").equals(itemName)) {
+                    intNewAmount = (int) tempJSON.get("amount") - amount;
+                    jsonArray2.remove(i);
+                    tempJSON.put("amount", intNewAmount);
+                    jsonArray2.put(tempJSON);
+                    gameConfig.put("shopitems", jsonArray2);
+                    FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
+                    fileWriter.write(gameConfig.toString());
+                    fileWriter.close();
+                    currentShopItems = loadItems();
+                }
+            }
 
             //Give Player the Item
             JSONArray jsonArray = playerConfig.getJSONArray("inventory");
