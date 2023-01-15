@@ -37,6 +37,21 @@ public class Shop {
             String content3 = new String(Files.readAllBytes(Paths.get(fileItem.toURI())), "UTF-8");
             JSONArray itemJSON = new JSONArray(content3);
 
+            //Test if item still available in the shop
+            int itemIndex = -1;
+            for(int i = 0; i < currentShopItems.size(); i++){
+                if(currentShopItems.get(i).getName().equals(itemName)){
+                    itemIndex = i;
+                }
+            }
+            if(itemIndex == -1){
+                System.out.println("Dieses Item gibt es nicht");
+                return false;
+            }
+            if(!(currentShopItems.get(itemIndex).amount > 0)){
+                System.out.println("Es gibt zu wenige Items");
+                return false;
+            }
 
 
         }catch (Exception e){
