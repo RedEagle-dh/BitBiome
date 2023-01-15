@@ -83,6 +83,26 @@ public class Shop {
                 }
             }
 
+            //Item do not exist in the playerinventory
+            int durability = 0;
+            for(int i = 0; i < itemJSON.length(); i++){
+                JSONObject tempJSON = itemJSON.getJSONObject(i);
+                if(tempJSON.getString("name").equals(itemName)){
+                    durability = (int) tempJSON.get("durability");
+                }
+            }
+
+            JSONObject inventory = new JSONObject();
+            inventory.put("name", itemName);
+            inventory.put("amount", 1);
+            inventory.put("durability", durability);
+
+            jsonArray.put(inventory);
+            playerConfig.put("inventory", jsonArray);
+            FileWriter fileWriter = new FileWriter("src/main/resources/playerconfig.json");
+            fileWriter.write(playerConfig.toString());
+            fileWriter.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
