@@ -9,6 +9,10 @@ public class UseCommand implements CommandAPI {
     }
 
     private String getUseMessage(String msg) {
-        return "";
+        String message[] = msg.split(" on ");
+        String returnString = "You used " + msg;
+        if(message.length == 1)
+            returnString+=" on yourself";
+        return returnString;
     }
 }
