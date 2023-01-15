@@ -61,6 +61,28 @@ public class Shop {
                 return false;
             }
 
+            //Player gold subtract
+            gold -= costs;
+            playerConfig.put("gold", gold);
+
+            //Give Player the Item
+            JSONArray jsonArray = playerConfig.getJSONArray("inventory");
+            String newAmount;
+            for(int i = 0; i < jsonArray.length(); i++) {
+                JSONObject tempJSON = jsonArray.getJSONObject(i);
+                if (tempJSON.getString("name").equals(itemName)) {
+                    newAmount = String.valueOf((Integer.parseInt(tempJSON.getString("amount"))) + amount);
+                    jsonArray.remove(i);
+                    tempJSON.put("amount", newAmount);
+                    jsonArray.put(tempJSON);
+                    playerConfig.put("inventory", jsonArray);
+                    FileWriter fileWriter = new FileWriter("src/main/resources/playerconfig.json");
+                    fileWriter.write(playerConfig.toString());
+                    fileWriter.close();
+                    return true;
+                }
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
