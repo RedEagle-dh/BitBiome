@@ -16,7 +16,7 @@ public class Shop {
     public ArrayList<Item> currentShopItems;
 
     public Shop(){
-        allItems = loadCurrentShopItems();
+        allItems = loadAllItems();
         currentShopItems = loadPartofItems(allItems, 2);
     }
 
@@ -126,6 +126,25 @@ public class Shop {
         }
 
         return true;
+    }
+
+    private ArrayList loadAllItems(){
+        File file = new File("src/main/resources/items.json");
+        ArrayList arrayList = new ArrayList<Item>();
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(file.toURI())), "UTF-8");
+            JSONObject jsonObject = new JSONObject(content);
+
+            JSONArray jsonArray = jsonObject.getJSONArray("items");
+            for(int i = 0; i < jsonArray.length(); i++){
+                JSONObject tempJSON = jsonArray.getJSONObject(i);
+                arrayList.add(new Item(tempJSON.getString("name"), tempJSON.getInt("amountShop"), tempJSON.getInt("gold")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return arrayList;
     }
 
     private ArrayList loadCurrentShopItems(){
