@@ -16,7 +16,7 @@ public class Shop {
     public ArrayList<Item> currentShopItems;
 
     public Shop(){
-        allItems = loadItems();
+        allItems = loadCurrentShopItems();
         currentShopItems = loadPartofItems(allItems, 2);
     }
 
@@ -79,7 +79,7 @@ public class Shop {
                     FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
                     fileWriter.write(gameConfig.toString());
                     fileWriter.close();
-                    currentShopItems = loadItems();
+                    currentShopItems = loadCurrentShopItems();
                 }
             }
 
@@ -128,7 +128,7 @@ public class Shop {
         return true;
     }
 
-    private ArrayList loadItems(){
+    private ArrayList loadCurrentShopItems(){
         File file = new File("src/main/resources/gameconfig.json");
         ArrayList arrayList = new ArrayList<Item>();
         try {
