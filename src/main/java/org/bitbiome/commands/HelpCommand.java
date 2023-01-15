@@ -1,8 +1,5 @@
 package org.bitbiome.commands;
 
-import org.bitbiome.Boot;
-
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class HelpCommand implements CommandAPI {
