@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -19,8 +20,28 @@ public class Shop {
         currentShopItems = loadPartofItems(allItems, 2);
     }
 
-    public boolean buy(){
-        //ToDo
+    public boolean buy(String itemName, int amount){
+        System.out.println("Hallo");
+        //Create File Objects
+        File filePlayerConfig = new File("src/main/resources/playerconfig.json");
+        File fileGameConfig = new File("src/main/resources/gameconfig.json");
+        File fileItem = new File("src/main/resources/items.json");
+        try {
+            //Create JSONObjects
+            String content1 = new String(Files.readAllBytes(Paths.get(filePlayerConfig.toURI())), "UTF-8");
+            JSONObject playerConfig = new JSONObject(content1);
+
+            String content2 = new String(Files.readAllBytes(Paths.get(fileGameConfig.toURI())), "UTF-8");
+            JSONObject gameConfig = new JSONObject(content2);
+
+            String content3 = new String(Files.readAllBytes(Paths.get(fileItem.toURI())), "UTF-8");
+            JSONArray itemJSON = new JSONArray(content3);
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         return true;
     }
