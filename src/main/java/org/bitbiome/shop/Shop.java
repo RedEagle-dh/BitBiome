@@ -53,6 +53,13 @@ public class Shop {
                 return false;
             }
 
+            //Test if the player has enough gold
+            int costs = currentShopItems.get(itemIndex).gold * amount;
+            int gold = (int) playerConfig.get("gold");
+            if(!(gold >= costs)){
+                System.out.println("Du hast zu wenig Gold!");
+                return false;
+            }
 
         }catch (Exception e){
             e.printStackTrace();
