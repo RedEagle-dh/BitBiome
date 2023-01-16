@@ -9,11 +9,16 @@ public class UseCommand implements CommandAPI {
     }
 
     private String getUseMessage(String msg) {
-        String message[] = msg.split(" on ");
-        return useItem(message[0], message[1]);
+        String item = getItemName(msg);
+        String target = msg.replaceFirst(item + " on ", "");
+        return useItem(item, target);
     }
 
     private String useItem(String item, String target) {
         return "You used " + item + " on " + target;
+    }
+
+    private String getItemName(String msg) {
+        return "";
     }
 }
