@@ -22,7 +22,7 @@ public class JsonParser {
                   https://github.com/stleary/JSON-java
      */
 
-    public static JSONObject getJSONObject(String fileName) {
+    public JSONObject getJSONObject(String fileName) {
         String resourceName = "./../../" + fileName;
         InputStream is = JsonParser.class.getResourceAsStream(resourceName);
         if (is == null) {
