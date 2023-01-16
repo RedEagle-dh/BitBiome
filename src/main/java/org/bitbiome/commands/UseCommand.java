@@ -10,8 +10,7 @@ public class UseCommand implements CommandAPI {
 
     private String getUseMessage(String msg) {
         String message[] = msg.split(" on ");
-        String returnString = useItem(message[0], message[1]);
-        return returnString;
+        return useItem(message[0], message[1]);
     }
 
     private String useItem(String item, String target) {
