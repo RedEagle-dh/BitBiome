@@ -1,5 +1,7 @@
 package org.bitbiome.commands;
 
+import org.bitbiome.classes.TravelEngine;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -21,11 +23,11 @@ public class CommandListener {
     }
 
 
-    public boolean perform(String command, Scanner scanner, boolean isRunning, String message) {
+    public boolean perform(String command, Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
 
         CommandAPI cmd;
         if ((cmd = commands.get(command)) != null) {
-            cmd.performCommand(scanner, isRunning, message);
+            cmd.performCommand(scanner, isRunning, message, travelEngine);
             return true;
         }
         return false;

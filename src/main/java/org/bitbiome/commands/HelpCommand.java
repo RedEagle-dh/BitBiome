@@ -1,6 +1,7 @@
 package org.bitbiome.commands;
 
 import org.bitbiome.Boot;
+import org.bitbiome.classes.TravelEngine;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ public class HelpCommand implements CommandAPI {
 
 
     @Override
-    public void performCommand(Scanner scanner, boolean isRunning, String message) {
+    public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
         System.out.println(getHelpMessage());
     }
 
