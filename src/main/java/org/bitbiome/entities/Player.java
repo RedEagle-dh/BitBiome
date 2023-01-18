@@ -1,4 +1,6 @@
-package org.bitbiome.classes;
+package org.bitbiome.entities;
+
+import org.bitbiome.classes.CreateLocations;
 
 import java.util.ArrayList;
 

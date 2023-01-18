@@ -1,4 +1,4 @@
-package org.bitbiome.classes;
+package org.bitbiome.entities;
 
 import java.util.ArrayList;
 

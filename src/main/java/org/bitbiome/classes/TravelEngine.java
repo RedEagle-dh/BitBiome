@@ -1,15 +1,19 @@
 package org.bitbiome.classes;
 
+import org.bitbiome.entities.Location;
+import org.bitbiome.entities.Player;
+
 public class TravelEngine {
 
     private Location location;
+    private Player player;
 
-    public TravelEngine() {
-
+    public TravelEngine(Player player) {
+        this.player = player;
     }
 
     public void travelTo(Location location) {
-        this.location = location;
+        player.setLocation(location);
     }
 
 }
