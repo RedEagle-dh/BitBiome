@@ -16,4 +16,8 @@ public class TravelEngine {
         player.setLocation(location);
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
 }
