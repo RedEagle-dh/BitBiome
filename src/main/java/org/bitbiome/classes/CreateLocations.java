@@ -14,4 +14,11 @@ public class CreateLocations {
         String name = "Wald";
         return new Location(name, mobs, items);
     }
+
+    public static Location createBeach() {
+        ArrayList<Item> items = new ArrayList<>();
+        ArrayList<Mob> mobs = new ArrayList<>();
+        String name = "Strand";
+        return new Location(name, mobs, items);
+    }
 }
