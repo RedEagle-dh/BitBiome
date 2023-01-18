@@ -1,0 +1,204 @@
+{
+  "Quiz": [
+    {
+      "frage": "Wie lang ist der Äquator der Erde?",
+      "antworten": [
+        "20.000m",
+        "30km",
+        "60.000km",
+        "40.000km"
+      ],
+      "korrekteAntwort": "40.000km"
+    },
+    {
+      "frage": "Was ist der längste Fluss der Welt?",
+      "antworten": [
+        "Amazonas",
+        "Nil",
+        "Rhein",
+        "Niger"
+      ],
+      "korrekteAntwort": "Nil"
+    },
+    {
+      "frage": "Wie viele Tasten hat ein Klavier?",
+      "antworten": [
+        "74",
+        "86",
+        "82",
+        "88"
+      ],
+      "korrekteAntwort": "88"
+    },
+    {
+      "frage": "Von wem wird der Bundespräsident gewählt?",
+      "antworten": [
+        "Vom Europäischen Parlament",
+        "Vom Bundeskanzler",
+        "Vom Bundestag",
+        "Von der Bundesversammlung"
+      ],
+      "korrekteAntwort": "von der Bundesversammlung"
+    },
+    {
+      "frage": "Welches Land produziert jährlich die meisten Filme?",
+      "antworten": [
+        "USA",
+        "Indien",
+        "Japan",
+        "Nigeria"
+      ],
+      "korrekteAntwort": "Indien"
+    },
+    {
+      "frage": "Wie heißt der am schnellsten schwimmende Fisch auf Erden?",
+      "antworten": [
+        "Flugfisch",
+        "Tigerhai",
+        "Segelfisch",
+        "Windfisch"
+      ],
+      "korrekteAntwort": "Segelfisch"
+    },
+    {
+      "frage": "Was ist KEIN Gewächs?",
+      "antworten": [
+        "Geranie",
+        "Moosfarn",
+        "Incolornis",
+        "Strandflieder"
+      ],
+      "korrekteAntwort": "Incolornis"
+    },
+    {
+      "frage": "Was nutzt eine Fledermaus zur Orientierung in der Luft?",
+      "antworten": [
+        "Infrarot",
+        "Röntgenstrahlen",
+        "Speichel",
+        "Ultraschall"
+      ],
+      "korrekteAntwort": "Ultraschall"
+    },
+    {
+      "frage": "Von wem stammt der berühmte Satz: 'Ich denke, also bin ich'?",
+      "antworten": [
+        "John Fitzgerald Kennedy",
+        "George Walker Bush",
+        "René Descartes",
+        "Julius Caesar"
+      ],
+      "korrekteAntwort": "René Descartes"
+    },
+    {
+      "frage": "Welches Lebensmittel enthält das meiste Wasser?",
+      "antworten": [
+        "Gurke",
+        "Wassermelone",
+        "Zitrone",
+        "Paprika"
+      ],
+      "korrekteAntwort": "Gurke"
+    },
+    {
+      "frage": "Welches Lebensmittel gehört im botanischen Sinne zu den Früchten?",
+      "antworten": [
+        "Möhre",
+        "Kartoffel",
+        "Tomate",
+        "Weißkohl"
+      ],
+      "korrekteAntwort": "Tomate"
+    },
+    {
+      "frage": "Haptische Wahrnehmung beruht auf dem...?",
+      "antworten": [
+        "Greifreflex",
+        "Gleichgewichtssinn",
+        "Hörsinn",
+        "Tastsinn"
+      ],
+      "korrekteAntwort": "Tastsinn"
+    },
+    {
+      "frage": "Wie nennt man den letzten Tanz einer Tanzveranstaltung?",
+      "antworten": [
+        "Voraus",
+        "Garaus",
+        "Kehraus",
+        "Durchaus"
+      ],
+      "korrekteAntwort": "Kehraus"
+    },
+    {
+      "frage": "Wie nennt man ein tiefes, enges Tal, durch das ein Gebirgsbach fließt?",
+      "antworten": [
+        "Klamm",
+        "Feucht",
+        "Nass",
+        "Schwamm"
+      ],
+      "korrekteAntwort": "Klamm"
+    },
+    {
+      "frage": "Wer oder was ist Gerbera?",
+      "antworten": [
+        "eine europäische Landschaft",
+        "eine Pflanze",
+        "die erste Präsidentin von Südafrika",
+        "eine Stadt in Lichtenstein"
+      ],
+      "korrekteAntwort": "eine Pflanze"
+    },
+    {
+      "frage": "Nach wem wurde ein Gesellschaftsanzug benannt?",
+      "antworten": [
+        "Richard von Weizsäcker",
+        "Gustav Heinemann",
+        "Jürgen Klinsmann",
+        "Gustav Stresemann"
+      ],
+      "korrekteAntwort": "Gustav Stresemann"
+    },
+    {
+      "frage": "Was ist Speckstein?",
+      "antworten": [
+        "eine Fischart, die sich als Stein tarnt",
+        "ein Gericht aus dem Mittelalter",
+        "eine Skulptur im Römischen Reich unter Nero",
+        "ein besonders weicher Stein"
+      ],
+      "korrekteAntwort": "ein besonders weicher Stein"
+    },
+    {
+      "frage": "In welcher Religion gibt es Gurus?",
+      "antworten": [
+        "im Christentum",
+        "im Hinduismus",
+        "im Islam",
+        "im Judentum"
+      ],
+      "korrekteAntwort": "im Hinduismus"
+    },
+    {
+      "frage": "Was versteht man unter Brunsbüttel?",
+      "antworten": [
+        "eine Industriestadt an der Unterelbe",
+        "einen Plakatkleber",
+        "eine 630 Mark-Kraft",
+        "ein Staatssekretär"
+      ],
+      "korrekteAntwort": "eine Industriestadt an der Unterelbe"
+    },
+    {
+      "frage": "Welcher im 11. Jahrhundert gegründeter Orden rettet und pfelgt auch noch heute Verletzte und Kranke?",
+      "antworten": [
+        "die Dominikaner",
+        "die Augustiner",
+        "die Zisterzienser",
+        "die Johanniter"
+      ],
+      "korrekteAntwort": "die Johanniter"
+    }
+  ]
+}
