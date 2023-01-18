@@ -17,6 +17,7 @@ public class CommandListener {
         commands.put("exit", new QuitCommand());
         commands.put("quit", new QuitCommand());
         commands.put("location", new LocationCommand());
+        commands.put("travel", new TravelCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {
