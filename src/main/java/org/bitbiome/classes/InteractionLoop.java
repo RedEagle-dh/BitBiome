@@ -1,4 +1,6 @@
-package org.bitbiome;
+package org.bitbiome.classes;
+
+import org.bitbiome.Boot;
 
 import java.util.Scanner;
 
