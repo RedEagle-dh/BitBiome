@@ -66,8 +66,7 @@ public class Shop {
             }
 
             //Player gold subtract
-            gold -= costs;
-            playerConfig.put("gold", gold);
+            playerConfig.put("gold", subtractGold(gold, costs));
 
             //Gameconfig amount reduese
             JSONArray jsonArray2 = gameConfig.getJSONArray("shopitems");
@@ -232,5 +231,9 @@ public class Shop {
             }
         }
         System.out.println("");
+    }
+
+    private int subtractGold(int gold, int cost){
+        return gold - cost;
     }
 }
