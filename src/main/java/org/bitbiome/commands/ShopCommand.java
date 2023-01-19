@@ -28,7 +28,7 @@ public class ShopCommand implements CommandAPI{
             String input = scanner.nextLine();
             if(validInput(input)){
                 if(input.equals("1")){
-                    System.out.println("Folgende sind folgende Items im Shop: ");
+                    System.out.println("Folgende Items sind im Shop: ");
                     for(int i = 0; i < currentItems.size(); i++){
                         System.out.println((i + 1) + ". " + currentItems.get(i).name + " | Anzahl: " + currentItems.get(i).amount + " | Gold: " + currentItems.get(i).gold);
                     }
