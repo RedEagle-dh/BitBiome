@@ -25,4 +25,10 @@ public class ShopCommandTest {
         boolean result = shopCommand.validInput("3");
         assertEquals(expected, result);
     }
+    @Test
+    public void testValidInput4(){
+        boolean expected = false;
+        boolean result = shopCommand.validInput("4");
+        assertEquals(expected, result);
+    }
 }
