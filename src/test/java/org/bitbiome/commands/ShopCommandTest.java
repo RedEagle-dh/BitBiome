@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShopCommandTest {
     final ShopCommand shopCommand = new ShopCommand();
+    final Shop shop = new Shop();
     @Test
     public void testValidInput1(){
         boolean expected = true;
@@ -29,6 +30,15 @@ public class ShopCommandTest {
     public void testValidInput4(){
         boolean expected = false;
         boolean result = shopCommand.validInput("4");
+        assertEquals(expected, result);
+    }
+
+
+
+    @Test
+    public void testSubtractGold(){
+        int expected = 1;
+        int result = shop.subtractGold(3, 2);
         assertEquals(expected, result);
     }
 }

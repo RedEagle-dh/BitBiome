@@ -233,7 +233,7 @@ public class Shop {
         System.out.println("");
     }
 
-    private int subtractGold(int gold, int cost){
+    public int subtractGold(int gold, int cost){
         return gold - cost;
     }
 }
