@@ -59,4 +59,10 @@ public class ShopCommandTest {
         int result = shop.subtractGold(10, 5);
         assertEquals(expected, result);
     }
+    @Test
+    public void testSubtractGold4(){
+        int expected = 1;
+        int result = shop.subtractGold(2, 1);
+        assertEquals(expected, result);
+    }
 }
