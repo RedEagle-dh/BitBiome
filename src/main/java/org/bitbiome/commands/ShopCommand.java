@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class ShopCommand implements CommandAPI{
 
-            Shop shop = new Shop();
-        public ShopCommand(){
+    Shop shop = new Shop();
+    public ShopCommand(){
 
-        }
+    }
 
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message) {
@@ -41,7 +41,7 @@ public class ShopCommand implements CommandAPI{
                         System.out.print("Anzahl eingeben: ");
                         String amount = scanner.nextLine();
                         if((Integer.parseInt(amount) <= currentItems.get(Integer.parseInt(itemNumber) - 1).amount) && ((Integer.parseInt(amount) - 1) > -1)){
-                            shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).name, Integer.parseInt(amount));
+                            boolean bool = shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).name, Integer.parseInt(amount));
                             currentItems = shop.loadCurrentShopItems();
                             System.out.println("");
                             System.out.println("Vielen Dank für Ihren Einkauf!");

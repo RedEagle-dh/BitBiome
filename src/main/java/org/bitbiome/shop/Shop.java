@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -15,13 +16,18 @@ public class Shop {
     public ArrayList<Item> allItems;
     public ArrayList<Item> currentShopItems;
 
-    public Shop(){
-        allItems = loadAllItems();
-        currentShopItems = loadPartofItems(allItems, 2);
+    public Shop() {
+        try {
+            allItems = loadAllItems();
+            currentShopItems = loadPartofItems(allItems, 3);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public boolean buy(String itemName, int amount){
         //Create File Objects
+        currentShopItems = loadCurrentShopItems();
         File filePlayerConfig = new File("src/main/resources/playerconfig.json");
         File fileGameConfig = new File("src/main/resources/gameconfig.json");
         File fileItem = new File("src/main/resources/items.json");
@@ -51,7 +57,6 @@ public class Shop {
                 System.out.println("Es gibt zu wenige Items");
                 return false;
             }
-
             //Test if the player has enough gold
             int costs = currentShopItems.get(itemIndex).gold * amount;
             int gold = (int) playerConfig.get("gold");
@@ -71,7 +76,7 @@ public class Shop {
             for(int i = 0; i < jsonArray2.length(); i++) {
                 JSONObject tempJSON = jsonArray2.getJSONObject(i);
                 if (tempJSON.getString("name").equals(itemName)) {
-                    intNewAmount = (int) tempJSON.get("amount") - amount;
+                    intNewAmount = tempJSON.getInt("amount") - amount;
                     jsonArray2.remove(i);
                     tempJSON.put("amount", intNewAmount);
                     jsonArray2.put(tempJSON);
@@ -80,16 +85,17 @@ public class Shop {
                     fileWriter.write(gameConfig.toString());
                     fileWriter.close();
                     currentShopItems = loadCurrentShopItems();
+                    break;
                 }
             }
 
             //Give Player the Item
             JSONArray jsonArray = playerConfig.getJSONArray("inventory");
-            String newAmount;
+            int newAmount;
             for(int i = 0; i < jsonArray.length(); i++) {
                 JSONObject tempJSON = jsonArray.getJSONObject(i);
                 if (tempJSON.getString("name").equals(itemName)) {
-                    newAmount = String.valueOf((Integer.parseInt(tempJSON.getString("amount"))) + amount);
+                    newAmount = tempJSON.getInt("amount") + amount;
                     jsonArray.remove(i);
                     tempJSON.put("amount", newAmount);
                     jsonArray.put(tempJSON);
@@ -103,9 +109,9 @@ public class Shop {
 
             //Item do not exist in the playerinventory
             int durability = 0;
-            for(int i = 0; i < itemJSON.length(); i++){
+            for(int i = 0; i < itemJSON.length(); i++) {
                 JSONObject tempJSON = itemJSON.getJSONObject(i);
-                if(tempJSON.getString("name").equals(itemName)){
+                if (tempJSON.getString("name").equals(itemName)) {
                     durability = (int) tempJSON.get("durability");
                 }
             }
@@ -132,12 +138,11 @@ public class Shop {
         File file = new File("src/main/resources/items.json");
         ArrayList arrayList = new ArrayList<Item>();
         try {
-            String content = new String(Files.readAllBytes(Paths.get(file.toURI())), "UTF-8");
-            JSONObject jsonObject = new JSONObject(content);
+            String content3 = new String(Files.readAllBytes(Paths.get(file.toURI())), "UTF-8");
+            JSONArray itemJSON = new JSONArray(content3);
 
-            JSONArray jsonArray = jsonObject.getJSONArray("items");
-            for(int i = 0; i < jsonArray.length(); i++){
-                JSONObject tempJSON = jsonArray.getJSONObject(i);
+            for(int i = 0; i < itemJSON.length(); i++){
+                JSONObject tempJSON = itemJSON.getJSONObject(i);
                 arrayList.add(new Item(tempJSON.getString("name"), tempJSON.getInt("amountShop"), tempJSON.getInt("gold")));
             }
         }catch (Exception e){
@@ -147,7 +152,7 @@ public class Shop {
         return arrayList;
     }
 
-    private ArrayList loadCurrentShopItems(){
+    public ArrayList loadCurrentShopItems(){
         File file = new File("src/main/resources/gameconfig.json");
         ArrayList arrayList = new ArrayList<Item>();
         try {
@@ -166,22 +171,45 @@ public class Shop {
         return arrayList;
     }
 
-    private ArrayList loadPartofItems(ArrayList<Item> alleItems, int itemCount){
+    private ArrayList loadPartofItems(ArrayList<Item> alleItems, int itemCount) {
         ArrayList arrayList = new ArrayList<Item>();
+        try{
+        File fileGameConfig = new File("src/main/resources/gameconfig.json");
+        String content2 = new String(Files.readAllBytes(Paths.get(fileGameConfig.toURI())), "UTF-8");
+        JSONObject gameConfig = new JSONObject(content2);
+
+        JSONArray jsonArray = gameConfig.getJSONArray("shopitems");
         HashSet<Integer> hashSet = new HashSet<>();
+        JSONArray shopitems = new JSONArray();
         Random random = new Random();
         while (hashSet.size() < itemCount){
             int rand = random.nextInt(alleItems.size());
             if(!hashSet.contains(rand)){
                 hashSet.add(rand);
                 arrayList.add(alleItems.get(rand));
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("name", alleItems.get(rand).name);
+                jsonObject.put("amount", alleItems.get(rand).amount);
+                jsonObject.put("gold", alleItems.get(rand).gold);
+                shopitems.put(jsonObject);
             }
         }
+        //write in gameconfig.json
+        gameConfig.remove("shopitems");
+        gameConfig.put("shopitems", shopitems);
+        FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
+        fileWriter.write(gameConfig.toString());
+        fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
         return arrayList;
     }
 
-    public void itemRotation(){
-        currentShopItems = loadPartofItems(allItems, 2);
+    public void itemRotation() throws IOException {
+        currentShopItems = loadPartofItems(allItems, 3);
     }
 
     public void printCurrentShopItems(){
