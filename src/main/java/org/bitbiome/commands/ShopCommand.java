@@ -3,7 +3,6 @@ package org.bitbiome.commands;
 import org.bitbiome.shop.Item;
 import org.bitbiome.shop.Shop;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +18,7 @@ public class ShopCommand implements CommandAPI{
         System.out.println("Willkommen im Shop!");
         ArrayList<Item> currentItems = shop.loadCurrentShopItems();
 
-
+        //whileloop for userinputs in the shop
         while (true){
             System.out.println("Was willst Du hier im Shop?");
             System.out.println("Etwas kaufen: 1");
@@ -43,8 +42,12 @@ public class ShopCommand implements CommandAPI{
                         if((Integer.parseInt(amount) <= currentItems.get(Integer.parseInt(itemNumber) - 1).amount) && ((Integer.parseInt(amount) - 1) > -1)){
                             boolean bool = shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).name, Integer.parseInt(amount));
                             currentItems = shop.loadCurrentShopItems();
-                            System.out.println("");
-                            System.out.println("Vielen Dank für Ihren Einkauf!");
+                            if(bool){
+                                System.out.println("");
+                                System.out.println("Vielen Dank für Ihren Einkauf!");
+                            }else{
+                                System.out.println("Fehler");
+                            }
                         }else{
                             System.out.println("Fehler");
                         }
