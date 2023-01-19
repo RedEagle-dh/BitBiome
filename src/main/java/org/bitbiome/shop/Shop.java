@@ -172,32 +172,33 @@ public class Shop {
     private ArrayList loadPartofItems(ArrayList<Item> alleItems, int itemCount) {
         ArrayList arrayList = new ArrayList<Item>();
         try{
-        File fileGameConfig = new File("src/main/resources/gameconfig.json");
-        String content2 = new String(Files.readAllBytes(Paths.get(fileGameConfig.toURI())), "UTF-8");
-        JSONObject gameConfig = new JSONObject(content2);
+            File fileGameConfig = new File("src/main/resources/gameconfig.json");
+            String content2 = new String(Files.readAllBytes(Paths.get(fileGameConfig.toURI())), "UTF-8");
+            JSONObject gameConfig = new JSONObject(content2);
 
-        JSONArray jsonArray = gameConfig.getJSONArray("shopitems");
-        HashSet<Integer> hashSet = new HashSet<>();
-        JSONArray shopitems = new JSONArray();
-        Random random = new Random();
-        while (hashSet.size() < itemCount){
-            int rand = random.nextInt(alleItems.size());
-            if(!hashSet.contains(rand)){
-                hashSet.add(rand);
-                arrayList.add(alleItems.get(rand));
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("name", alleItems.get(rand).name);
-                jsonObject.put("amount", alleItems.get(rand).amount);
-                jsonObject.put("gold", alleItems.get(rand).gold);
-                shopitems.put(jsonObject);
+            JSONArray jsonArray = gameConfig.getJSONArray("shopitems");
+            HashSet<Integer> hashSet = new HashSet<>();
+            JSONArray shopitems = new JSONArray();
+            Random random = new Random();
+            while (hashSet.size() < itemCount){
+                int rand = random.nextInt(alleItems.size());
+                if(!hashSet.contains(rand)){
+                    hashSet.add(rand);
+                    arrayList.add(alleItems.get(rand));
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("name", alleItems.get(rand).name);
+                    jsonObject.put("amount", alleItems.get(rand).amount);
+                    jsonObject.put("gold", alleItems.get(rand).gold);
+                    shopitems.put(jsonObject);
+                }
             }
-        }
-        //write in gameconfig.json
-        gameConfig.remove("shopitems");
-        gameConfig.put("shopitems", shopitems);
-        FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
-        fileWriter.write(gameConfig.toString());
-        fileWriter.close();
+            //write in gameconfig.json
+            gameConfig.remove("shopitems");
+            gameConfig.put("shopitems", shopitems);
+            FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
+            fileWriter.write(gameConfig.toString());
+            fileWriter.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
