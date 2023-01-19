@@ -208,8 +208,12 @@ public class Shop {
         return arrayList;
     }
 
-    public void itemRotation() throws IOException {
-        currentShopItems = loadPartofItems(allItems, 3);
+    public void itemRotation() {
+        try {
+            currentShopItems = loadPartofItems(allItems, 3);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void printCurrentShopItems(){
