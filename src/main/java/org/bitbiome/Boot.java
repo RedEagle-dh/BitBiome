@@ -1,9 +1,11 @@
 package org.bitbiome;
 
 import org.bitbiome.classes.InteractionLoop;
+import org.bitbiome.classes.JsonParser;
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.commands.CommandListener;
 import org.bitbiome.entities.Player;
+import org.json.JSONObject;
 
 public class Boot {
 
@@ -13,13 +15,21 @@ public class Boot {
         instance = this;
         cmdListener = new CommandListener();
         InteractionLoop game = new InteractionLoop();
-        Player player = new Player("Dave");
+        Player player = getPlayerSave();
         TravelEngine travelEngine = new TravelEngine(player);
         game.run(travelEngine);
     }
 
     public CommandListener getCmdListener(){
         return cmdListener;
+    }
+
+    private Player getPlayerSave() {
+        String name;
+        JsonParser jp = new JsonParser();
+        JSONObject playerconfig = jp.getJSONObject("playerconfig.json");
+        name = playerconfig.getString("name");
+        return new Player(name);
     }
 
 }
