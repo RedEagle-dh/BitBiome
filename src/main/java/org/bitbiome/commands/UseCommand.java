@@ -12,12 +12,24 @@ public class UseCommand implements CommandAPI {
     }
 
     private String getUseMessage(String msg) {
-        String item = msg.split(" on ")[0];
-        String target = msg.split(" on ")[1];
+        String message[] = msg.split(" on ");
+        String itemName = message[0];
+        JSONObject item = getItem(itemName), target;
+        
+        if(item == null)
+            return "You don't have that item.";
+        if(item.getBoolean("attack"))
+            return "You can't attack with this.";
+        if(message.length == 1)
+            target = JsonParser.getJSONObject("playerconfig.json");
+        else
+            target = getTarget(message[1]);
+        if(target == null)
+            return "That target is not available.";
         return useItem(item, target);
     }
 
-    private String useItem(String item, String target) {
+    private String useItem(JSONObject item, JSONObject target) {
         return "You used " + item + " on " + target;
     }
 
