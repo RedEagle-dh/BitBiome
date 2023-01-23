@@ -2,6 +2,9 @@ package org.bitbiome.commands;
 
 import java.util.Scanner;
 
+import org.bitbiome.classes.JsonParser;
+import org.json.*;
+
 public class UseCommand implements CommandAPI {
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message) {
@@ -16,5 +19,15 @@ public class UseCommand implements CommandAPI {
 
     private String useItem(String item, String target) {
         return "You used " + item + " on " + target;
+    }
+
+    private JSONObject getItem(String item) {
+        JSONArray inventory = JsonParser.getJSONObject("playerconfig.json").getJSONArray("inventory");
+            for(int i = 0; i < inventory.length(); i++) {
+                JSONObject currentItem = inventory.getJSONObject(i);
+                if(currentItem.getString("name").equals(item))
+                    return currentItem;
+            }
+        return null;
     }
 }
