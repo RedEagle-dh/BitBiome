@@ -30,4 +30,22 @@ public class UseCommand implements CommandAPI {
             }
         return null;
     }
+
+    private JSONObject getTarget(String target) {
+        String currentLocation = JsonParser.getJSONObject("playerconfig").getString("currentLocation");
+        JSONArray locations = JsonParser.getJSONObject("gameconfig").getJSONArray("locations");
+        for(int i = 0; i < locations.length(); i++) {
+            JSONObject location = locations.getJSONObject(i);
+            if(locations.getJSONObject(i).getString("name").equals(currentLocation)) {
+                JSONArray targets = location.getJSONArray("mobs");
+                for(int j = 0; j < targets.length(); j++) {
+                    JSONObject mob = targets.getJSONObject(j);
+                    if(mob.getString("name").equals(target))
+                        return mob;
+                }
+                break;
+            }
+        }
+        return null;
+    }
 }
