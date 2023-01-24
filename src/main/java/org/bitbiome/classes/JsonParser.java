@@ -2,8 +2,14 @@ package org.bitbiome.classes;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.json.JSONWriter;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
+
+
 
 public class JsonParser {
 
@@ -22,15 +28,28 @@ public class JsonParser {
                   https://github.com/stleary/JSON-java
      */
 
-    public static JSONObject getJSONObject(String fileName) {
-        String resourceName = "./../../" + fileName;
+    public JSONObject getJSONObject(String fileName) {
+        String resourceName = "./../../../" + fileName;
         InputStream is = JsonParser.class.getResourceAsStream(resourceName);
         if (is == null) {
             throw new NullPointerException("Cannot find resource file " + resourceName);
         }
 
         JSONTokener tokener = new JSONTokener(is);
-
         return new JSONObject(tokener);
+    }
+
+    public void writeObject(String fileName, JSONObject object) {
+
+        String resourceName = System.getProperty("user.dir") + "/src/main/resources/" + fileName;
+        try {
+            FileWriter fw = new FileWriter(resourceName, false);
+            fw.write(object.toString(1));
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }
