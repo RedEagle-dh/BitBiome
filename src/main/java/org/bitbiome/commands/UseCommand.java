@@ -1,67 +1,48 @@
 package org.bitbiome.commands;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.bitbiome.classes.JsonParser;
-import org.bitbiome.classes.TravelEngine;
-import org.json.*;
+import org.bitbiome.classes.*;
+import org.bitbiome.entities.*;
 
 public class UseCommand implements CommandAPI {
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
-        System.out.println(getUseMessage(message.split(" ", 2)[1]));
+        System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
     }
 
-    private String getUseMessage(String msg) {
+    private String getUseMessage(String msg, TravelEngine engine) {
+        Player player = engine.getPlayer();
         String message[] = msg.split(" on ");
         String itemName = message[0];
-        JSONObject item = getItem(itemName), target;
-        JsonParser p = new JsonParser();
+        ArrayList<Item> inv = player.getInventory();
         
-        if(item == null)
-            return "You don't have that item.";
-        if(item.getBoolean("attack"))
-            return "You can't attack with this.";
-        if(message.length == 1)
-            target = p.getJSONObject("playerconfig.json");
-        else
-            target = getTarget(message[1]);
-        if(target == null)
-            return "That target is not available.";
-        return useItem(item, target);
+        for(int i = 0; i<inv.size(); i++) {
+            Item item = inv.get(i);
+            if(item.getName().equals(itemName)) {
+                if(item.doesDamage())
+                    return "You can't attack with this.";
+                if(message.length == 1)
+                    return useItem(item, player);
+                String targetName = message[1];
+                ArrayList<Mob> mobs = player.getLocation().getMobList();
+                for(int j = 0; j<mobs.size(); j++) {
+                    Mob mob = mobs.get(j);
+                    if(mob.getName().equals(targetName))
+                        return useItem(item, mob);
+                }
+                return "That target is not available.";
+            }
+        }
+        return "That item is not in your inventory.";
     }
 
-    private String useItem(JSONObject item, JSONObject target) {
+    private String useItem(Item item, Player target) {
         return "You used " + item + " on " + target;
     }
 
-    private JSONObject getItem(String item) {
-        JsonParser p = new JsonParser();
-        JSONArray inventory = p.getJSONObject("playerconfig.json").getJSONArray("inventory");
-            for(int i = 0; i < inventory.length(); i++) {
-                JSONObject currentItem = inventory.getJSONObject(i);
-                if(currentItem.getString("name").equals(item))
-                    return currentItem;
-            }
-        return null;
-    }
-
-    private JSONObject getTarget(String target) {
-        JsonParser p = new JsonParser();
-        String currentLocation = p.getJSONObject("playerconfig").getString("currentLocation");
-        JSONArray locations = p.getJSONObject("gameconfig").getJSONArray("locations");
-        for(int i = 0; i < locations.length(); i++) {
-            JSONObject location = locations.getJSONObject(i);
-            if(locations.getJSONObject(i).getString("name").equals(currentLocation)) {
-                JSONArray targets = location.getJSONArray("mobs");
-                for(int j = 0; j < targets.length(); j++) {
-                    JSONObject mob = targets.getJSONObject(j);
-                    if(mob.getString("name").equals(target))
-                        return mob;
-                }
-                break;
-            }
-        }
-        return null;
+    private String useItem(Item item, Mob target) {
+        return "You used " + item + " on " + target;
     }
 }
