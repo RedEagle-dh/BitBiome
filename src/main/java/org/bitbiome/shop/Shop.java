@@ -1,5 +1,6 @@
 package org.bitbiome.shop;
 
+import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -51,18 +52,18 @@ public class Shop {
                 }
             }
             if(itemIndex == -1){
-                System.out.println("Dieses Item gibt es nicht");
+                System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Dieses Item gibt es nicht!" + Colors.ANSI_RESET);
                 return false;
             }
             if(!(currentShopItems.get(itemIndex).amount > 0)){
-                System.out.println("Es gibt zu wenige Items");
+                System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Es gibt zu wenige Items!" + Colors.ANSI_RESET);
                 return false;
             }
             //Test if the player has enough gold
             int costs = currentShopItems.get(itemIndex).gold * amount;
             int gold = (int) playerConfig.get("gold");
             if(!(gold >= costs)){
-                System.out.println("Du hast zu wenig Gold!");
+                System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Du hast zu wenig Gold!" + Colors.ANSI_RESET);
                 return false;
             }
 

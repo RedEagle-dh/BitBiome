@@ -1,5 +1,6 @@
 package org.bitbiome.commands;
 
+import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.shop.Item;
 import org.bitbiome.shop.Shop;
@@ -16,7 +17,7 @@ public class ShopCommand implements CommandAPI{
 
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
-        System.out.println("Willkommen im Shop!");
+        System.out.println(Colors.ANSI_BG_YELLOW + Colors.ANSI_BLACK + "Willkommen im Shop!" + Colors.ANSI_RESET);
         ArrayList<Item> currentItems = shop.loadCurrentShopItems();
 
         //whileloop for userinputs in the shop
@@ -37,20 +38,25 @@ public class ShopCommand implements CommandAPI{
                     System.out.println("");
                     System.out.print("Welches Item moechtest du kaufen? ");
                     String itemNumber = scanner.nextLine();
-                    if(!itemNumber.equals("0")){
+                    if(!itemNumber.equals("0")) {
                         System.out.print("Anzahl eingeben: ");
                         String amount = scanner.nextLine();
-                        if((Integer.parseInt(amount) <= currentItems.get(Integer.parseInt(itemNumber) - 1).amount) && ((Integer.parseInt(amount) - 1) > -1)){
-                            boolean bool = shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).name, Integer.parseInt(amount));
-                            currentItems = shop.loadCurrentShopItems();
-                            if(bool){
-                                System.out.println("");
-                                System.out.println("Vielen Dank für Ihren Einkauf!");
-                            }else{
-                                System.out.println("Fehler");
+                        try {
+                            if ((Integer.parseInt(amount) <= currentItems.get(Integer.parseInt(itemNumber) - 1).amount) && ((Integer.parseInt(amount) - 1) > -1)) {
+                                boolean bool = shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).name, Integer.parseInt(amount));
+                                currentItems = shop.loadCurrentShopItems();
+                                if (bool) {
+                                    System.out.println("");
+                                    System.out.println(Colors.ANSI_BG_GREEN + Colors.ANSI_BLACK + "Vielen Dank für Ihren Einkauf!" + Colors.ANSI_RESET);
+                                    System.out.println("");
+                                } else {
+                                    System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Fehler!" + Colors.ANSI_RESET);
+                                }
+                            } else {
+                                System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Fehler!" + Colors.ANSI_RESET);
                             }
-                        }else{
-                            System.out.println("Fehler");
+                        }catch (Exception e){
+                            System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Fehler!h" + Colors.ANSI_RESET);
                         }
                     }
                 } else if(input.equals("2")){
