@@ -33,6 +33,23 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Strand",
+      "items": [
+        "Holz",
+        "Stein"
+      ],
+      "mobs": [
+        {
+          "name": "Big Foot",
+          "hp": 50,
+          "damage": "10-15",
+          "items": [
+            "Fell"
+          ]
+        }
+      ]
     }
   ]
 }

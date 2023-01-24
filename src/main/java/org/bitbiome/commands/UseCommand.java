@@ -3,11 +3,12 @@ package org.bitbiome.commands;
 import java.util.Scanner;
 
 import org.bitbiome.classes.JsonParser;
+import org.bitbiome.classes.TravelEngine;
 import org.json.*;
 
 public class UseCommand implements CommandAPI {
     @Override
-    public void performCommand(Scanner scanner, boolean isRunning, String message) {
+    public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
         System.out.println(getUseMessage(message.split(" ", 2)[1]));
     }
 
@@ -15,13 +16,14 @@ public class UseCommand implements CommandAPI {
         String message[] = msg.split(" on ");
         String itemName = message[0];
         JSONObject item = getItem(itemName), target;
+        JsonParser p = new JsonParser();
         
         if(item == null)
             return "You don't have that item.";
         if(item.getBoolean("attack"))
             return "You can't attack with this.";
         if(message.length == 1)
-            target = JsonParser.getJSONObject("playerconfig.json");
+            target = p.getJSONObject("playerconfig.json");
         else
             target = getTarget(message[1]);
         if(target == null)
@@ -34,7 +36,8 @@ public class UseCommand implements CommandAPI {
     }
 
     private JSONObject getItem(String item) {
-        JSONArray inventory = JsonParser.getJSONObject("playerconfig.json").getJSONArray("inventory");
+        JsonParser p = new JsonParser();
+        JSONArray inventory = p.getJSONObject("playerconfig.json").getJSONArray("inventory");
             for(int i = 0; i < inventory.length(); i++) {
                 JSONObject currentItem = inventory.getJSONObject(i);
                 if(currentItem.getString("name").equals(item))
@@ -44,8 +47,9 @@ public class UseCommand implements CommandAPI {
     }
 
     private JSONObject getTarget(String target) {
-        String currentLocation = JsonParser.getJSONObject("playerconfig").getString("currentLocation");
-        JSONArray locations = JsonParser.getJSONObject("gameconfig").getJSONArray("locations");
+        JsonParser p = new JsonParser();
+        String currentLocation = p.getJSONObject("playerconfig").getString("currentLocation");
+        JSONArray locations = p.getJSONObject("gameconfig").getJSONArray("locations");
         for(int i = 0; i < locations.length(); i++) {
             JSONObject location = locations.getJSONObject(i);
             if(locations.getJSONObject(i).getString("name").equals(currentLocation)) {
