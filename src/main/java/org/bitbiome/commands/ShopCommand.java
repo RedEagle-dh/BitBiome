@@ -1,5 +1,6 @@
 package org.bitbiome.commands;
 
+import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.shop.Item;
 import org.bitbiome.shop.Shop;
 
@@ -14,7 +15,7 @@ public class ShopCommand implements CommandAPI{
     }
 
     @Override
-    public void performCommand(Scanner scanner, boolean isRunning, String message) {
+    public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
         System.out.println("Willkommen im Shop!");
         ArrayList<Item> currentItems = shop.loadCurrentShopItems();
 

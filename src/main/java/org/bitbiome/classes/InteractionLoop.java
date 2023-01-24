@@ -1,6 +1,7 @@
 package org.bitbiome.classes;
 
 import org.bitbiome.Boot;
+import org.bitbiome.classes.*;
 import org.json.JSONObject;
 import java.util.Scanner;
 

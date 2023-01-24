@@ -1,5 +1,6 @@
 package org.bitbiome.shop;
 
+import org.bitbiome.classes.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -14,6 +15,7 @@ import java.util.Random;
 public class Shop {
     public ArrayList<Item> allItems;
     public ArrayList<Item> currentShopItems;
+    public JsonParser jsonParser = new JsonParser();
 
     public Shop() {
         try {
@@ -79,9 +81,7 @@ public class Shop {
                     tempJSON.put("amount", intNewAmount);
                     jsonArray2.put(tempJSON);
                     gameConfig.put("shopitems", jsonArray2);
-                    FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
-                    fileWriter.write(gameConfig.toString());
-                    fileWriter.close();
+                    jsonParser.writeObject("gameconfig.json", gameConfig);
                     currentShopItems = loadCurrentShopItems();
                     break;
                 }
@@ -98,9 +98,7 @@ public class Shop {
                     tempJSON.put("amount", newAmount);
                     jsonArray.put(tempJSON);
                     playerConfig.put("inventory", jsonArray);
-                    FileWriter fileWriter = new FileWriter("src/main/resources/playerconfig.json");
-                    fileWriter.write(playerConfig.toString());
-                    fileWriter.close();
+                    jsonParser.writeObject("playerconfig.json", playerConfig);
                     return true;
                 }
             }
@@ -121,9 +119,7 @@ public class Shop {
 
             jsonArray.put(inventory);
             playerConfig.put("inventory", jsonArray);
-            FileWriter fileWriter = new FileWriter("src/main/resources/playerconfig.json");
-            fileWriter.write(playerConfig.toString());
-            fileWriter.close();
+            jsonParser.writeObject("playerconfig.json", playerConfig);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -195,9 +191,8 @@ public class Shop {
             //write in gameconfig.json
             gameConfig.remove("shopitems");
             gameConfig.put("shopitems", shopitems);
-            FileWriter fileWriter = new FileWriter("src/main/resources/gameconfig.json");
-            fileWriter.write(gameConfig.toString());
-            fileWriter.close();
+            jsonParser.writeObject("gameconfig.json", gameConfig);
+
 
         }catch (Exception e){
             e.printStackTrace();
