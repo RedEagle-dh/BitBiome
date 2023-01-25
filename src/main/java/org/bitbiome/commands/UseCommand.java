@@ -26,11 +26,12 @@ public class UseCommand implements CommandAPI {
                 if(message.length == 1)
                     return useItem(item, player);
                 String targetName = message[1];
-                ArrayList<Mob> mobs = player.getLocation().getMobList();
+                Location loc = player.getLocation();
+                ArrayList<Mob> mobs = loc.getMobList();
                 for(int j = 0; j<mobs.size(); j++) {
                     Mob mob = mobs.get(j);
                     if(mob.getName().equals(targetName))
-                        return useItem(item, mob);
+                        return useItem(item, mob, loc);
                 }
                 return "That target is not available.";
             }
@@ -42,7 +43,15 @@ public class UseCommand implements CommandAPI {
         return "You used " + item + " on " + target;
     }
 
-    private String useItem(Item item, Mob target) {
-        return "You used " + item + " on " + target;
+    private String useItem(Item item, Mob target, Location location) {
+        float hp = target.getHp();
+        float dmg = item.getDamage();
+        if(dmg>=hp) {
+            location.getMobList().remove(target);
+            return "You killed " + target.getName() + " with " + item.getName();
+        }
+        target.setHp(hp-dmg);
+        target.setFriendly(false);
+        return "You used " + item.getName() + " on " + target.getName();
     }
 }
