@@ -10,6 +10,8 @@ public class UseCommand implements CommandAPI {
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
         System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
+        if(engine.getPlayer().getHp() <= 0)
+            System.exit(0);
     }
 
     private String getUseMessage(String msg, TravelEngine engine) {
@@ -40,7 +42,15 @@ public class UseCommand implements CommandAPI {
     }
 
     private String useItem(Item item, Player target) {
-        return "You used " + item + " on " + target;
+        float hp = target.getHp();
+        hp -= item.getDamage();
+        String retString = "You used " + item.getName() + " on yourself";
+        if(hp <= 0) {
+            target.setHp(0);
+            return retString + " and died.";
+        }
+        target.setHp(hp);
+        return retString;
     }
 
     private String useItem(Item item, Mob target, Location location) {
