@@ -39,6 +39,16 @@
       "items": [
         "Sand",
         "Treibholz"
+      ],
+      "mobs": [
+        {
+          "name": "Riesenkrabbe",
+          "damage": "10-15",
+          "hp": 50,
+          "items": [
+            "Krabbenschere"
+          ]
+        }
       ]
     },
     {
@@ -46,6 +56,17 @@
       "items": [
         "Eiszapfen",
         "Schnee"
+      ],
+      "mobs": [
+        {
+          "name": "Yeti",
+          "hp": 55,
+          "items": [
+            "Fell",
+            "Yetikralle"
+          ],
+          "damage": "20-25"
+        }
       ]
     },
     {
@@ -53,6 +74,17 @@
       "items": [
         "Quellwasser",
         "Feuerstein"
+      ],
+      "mobs": [
+        {
+          "name": "Loewe",
+          "damage": "10-15",
+          "items": [
+            "Fell",
+            "Löwenkralle"
+          ],
+          "hp": 30
+        }
       ]
     },
     {
@@ -60,6 +92,17 @@
       "items": [
         "Lehm",
         "Giftblume"
+      ],
+      "mobs": [
+        {
+          "name": "Drache",
+          "hp": 55,
+          "damage": "15-20",
+          "items": [
+            "Drachenzahn",
+            "Drachenhaut"
+          ]
+        }
       ]
     },
     {
@@ -67,6 +110,16 @@
       "items": [
         "Sand",
         "Kaktus"
+      ],
+      "mobs": [
+        {
+          "name": "Mumie",
+          "items": [
+            "Knochen"
+          ],
+          "hp": 40,
+          "damage": "10-15"
+        }
       ]
     }
   ]
