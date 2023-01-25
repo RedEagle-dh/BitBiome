@@ -37,18 +37,36 @@
     {
       "name": "Strand",
       "items": [
-        "Holz",
-        "Stein"
-      ],
-      "mobs": [
-        {
-          "name": "Big Foot",
-          "hp": 50,
-          "damage": "10-15",
-          "items": [
-            "Fell"
-          ]
-        }
+        "Sand",
+        "Treibholz"
+      ]
+    },
+    {
+      "name": "Winterland",
+      "items": [
+        "Eiszapfen",
+        "Schnee"
+      ]
+    },
+    {
+      "name": "Berge",
+      "items": [
+        "Quellwasser",
+        "Feuerstein"
+      ]
+    },
+    {
+      "name": "Gruenland",
+      "items": [
+        "Lehm",
+        "Giftblume"
+      ]
+    },
+    {
+      "name": "Wueste",
+      "items": [
+        "Sand",
+        "Kaktus"
       ]
     }
   ]
