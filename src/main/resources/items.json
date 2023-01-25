@@ -3,23 +3,151 @@
     "name": "Holz",
     "damage": "1-3",
     "crafting": true,
-    "durability": 1000
+    "gold": 10,
+    "durability": 1000,
+    "amountShop": 10
   },
   {
     "name": "Heiliges Schwert der Engel",
     "damage": "1000",
     "crafting": false,
+    "amountShop": 1,
+    "gold": 1000,
     "durability": 1000
   },
   {
     "name": "Stein",
     "damage": "5-10",
     "crafting": true,
-    "durability": 1000
+    "amountShop": 1500,
+    "durability": 1000,
+    "gold": 2
   },
   {
     "name": "Fell",
     "damage": "0",
+    "crafting": true,
+    "gold": 100,
+    "durability": 1000,
+    "amountShop": 500
+  },
+  {
+    "name": "Sand",
+    "gold": 1,
+    "crafting": true,
+    "durability": 1000,
+    "damage": "2",
+    "amountShop": 1500
+  },
+  {
+    "name": "Treibholz",
+    "amountShop": 1000,
+    "damage": "1",
+    "crafting": true,
+    "gold": 1,
+    "durability": 1000
+  },
+  {
+    "name": "Krabbenschere",
+    "damage": "4",
+    "durability": 1000,
+    "amountShop": 750,
+    "gold": 1,
+    "crafting": true
+  },
+  {
+    "name": "Eiszapfen",
+    "crafting": true,
+    "amountShop": 1000,
+    "gold": 1,
+    "durability": 1000,
+    "damage": "5"
+  },
+  {
+    "name": "Schnee",
+    "durability": 10,
+    "damage": "1",
+    "amountShop": 100,
+    "gold": 1,
+    "crafting": true
+  },
+  {
+    "name": "Yetikralle",
+    "durability": 1000,
+    "amountShop": 250,
+    "crafting": true,
+    "gold": 5,
+    "damage": "20"
+  },
+  {
+    "name": "Löwenkralle",
+    "durability": 1000,
+    "amountShop": 400,
+    "damage": "10",
+    "crafting": true,
+    "gold": 3
+  },
+  {
+    "name": "Feuerstein",
+    "damage": "5-10",
+    "crafting": true,
+    "durability": 1000,
+    "gold": 2,
+    "amountShop": 1500
+  },
+  {
+    "name": "Lehm",
+    "durability": 1000,
+    "gold": 1,
+    "damage": "0",
+    "crafting": true,
+    "amountShop": 3000
+  },
+  {
+    "name": "Giftblume",
+    "durability": 1000,
+    "amountShop": 300,
+    "gold": 1,
+    "damage": "15-20",
+    "crafting": true
+  },
+  {
+    "name": "Drachenzahn",
+    "amountShop": 300,
+    "crafting": true,
+    "damage": "5",
+    "durability": 1000,
+    "gold": 3
+  },
+  {
+    "name": "Drachenhaut",
+    "amountShop": 200,
+    "gold": 3,
+    "damage": "0",
+    "crafting": true,
+    "durability": 1000
+  },
+  {
+    "name": "Sand",
+    "damage": "1",
+    "amountShop": 1500,
+    "crafting": true,
+    "durability": 1000,
+    "gold": 1
+  },
+  {
+    "name": "Knochen",
+    "durability": 1000,
+    "amountShop": 450,
+    "gold": 2,
+    "damage": "6",
+    "crafting": true
+  },
+  {
+    "name": "Kaktus",
+    "gold": 2,
+    "amountShop": 700,
+    "damage": "5",
     "crafting": true,
     "durability": 1000
   }
