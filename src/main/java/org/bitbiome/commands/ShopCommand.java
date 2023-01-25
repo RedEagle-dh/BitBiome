@@ -56,7 +56,7 @@ public class ShopCommand implements CommandAPI{
                                 System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Fehler!" + Colors.ANSI_RESET);
                             }
                         }catch (Exception e){
-                            System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Fehler!h" + Colors.ANSI_RESET);
+                            System.out.println(Colors.ANSI_BG_RED + Colors.ANSI_BLACK + "Fehler!" + Colors.ANSI_RESET);
                         }
                     }
                 } else if(input.equals("2")){

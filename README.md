@@ -1,5 +1,4 @@
-<img src="https://hirschen-märwil.ch/wp-content/uploads/2018/03/platzhalter-partner.jpg">
-
+*Hier Logo*
 ---
 # BitBiome - TextAdventure
 ## What is the game about?
@@ -15,7 +14,7 @@ BitBiome is a game for everyone who likes dangerous adventures.
 - travel
 - location
 
-## Our Team members:
+## Our developers:
 - David Hermann
 - Julia Kunze
 - Frederike von Gruben
