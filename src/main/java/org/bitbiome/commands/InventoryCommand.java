@@ -22,7 +22,7 @@ public class InventoryCommand implements CommandAPI {
         JSONObject o = jp.getJSONObject("playerconfig.json");
 
         ArrayList<Item> inventory = travelEngine.getPlayer().getInventory();
-        s.append(Colors.ANSI_BRIGHT_RED +"Inventory:\n"+ Colors.ANSI_RESET);
+        s.append(Colors.ANSI_BRIGHT_RED +"Du möchtest wissen, was in deinem Inventar ist? \nDann lass uns gemeinsam deinen Rucksack öffnen. \nDein Rucksack steckt ja voller Überraschungen! \nDas hast du alles schon gefunden: \n"+ Colors.ANSI_RESET);
         for (int i=0; i < inventory.size(); i++){
             s.append(Colors.ANSI_BRIGHT_BG_RED+ Colors.ANSI_BRIGHT_WHITE+ "- ").append(inventory.get(i).getName()).append(" x").append(inventory.get(i).getAmount()).append("  "+ Colors.ANSI_RESET + "\n" );
         }
