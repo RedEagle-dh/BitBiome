@@ -3,14 +3,16 @@ package org.bitbiome.entities;
 public class Item {
 
     public String name;
+    public int amount;
     public boolean doesDamage;
     public float damage;
 
 
-    public Item(String name, boolean doesDamage, float damage) {
+    public Item(String name, boolean doesDamage, float damage, int amount) {
         this.name = name;
         this.doesDamage = doesDamage;
         this.damage = damage;
+        this.amount = amount;
     }
 
     public String getName() {
