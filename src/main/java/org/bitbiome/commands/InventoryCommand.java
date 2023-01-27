@@ -23,7 +23,7 @@ public class InventoryCommand implements CommandAPI {
         ArrayList<Item> inventory = travelEngine.getPlayer().getInventory();
         s.append("Inventory: \n");
         for (int i=0; i < inventory.size(); i++){
-            s.append("- ").append(inventory.get(i).getName()).append("\n");
+            s.append("- ").append(inventory.get(i).getName()).append(" x").append(inventory.get(i).getAmount()).append("\n");
         }
 
         return s.toString();
