@@ -38,5 +38,12 @@ public class Item {
     public void changeDoesDamage(boolean doesDamage) {
         this.doesDamage = doesDamage;
     }
+    public int getAmount(){
+        return amount;
+    }
+    public void setAmount(int amount){
+        this.amount = amount;
+    }
+
 
 }
