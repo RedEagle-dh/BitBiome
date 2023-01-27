@@ -1,17 +1,22 @@
 {
-  "name": "null",
-  "gold": 0,
-  "hp": 10,
-  "currentLocation": "Wald",
-  "inventory": [
-    {
-      "name": "Holz",
-      "amount": "5",
-      "durability": 1000
-    },{
-      "name": "Stein",
-      "amount": "5",
-      "durability": 1000
-    }
-  ]
+ "gold": 0,
+ "name": "null",
+ "hp": 10,
+ "inventory": [
+  {
+   "damage": 10,
+   "amount": 5,
+   "durability": 1000,
+   "name": "Holz",
+   "doesDamage": true
+  },
+  {
+   "damage": 10,
+   "amount": 5,
+   "durability": 1000,
+   "name": "Stein",
+   "doesDamage": true
+  }
+ ],
+ "currentLocation": "Wald"
 }
