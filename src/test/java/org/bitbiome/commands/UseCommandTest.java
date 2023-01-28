@@ -14,6 +14,19 @@ public class UseCommandTest {
     }
 
     @Test
+    public void testUseItemMob() {
+        UseCommand com = new UseCommand();
+        Player player = new Player("test");
+        Mob mob = new Mob("Wolf", false, 11, 10);
+        player.getLocation().getMobList().add(mob);
+        Item sword = new Item("Sword", true, 10);
+        assertEquals("You used Sword on Wolf", com.useItem(sword, mob, player.getLocation()));
+        assertEquals(1, player.getLocation().getMobList().size());
+        assertEquals("You killed Wolf with Sword", com.useItem(sword, mob, player.getLocation()));
+        assertEquals(0, player.getLocation().getMobList().size());
+    }
+
+    @Test
     public void testGetUseMessage() {
         UseCommand com = new UseCommand();
         TravelEngine engine = new TravelEngine(new Player("test"));
