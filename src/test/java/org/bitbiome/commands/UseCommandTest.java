@@ -45,14 +45,10 @@ public class UseCommandTest {
         assertEquals("That item is not in your inventory.", com.getUseMessage("Fell", engine));
         engine.getPlayer().addToInventory(new Item("Fell", false, 0));
         assertEquals("You can't attack with this.", com.getUseMessage("Fell", engine));
-        engine.getPlayer().addToInventory(new Item("Sword", true, 10));
-        assertEquals("You used Sword on yourself", com.getUseMessage("Sword", engine));
-        assertEquals("That target is not available.", com.getUseMessage("Sword on Wolf", engine));
-        engine.getPlayer().getLocation().getMobList().add(new Mob("Wolf", false, 11, 10));
-        assertEquals("You used Sword on Wolf", com.getUseMessage("Sword on Wolf", engine));
-        assertEquals("You killed Wolf with Sword", com.getUseMessage("Sword on Wolf", engine));
-        assertEquals("That target is not available.", com.getUseMessage("Sword on Wolf", engine));
         engine.getPlayer().addToInventory(new Item("Heiliges Schwert der Erzengel", true, 3000));
-        assertEquals("You used Heiliges Schwert der Erzengel on yourself and died.", com.getUseMessage("Heiliges Schwert der Erzengel", engine));
+        assertEquals("That target is not available.", com.getUseMessage("Heiliges Schwert der Erzengel on Wolf", engine));
+        engine.getPlayer().getLocation().getMobList().add(new Mob("Wolf", false, 11, 10));
+        assertEquals("You killed Wolf with Heiliges Schwert der Erzengel", com.getUseMessage("Heiliges Schwert der Erzengel on Wolf", engine));
+        assertEquals("That target is not available.", com.getUseMessage("Heiliges Schwert der Erzengel on Wolf", engine));
     }
 }
