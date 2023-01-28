@@ -11,12 +11,7 @@ ArrayList<Mob> enemies = new ArrayList<Mob>();
 
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
-        ArrayList<Mob> allMobs = engine.getPlayer().getLocation().getMobList();
-        for(int i = 0; i<allMobs.size(); i++) {
-            Mob mob = allMobs.get(i);
-            if(!mob.isFriendly())
-                enemies.add(mob);
-        }
+        getEnemies(engine.getPlayer().getLocation().getMobList());
         do {
             System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
             if(engine.getPlayer().getHp() <= 0)
@@ -88,5 +83,13 @@ ArrayList<Mob> enemies = new ArrayList<Mob>();
         target.setHp(hp-dmg);
         target.setFriendly(false);
         return "You used " + item.getName() + " on " + target.getName();
+    }
+
+    private void getEnemies(ArrayList<Mob> allMobs) {
+        for(int i = 0; i<allMobs.size(); i++) {
+            Mob mob = allMobs.get(i);
+            if(!mob.isFriendly())
+                enemies.add(mob);
+        }
     }
 }
