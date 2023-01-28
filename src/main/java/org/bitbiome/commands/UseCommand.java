@@ -9,9 +9,11 @@ import org.bitbiome.entities.*;
 public class UseCommand implements CommandAPI {
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
-        System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
-        if(engine.getPlayer().getHp() <= 0)
-            System.exit(0);
+        do {
+            System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
+            if(engine.getPlayer().getHp() <= 0)
+                System.exit(0);
+        } while(getNumOfEnemyMobs(engine) > 0);
     }
 
     private String getUseMessage(String msg, TravelEngine engine) {
@@ -63,5 +65,17 @@ public class UseCommand implements CommandAPI {
         target.setHp(hp-dmg);
         target.setFriendly(false);
         return "You used " + item.getName() + " on " + target.getName();
+    }
+
+    private int getNumOfEnemyMobs(TravelEngine engine) {
+        Location loc = engine.getPlayer().getLocation();
+        ArrayList<Mob> mobs = loc.getMobList();
+        int count = 0;
+        for(int i = 0; i<mobs.size(); i++) {
+            Mob mob = mobs.get(i);
+            if(!mob.isFriendly())
+                count++;
+        }
+        return count;
     }
 }
