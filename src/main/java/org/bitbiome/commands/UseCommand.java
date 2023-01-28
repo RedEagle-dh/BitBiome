@@ -13,6 +13,22 @@ public class UseCommand implements CommandAPI {
             System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
             if(engine.getPlayer().getHp() <= 0)
                 System.exit(0);
+            Location loc = engine.getPlayer().getLocation();
+            ArrayList<Mob> mobs = loc.getMobList();
+            for(int i = 0; i<mobs.size(); i++) {
+                Mob mob = mobs.get(i);
+                if(!mob.isFriendly()) {
+                    float hp = engine.getPlayer().getHp();
+                    hp -= mob.getDamage();
+                    System.out.println(mob.getName() + " attacked you for " + mob.getDamage() + " damage.");
+                    if(hp <= 0) {
+                        engine.getPlayer().setHp(0);
+                        System.out.println("You died.");
+                        System.exit(0);
+                    }
+                    engine.getPlayer().setHp(hp);
+                }
+            }
         } while(getNumOfEnemyMobs(engine) > 0);
     }
 
