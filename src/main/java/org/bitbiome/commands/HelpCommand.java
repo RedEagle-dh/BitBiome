@@ -1,10 +1,10 @@
 package org.bitbiome.commands;
 
-import org.bitbiome.Boot;
+
 import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.TravelEngine;
 
-import java.util.HashMap;
+
 import java.util.Scanner;
 
 public class HelpCommand implements CommandAPI {
