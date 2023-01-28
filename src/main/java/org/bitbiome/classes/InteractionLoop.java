@@ -3,7 +3,6 @@ package org.bitbiome.classes;
 import org.bitbiome.Boot;
 import org.json.JSONObject;
 import java.util.Scanner;
-import org.bitbiome.classes.Colors;
 
 
 public class InteractionLoop {
