@@ -42,7 +42,7 @@ private boolean combat = false;
         for(int i = 0; i<inv.size(); i++) {
             Item item = inv.get(i);
             if(item.getName().equals(itemName)) {
-                if(item.doesDamage())
+                if(!item.doesDamage())
                     return "You can't attack with this.";
                 if(message.length == 1)
                     return useItem(item, player);
