@@ -7,7 +7,7 @@ import org.bitbiome.classes.*;
 import org.bitbiome.entities.*;
 
 public class UseCommand implements CommandAPI {
-ArrayList<Mob> enemies = new ArrayList<Mob>();
+private ArrayList<Mob> enemies = new ArrayList<Mob>();
 
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
