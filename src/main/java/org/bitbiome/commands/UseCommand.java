@@ -33,7 +33,7 @@ private boolean combat = false;
         }
     }
 
-    private String getUseMessage(String msg, TravelEngine engine) {
+    public String getUseMessage(String msg, TravelEngine engine) {
         Player player = engine.getPlayer();
         String message[] = msg.split(" on ");
         String itemName = message[0];
@@ -60,7 +60,7 @@ private boolean combat = false;
         return "That item is not in your inventory.";
     }
 
-    private String useItem(Item item, Player target) {
+    public String useItem(Item item, Player target) {
         float hp = target.getHp();
         hp -= item.getDamage();
         String retString = "You used " + item.getName() + " on yourself";
@@ -72,7 +72,7 @@ private boolean combat = false;
         return retString;
     }
 
-    private String useItem(Item item, Mob target, Location location) {
+    public String useItem(Item item, Mob target, Location location) {
         combat = true;
         if(target.isFriendly())
             enemies.add(target);
@@ -88,7 +88,7 @@ private boolean combat = false;
         return "You used " + item.getName() + " on " + target.getName();
     }
 
-    private void getEnemies(ArrayList<Mob> allMobs) {
+    public void getEnemies(ArrayList<Mob> allMobs) {
         for(int i = 0; i<allMobs.size(); i++) {
             Mob mob = allMobs.get(i);
             if(!mob.isFriendly())
