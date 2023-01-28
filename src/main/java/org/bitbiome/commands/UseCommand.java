@@ -8,12 +8,13 @@ import org.bitbiome.entities.*;
 
 public class UseCommand implements CommandAPI {
 private ArrayList<Mob> enemies = new ArrayList<Mob>();
+private boolean combat = false;
 
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
         getEnemies(engine.getPlayer().getLocation().getMobList());
-        do {
-            System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
+        System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
+        while(enemies.size() > 0 && combat) {
             if(engine.getPlayer().getHp() <= 0)
                 System.exit(0);
             for(int i = 0; i<enemies.size(); i++) {
@@ -28,7 +29,8 @@ private ArrayList<Mob> enemies = new ArrayList<Mob>();
                 }
                 engine.getPlayer().setHp(hp);
             }
-        } while(enemies.size() > 0);
+            //TODO get input from player
+        }
     }
 
     private String getUseMessage(String msg, TravelEngine engine) {
@@ -71,6 +73,7 @@ private ArrayList<Mob> enemies = new ArrayList<Mob>();
     }
 
     private String useItem(Item item, Mob target, Location location) {
+        combat = true;
         if(target.isFriendly())
             enemies.add(target);
         float hp = target.getHp();
