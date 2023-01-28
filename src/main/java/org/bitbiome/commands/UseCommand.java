@@ -7,29 +7,33 @@ import org.bitbiome.classes.*;
 import org.bitbiome.entities.*;
 
 public class UseCommand implements CommandAPI {
+ArrayList<Mob> enemies = new ArrayList<Mob>();
+
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
+        ArrayList<Mob> allMobs = engine.getPlayer().getLocation().getMobList();
+        for(int i = 0; i<allMobs.size(); i++) {
+            Mob mob = allMobs.get(i);
+            if(!mob.isFriendly())
+                enemies.add(mob);
+        }
         do {
             System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
             if(engine.getPlayer().getHp() <= 0)
                 System.exit(0);
-            Location loc = engine.getPlayer().getLocation();
-            ArrayList<Mob> mobs = loc.getMobList();
-            for(int i = 0; i<mobs.size(); i++) {
-                Mob mob = mobs.get(i);
-                if(!mob.isFriendly()) {
-                    float hp = engine.getPlayer().getHp();
-                    hp -= mob.getDamage();
-                    System.out.println(mob.getName() + " attacked you for " + mob.getDamage() + " damage.");
-                    if(hp <= 0) {
-                        engine.getPlayer().setHp(0);
-                        System.out.println("You died.");
-                        System.exit(0);
-                    }
-                    engine.getPlayer().setHp(hp);
+            for(int i = 0; i<enemies.size(); i++) {
+                Mob mob = enemies.get(i);
+                float hp = engine.getPlayer().getHp();
+                hp -= mob.getDamage();
+                System.out.println(mob.getName() + " attacked you for " + mob.getDamage() + " damage.");
+                if(hp <= 0) {
+                    engine.getPlayer().setHp(0);
+                    System.out.println("You died.");
+                    System.exit(0);
                 }
+                engine.getPlayer().setHp(hp);
             }
-        } while(getNumOfEnemyMobs(engine) > 0);
+        } while(enemies.size() > 0);
     }
 
     private String getUseMessage(String msg, TravelEngine engine) {
@@ -72,26 +76,17 @@ public class UseCommand implements CommandAPI {
     }
 
     private String useItem(Item item, Mob target, Location location) {
+        if(target.isFriendly())
+            enemies.add(target);
         float hp = target.getHp();
         float dmg = item.getDamage();
         if(dmg>=hp) {
             location.getMobList().remove(target);
+            enemies.remove(target);
             return "You killed " + target.getName() + " with " + item.getName();
         }
         target.setHp(hp-dmg);
         target.setFriendly(false);
         return "You used " + item.getName() + " on " + target.getName();
-    }
-
-    private int getNumOfEnemyMobs(TravelEngine engine) {
-        Location loc = engine.getPlayer().getLocation();
-        ArrayList<Mob> mobs = loc.getMobList();
-        int count = 0;
-        for(int i = 0; i<mobs.size(); i++) {
-            Mob mob = mobs.get(i);
-            if(!mob.isFriendly())
-                count++;
-        }
-        return count;
     }
 }
