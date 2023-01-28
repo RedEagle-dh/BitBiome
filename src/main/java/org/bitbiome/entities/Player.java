@@ -1,6 +1,6 @@
 package org.bitbiome.entities;
 
-import org.bitbiome.classes.CreateLocations;
+
 import org.bitbiome.classes.JsonParser;
 
 import java.util.ArrayList;

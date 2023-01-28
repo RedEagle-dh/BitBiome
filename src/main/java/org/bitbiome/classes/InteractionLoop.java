@@ -4,6 +4,7 @@ import org.bitbiome.Boot;
 import org.json.JSONObject;
 import java.util.Scanner;
 
+
 public class InteractionLoop {
 
     Scanner input = new Scanner(System.in);
@@ -23,7 +24,7 @@ public class InteractionLoop {
         while (isRunning) {
             String line = input.nextLine().toLowerCase();
             if (!Boot.instance.getCmdListener().perform(line.toLowerCase().split(" ")[0], input, isRunning, line, travelEngine)) {
-                System.out.println("Unknown Command");
+                System.out.println(Colors.ANSI_RED + "Unbekannter Befehl - Siehe " + Colors.ANSI_PURPLE + "help\n" + Colors.ANSI_RESET);
             }
         }
     }
