@@ -27,6 +27,17 @@ public class UseCommandTest {
     }
 
     @Test
+    public void testUseItemPlayer() {
+        UseCommand com = new UseCommand();
+        Player player = new Player("test");
+        Item sword = new Item("Sword", true, 10);
+        assertEquals("You used Sword on yourself", com.useItem(sword, player));
+        assertEquals(90, player.getHp());
+        Item sword2 = new Item("Heiliges Schwert der Engel", true, 1000);
+        assertEquals("You used Heiliges Schwert der Engel on yourself and died.", com.useItem(sword2, player));
+    }
+
+    @Test
     public void testGetUseMessage() {
         UseCommand com = new UseCommand();
         TravelEngine engine = new TravelEngine(new Player("test"));
