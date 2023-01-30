@@ -12,22 +12,23 @@ private boolean combat = false;
 
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
-        getEnemies(engine.getPlayer().getLocation().getMobList());
+        Player player = engine.getPlayer();
+        getEnemies(player.getLocation().getMobList());
         System.out.println(getUseMessage(message.split(" ", 2)[1], engine));
         while(enemies.size() > 0 && combat) {
-            if(engine.getPlayer().getHp() <= 0)
+            if(player.getHp() <= 0)
                 System.exit(0);
             for(int i = 0; i<enemies.size(); i++) {
                 Mob mob = enemies.get(i);
-                float hp = engine.getPlayer().getHp();
+                float hp = player.getHp();
                 hp -= mob.getDamage();
                 System.out.println(mob.getName() + " attacked you for " + mob.getDamage() + " damage.");
                 if(hp <= 0) {
-                    engine.getPlayer().setHp(0);
+                    player.setHp(0);
                     System.out.println("You died.");
                     System.exit(0);
                 }
-                engine.getPlayer().setHp(hp);
+                player.setHp(hp);
             }
             //TODO get input from player
         }
