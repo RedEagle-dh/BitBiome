@@ -20,32 +20,38 @@ public class QuizCommand implements CommandAPI {
         JSONObject frage = fragen.getJSONObject(index);
         JSONArray antworten = frage.getJSONArray("antworten");
 
-        System.out.println("Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n");
+        print("Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n");
 
         String frageString = frage.getString("frage");
 
-        System.out.println(frageString);
+        print(frageString);
 
         for (int i = 0; i < antworten.length(); i++) {
             String antwort = antworten.getString(i);
-            System.out.println(i + 1 + ". " + antwort);
+            print(i + 1 + ". " + antwort);
         }
         Scanner quizScanner = new Scanner(System.in);
         int eingabe = quizScanner.nextInt();
         String korrekteAntwort = frage.getString("korrekteAntwort");
 
         if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
-            System.out.println("Richtige Antwort!\n");
+            print("Richtige Antwort!\n");
         } else {
-            System.out.println("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
+            print("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
         }
 
-        System.out.println("Das Quiz ist vorbei.");
+        print("Das Quiz ist vorbei.");
     }
 
     public static boolean answerIsCorrect(int picked, String answer, JSONArray answers) {
         return answers.getString(picked - 1).equalsIgnoreCase(answer);
     }
+
+    public static String print(String message) {
+        System.out.println(message);
+        return message;
+    }
+
 }
 
 
