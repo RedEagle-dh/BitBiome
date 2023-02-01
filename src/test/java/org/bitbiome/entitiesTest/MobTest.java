@@ -14,6 +14,7 @@ public class MobTest {
         mob = new Mob();
         mob.setFriendly(true);   
         mob.setDamage(0F);
+        mob.setHp(561.45F);
     }
 
 
@@ -27,4 +28,8 @@ public class MobTest {
         assertEquals(mob.getDamage(), 0F);
     }
     
+    @Test
+    public void testHp() {
+        assertEquals(mob.getHp(), 561.45F);
+    }
 }
