@@ -18,8 +18,6 @@ public class InventoryCommand implements CommandAPI {
 
     public String readInv(TravelEngine travelEngine) {
         StringBuilder s = new StringBuilder();
-        JsonParser jp = new JsonParser();
-        JSONObject o = jp.getJSONObject("playerconfig.json");
 
         ArrayList<Item> inventory = travelEngine.getPlayer().getInventory();
         s.append(Colors.ANSI_BRIGHT_RED +"Du möchtest wissen, was in deinem Inventar ist? \nDann lass uns gemeinsam deinen Rucksack öffnen. \nDein Rucksack steckt ja voller Überraschungen! \nDas hast du alles schon gefunden: \n"+ Colors.ANSI_RESET);
