@@ -30,7 +30,17 @@ public class QuizCommand implements CommandAPI {
             String antwort = antworten.getString(i);
             System.out.println(i + 1 + ". " + antwort);
         }
+        Scanner quizScanner = new Scanner(System.in);
+        int eingabe = quizScanner.nextInt();
+        String korrekteAntwort = frage.getString("korrekteAntwort");
 
+        if (antworten.getString(eingabe - 1).equalsIgnoreCase(korrekteAntwort)) {
+            System.out.println("Richtige Antwort!\n");
+        } else {
+            System.out.println("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
+        }
+
+        System.out.println("Das Quiz ist vorbei.");
     }
 }
 
