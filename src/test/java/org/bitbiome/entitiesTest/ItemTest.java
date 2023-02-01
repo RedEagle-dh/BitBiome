@@ -14,10 +14,16 @@ public class ItemTest {
     public static void setItem() {
         item = new Item();
         item.setName("Unit");
+        item.setDamage(12.5F);
     }
 
     @Test 
     public void testGetName() {
         assertEquals("Unit", item.getName());
+    }
+
+    @Test 
+    public void testGetDamage() {
+        assertEquals(12.5, item.getDamage());
     }
 }
