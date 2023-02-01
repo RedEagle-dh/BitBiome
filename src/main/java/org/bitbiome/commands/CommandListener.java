@@ -14,6 +14,7 @@ public class CommandListener {
 
         commands.put("exit", new QuitCommand());
         commands.put("quit", new QuitCommand());
+        commands.put("quiz", new QuizCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {
