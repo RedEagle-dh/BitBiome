@@ -2,13 +2,11 @@ package org.bitbiome.classes;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.json.JSONWriter;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
-
 
 
 public class JsonParser {
@@ -28,20 +26,30 @@ public class JsonParser {
                   https://github.com/stleary/JSON-java
      */
 
-    public static JSONObject getJSONObject(String fileName) {
-        String resourceName = "./../../" + fileName;
-        InputStream is = JsonParser.class.getResourceAsStream(resourceName);
-        if (is == null) {
-            throw new NullPointerException("Cannot find resource file " + resourceName);
+        public static JSONObject readJSONFile(String filePath) {
+        StringBuilder sb = null;
+        try {
+            FileReader reader = new FileReader(filePath);
+            char[] buffer = new char[1024];
+            int length;
+            sb = new StringBuilder();
+            while ((length = reader.read(buffer)) != -1) {
+                sb.append(buffer, 0, length);
+            }
+
+            reader.close();
+
+        } catch (IOException e) {
+            System.out.println(e);
         }
 
-        JSONTokener tokener = new JSONTokener(is);
-        return new JSONObject(tokener);
+        return new JSONObject(sb.toString());
     }
 
     public static void writeObject(String fileName, JSONObject object) {
 
-        String resourceName = System.getProperty("user.dir") + "/src/main/resources/" + fileName;
+        String resourceName = fileName;
+
         try {
             FileWriter fw = new FileWriter(resourceName, false);
             fw.write(object.toString(1));
@@ -49,7 +57,5 @@ public class JsonParser {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
