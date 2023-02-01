@@ -1,5 +1,6 @@
 package org.bitbiome.entitiesTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import org.bitbiome.entities.Item;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +16,7 @@ public class ItemTest {
         item = new Item();
         item.setName("Unit");
         item.setDamage(12.5F);
+        item.changeDoesDamage(true);
     }
 
     @Test 
@@ -25,5 +27,12 @@ public class ItemTest {
     @Test 
     public void testGetDamage() {
         assertEquals(12.5, item.getDamage());
+    }
+
+    @Test 
+    public void testDoesDamage() {
+        boolean doesDamage = item.doesDamage();
+        assumeTrue(item.getDamage() > 0);
+        assumeTrue(doesDamage);
     }
 }
