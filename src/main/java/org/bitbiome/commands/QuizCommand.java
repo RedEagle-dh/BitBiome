@@ -34,13 +34,17 @@ public class QuizCommand implements CommandAPI {
         int eingabe = quizScanner.nextInt();
         String korrekteAntwort = frage.getString("korrekteAntwort");
 
-        if (antworten.getString(eingabe - 1).equalsIgnoreCase(korrekteAntwort)) {
+        if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
             System.out.println("Richtige Antwort!\n");
         } else {
             System.out.println("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
         }
 
         System.out.println("Das Quiz ist vorbei.");
+    }
+
+    public static boolean answerIsCorrect(int picked, String answer, JSONArray answers) {
+        return answers.getString(picked - 1).equalsIgnoreCase(answer);
     }
 }
 
