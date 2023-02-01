@@ -69,4 +69,7 @@ public class Player {
         this.name = name;
     }
 
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
 }
