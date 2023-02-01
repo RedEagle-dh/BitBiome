@@ -2,15 +2,19 @@ package org.bitbiome.entities;
 
 public class Item {
 
-    public String name;
-    public boolean doesDamage;
-    public float damage;
+    private String name;
+    private boolean doesDamage;
+    private float damage;
 
 
     public Item(String name, boolean doesDamage, float damage) {
         this.name = name;
         this.doesDamage = doesDamage;
         this.damage = damage;
+    }
+
+    public Item() {
+        
     }
 
     public String getName() {
