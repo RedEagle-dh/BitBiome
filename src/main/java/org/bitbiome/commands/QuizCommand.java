@@ -9,20 +9,24 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class QuizCommand implements CommandAPI {
-
+    private Scanner quizScanner;
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message) {
+        quizScanner = new Scanner(System.in);
+
         String path = "src\\main\\resources\\quiz.json";
         JSONObject quiz = JsonParser.readJSONFile(path);
 
         JSONArray fragen = quiz.getJSONArray("Quiz");
-        int index = new Random().nextInt(fragen.length());
-        JSONObject frage = fragen.getJSONObject(index);
+        JSONObject frage = fragen.getJSONObject(random(fragen.length()));
+
         JSONArray antworten = frage.getJSONArray("antworten");
 
-        print("Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n");
-
         String frageString = frage.getString("frage");
+        String korrekteAntwort = frage.getString("korrekteAntwort");
+
+
+        print("Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n");
 
         print(frageString);
 
@@ -30,9 +34,9 @@ public class QuizCommand implements CommandAPI {
             String antwort = antworten.getString(i);
             print(i + 1 + ". " + antwort);
         }
-        Scanner quizScanner = new Scanner(System.in);
+
         int eingabe = quizScanner.nextInt();
-        String korrekteAntwort = frage.getString("korrekteAntwort");
+
 
         if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
             print("Richtige Antwort!\n");
@@ -50,6 +54,10 @@ public class QuizCommand implements CommandAPI {
     public static String print(String message) {
         System.out.println(message);
         return message;
+    }
+
+    public static int random(int length) {
+        return new Random().nextInt(length);
     }
 
 }
