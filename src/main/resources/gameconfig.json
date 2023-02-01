@@ -27,7 +27,8 @@
         {
           "name": "Big Foot",
           "hp": 50,
-          "damage": "10-15",
+          "damage": 15,
+          "isFriendly": true,
           "items": [
             "Fell"
           ]
@@ -44,7 +45,8 @@
         {
           "name": "Big Foot",
           "hp": 50,
-          "damage": "10-15",
+          "damage": 15,
+          "isFriendly": true,
           "items": [
             "Fell"
           ]
