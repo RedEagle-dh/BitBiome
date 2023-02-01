@@ -9,8 +9,8 @@
   },
   {
     "name": "Riesenkrabbe",
-    "damage": "10-15",
     "hp": 50,
+    "damage": "10-15",
     "items": [
       "Krabbenschere"
     ]
@@ -18,20 +18,20 @@
   {
     "name": "Yeti",
     "hp": 55,
+    "damage": "20-25",
     "items": [
       "Fell",
       "Yetikralle"
-    ],
-    "damage": "20-25"
+    ]
   },
   {
     "name": "Loewe",
+    "hp": 30,
     "damage": "10-15",
     "items": [
       "Fell",
-      "Löwenkralle"
-    ],
-    "hp": 30
+      "Loewenkralle"
+    ]
   },
   {
     "name": "Drache",
@@ -44,10 +44,10 @@
   },
   {
     "name": "Mumie",
+    "hp": 40,
+    "damage": "10-15",
     "items": [
       "Knochen"
-    ],
-    "hp": 40,
-    "damage": "10-15"
+    ]
   }
 ]
