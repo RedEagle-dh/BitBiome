@@ -13,12 +13,18 @@ public class MobTest {
     public static void setMob() {
         mob = new Mob();
         mob.setFriendly(true);   
+        mob.setDamage(0F);
     }
 
 
     @Test
     public void testFriendly() {
         assertEquals(mob.isFriendly(), true);
+    }
+
+    @Test
+    public void testDamage() {
+        assertEquals(mob.getDamage(), 0F);
     }
     
 }
