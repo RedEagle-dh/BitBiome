@@ -22,6 +22,10 @@ public class Player {
         inventory = new ArrayList<>();
     }
 
+    public Player() {
+        
+    }
+
     public String getName() {
         return name;
     }
