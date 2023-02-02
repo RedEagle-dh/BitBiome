@@ -32,13 +32,8 @@ public class QuizCommand implements CommandAPI {
         int eingabe = quizScanner.nextInt();
 
         if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
-            String playerpath = "src\\main\\resources\\playerconfig.json";
-            JSONObject playerconfig = JsonParser.readJSONFile(playerpath);
-            int gold = playerconfig.getInt("gold");
-            gold = gold + 5;
-            playerconfig.put("gold", gold);
-            JsonParser.writeObject(playerpath, playerconfig);
-            print("Richtig! Du hast 5 Münzen verdient.\nDein Münzstand beträgt: " + gold);
+            int neuerStand = addGold();
+            print("Richtig! Du hast 5 Münzen verdient.\nDein Münzstand beträgt: " + neuerStand);
         } else {
             print("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
         }
@@ -66,6 +61,16 @@ public class QuizCommand implements CommandAPI {
             sb.append(i+1).append(". ").append(answers.getString(i)).append("\n");
         }
         return sb.toString();
+    }
+
+    public static int addGold() {
+        String playerpath = "src\\main\\resources\\playerconfig.json";
+        JSONObject playerconfig = JsonParser.readJSONFile(playerpath);
+        int gold = playerconfig.getInt("gold");
+        gold = gold + 5;
+        playerconfig.put("gold", gold);
+        JsonParser.writeObject(playerpath, playerconfig);
+        return gold;
     }
 
 }
