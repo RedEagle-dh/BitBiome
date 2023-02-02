@@ -5,6 +5,7 @@ import org.bitbiome.classes.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,6 +17,14 @@ public class QuizCommand implements CommandAPI {
 
         String path = "src\\main\\resources\\quiz.json";
         JSONObject quiz = JsonParser.readJSONFile(path);
+
+        long currentTime = System.currentTimeMillis();
+        long minTime = Long.parseLong(quiz.get("lastPlayed").toString()) + (60 * 5 * 1000);
+        if (minTime >= currentTime) {
+            long diff = minTime - currentTime;
+            System.out.println("Du darfst erst in " + diff / 1000 / 60 + " minuten spielen.");
+            return;
+        }
 
         JSONArray fragen = quiz.getJSONArray("Quiz");
         JSONObject frage = fragen.getJSONObject(random(fragen.length()));
@@ -39,6 +48,11 @@ public class QuizCommand implements CommandAPI {
         }
 
         print("Das Quiz ist vorbei.");
+
+        Date d = new Date();
+        long lastPlayed = d.getTime();
+        quiz.put("lastPlayed", lastPlayed);
+        JsonParser.writeObject(path, quiz);
     }
 
     public static boolean answerIsCorrect(int picked, String answer, JSONArray answers) {
