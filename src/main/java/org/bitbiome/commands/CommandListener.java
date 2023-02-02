@@ -20,6 +20,7 @@ public class CommandListener {
         commands.put("travel", new TravelCommand());
         commands.put("inventory", new InventoryCommand());
         commands.put("lookaround", new LookaroundCommand());
+        commands.put("collect", new CollectCommand());
 
     }
 
