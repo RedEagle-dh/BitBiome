@@ -32,7 +32,13 @@ public class QuizCommand implements CommandAPI {
         int eingabe = quizScanner.nextInt();
 
         if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
-            print("Richtige Antwort!\n");
+            String playerpath = "src\\main\\resources\\playerconfig.json";
+            JSONObject playerconfig = JsonParser.readJSONFile(playerpath);
+            int gold = playerconfig.getInt("gold");
+            gold = gold + 5;
+            playerconfig.put("gold", gold);
+            JsonParser.writeObject(playerpath, playerconfig);
+            print("Richtig! Du hast 5 Münzen verdient.\nDein Münzstand beträgt: " + gold);
         } else {
             print("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
         }
