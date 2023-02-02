@@ -18,11 +18,9 @@ public class QuizCommand implements CommandAPI {
         String path = "src\\main\\resources\\quiz.json";
         JSONObject quiz = JsonParser.readJSONFile(path);
 
-        long currentTime = System.currentTimeMillis();
-        long minTime = Long.parseLong(quiz.get("lastPlayed").toString()) + (60 * 5 * 1000);
-        if (minTime >= currentTime) {
-            long diff = minTime - currentTime;
-            System.out.println("Du darfst erst in " + diff / 1000 / 60 + " minuten spielen.");
+        long diffTime = canPlayAgain(quiz.getLong("lastPlayed"));
+        if (diffTime > 0) {
+            print("Du darfst erst in " + diffTime / 1000 / 60 + " minuten spielen.");
             return;
         }
 
@@ -85,6 +83,12 @@ public class QuizCommand implements CommandAPI {
         playerconfig.put("gold", gold);
         JsonParser.writeObject(playerpath, playerconfig);
         return gold;
+    }
+
+    public static long canPlayAgain(long lastPlayedTime) {
+        long currentTime = System.currentTimeMillis();
+        long minTime = lastPlayedTime + (60 * 5 * 1000);
+        return minTime - currentTime;
     }
 
 }
