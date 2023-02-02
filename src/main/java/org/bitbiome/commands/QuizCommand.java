@@ -22,21 +22,14 @@ public class QuizCommand implements CommandAPI {
 
         JSONArray antworten = frage.getJSONArray("antworten");
 
-        String frageString = frage.getString("frage");
-        String korrekteAntwort = frage.getString("korrekteAntwort");
 
+        String korrekteAntwort = frage.getString("korrekteAntwort");
 
         print("Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n");
 
-        print(frageString);
-
-        for (int i = 0; i < antworten.length(); i++) {
-            String antwort = antworten.getString(i);
-            print(i + 1 + ". " + antwort);
-        }
+        print(generateQuestion(frage, antworten));
 
         int eingabe = quizScanner.nextInt();
-
 
         if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
             print("Richtige Antwort!\n");
@@ -58,6 +51,15 @@ public class QuizCommand implements CommandAPI {
 
     public static int random(int length) {
         return new Random().nextInt(length);
+    }
+
+    public static String generateQuestion(JSONObject frage, JSONArray answers) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(frage.getString("frage")).append("\n");
+        for (int i = 0; i < answers.length(); i++) {
+            sb.append(i+1).append(". ").append(answers.getString(i)).append("\n");
+        }
+        return sb.toString();
     }
 
 }
