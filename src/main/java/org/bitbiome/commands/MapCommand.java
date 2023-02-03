@@ -13,8 +13,9 @@ public class MapCommand implements CommandAPI{
         JSONArray locations = travelEngine.getLocationList();
             outputMessage
                     .append("Map:\n")
-                    .append("Wueste         Gruenland       Winterland\n\n")
-                    .append("Strand         Wald            Berge\n\n");
+                    .append(locations.getJSONObject(5).getString("name") + "         " + locations.getJSONObject(4).getString("name") + "       " + locations.getJSONObject(2).getString("name") + "\n\n")
+                    .append(locations.getJSONObject(1).getString("name") + "         " + locations.getJSONObject(0).getString("name") + "            " + locations.getJSONObject(3).getString("name") + "\n\n");
+
         return outputMessage.toString();
     }
 
