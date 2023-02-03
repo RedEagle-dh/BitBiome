@@ -49,16 +49,7 @@ public class LookaroundCommand implements CommandAPI{
                     "Es gibt ein paar Palmen, die den Strand säumen und Strandliegen und -schirme, weit in der Ferne ragen Felsen aus dem Meer.\n");
 
         }
-        if (randomNumberItems != 0){
-            s.append("Huch, was liegt denn hier rum?\n");
-            for (int i = 0; i < foundItems.size(); i++){
-                s. append( "- ").append(foundItems.get(i).getName()+"\n");
-            }
-            s.append("Schnell, sammel es ein!\n");
-        }
-        else {
-            s.append("Hier gibt es leider nichts für dich zum Einsammeln.\n");
-        }
+        getItemsOutput(randomNumberItems,s,foundItems);
         if (randomNumberMobs != 0){
             s.append("Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n");
             for (int i = 0; i < foundMobs.size(); i++){
@@ -110,6 +101,17 @@ public class LookaroundCommand implements CommandAPI{
             foundMobs.add(randomMob);
         } return foundMobs;
     }
-
+    public void getItemsOutput(int randomNumberItems, StringBuilder s, ArrayList<Item> foundItems){
+        if (randomNumberItems != 0){
+            s.append("Huch, was liegt denn hier rum?\n");
+            for (int i = 0; i < foundItems.size(); i++){
+                s. append( "- ").append(foundItems.get(i).getName()+"\n");
+            }
+            s.append("Schnell, sammel es ein!\n");
+        }
+        else {
+            s.append("Hier gibt es leider nichts für dich zum Einsammeln.\n");
+        }
+    }
 
 }
