@@ -50,16 +50,7 @@ public class LookaroundCommand implements CommandAPI{
 
         }
         getItemsOutput(randomNumberItems,s,foundItems);
-        if (randomNumberMobs != 0){
-            s.append("Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n");
-            for (int i = 0; i < foundMobs.size(); i++){
-                s. append( "- ").append(foundMobs.get(i).getName()+"\n");
-            }
-        }
-        //gibt es eigentlich auch Hindernisse, wie zum Beispiel einen umgefallenen Baumstamm, oder Höhle, Hütte, zum Erkunden in der jeweiligen Welt?
-        if((randomNumberMobs ==0) && (randomNumberItems == 0)){
-            s.append("Hier gibt es sonst nichts weiter zu sehen. Reise weiter!\n");
-        }
+        getMobsOutput(randomNumberItems,randomNumberMobs,s, foundMobs);
         System.out.println(s);
 
     }
@@ -113,5 +104,17 @@ public class LookaroundCommand implements CommandAPI{
             s.append("Hier gibt es leider nichts für dich zum Einsammeln.\n");
         }
     }
+    public void getMobsOutput(int randomNumberItems, int randomNumberMobs, StringBuilder s, ArrayList<Mob> foundMobs){
+        if (randomNumberMobs != 0){
+            s.append("Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n");
+            for (int i = 0; i < foundMobs.size(); i++){
+                s. append( "- ").append(foundMobs.get(i).getName()+"\n");
+            }
+        }
+        if((randomNumberMobs ==0) && (randomNumberItems == 0)){
+            s.append("Hier gibt es sonst nichts weiter zu sehen. Reise weiter!\n");
+        }
+    }
+
 
 }
