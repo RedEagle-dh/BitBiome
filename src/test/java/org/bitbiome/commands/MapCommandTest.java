@@ -16,9 +16,19 @@ public class MapCommandTest {
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
                 .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Wald" + "\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Wueste         Gruenland         Winterland\n\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Strand         Wald         Berge\n\n" + Colors.ANSI_RESET);
+                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append(" __________________________________________________________________________________________________\n")
+                .append("|                                |                                |                                |\n")
+                .append("|                                |                                |                                |\n")
+                .append("|             " + Colors.ANSI_BLUE + "Wueste" + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + "Gruenland" + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BLUE + "Winterland" + Colors.ANSI_RESET + "           |" + "\n")
+                .append("|                                |                                |                                |\n")
+                .append("|________________________________|________________________________|________________________________|\n")
+                .append("|                                |                                |                                |\n")
+                .append("|                                |                                |                                |\n")
+                .append("|             " + Colors.ANSI_BLUE + "Strand" + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + "Wald" + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + "Berge" + Colors.ANSI_RESET + "             |" + "\n")
+                .append("|                                |                                |                                |\n")
+                .append("|________________________________|________________________________|________________________________|\n");
+
 
         assertEquals(outputMessage.toString(), mapMessage);
     }

@@ -17,9 +17,18 @@ public class MapCommand implements CommandAPI{
         JSONArray locations = travelEngine.getLocationList();
             outputMessage
                     .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET)
-                    .append(Colors.ANSI_BLUE + "Deine Karte:\n" + Colors.ANSI_RESET)
-                    .append(Colors.ANSI_BLUE + locations.getJSONObject(5).getString("name") + "         " + locations.getJSONObject(4).getString("name") + "         " + locations.getJSONObject(2).getString("name") + "\n\n" + Colors.ANSI_RESET)
-                    .append(Colors.ANSI_BLUE + locations.getJSONObject(1).getString("name") + "         " + locations.getJSONObject(0).getString("name") + "         " + locations.getJSONObject(3).getString("name") + "\n\n" + Colors.ANSI_RESET);
+                    .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                    .append(" __________________________________________________________________________________________________\n")
+                    .append("|                                |                                |                                |\n")
+                    .append("|                                |                                |                                |\n")
+                    .append("|             " + Colors.ANSI_BLUE + locations.getJSONObject(5).getString("name") + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + locations.getJSONObject(4).getString("name") + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BLUE + locations.getJSONObject(2).getString("name") + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|                                |                                |                                |\n")
+                    .append("|________________________________|________________________________|________________________________|\n")
+                    .append("|                                |                                |                                |\n")
+                    .append("|                                |                                |                                |\n")
+                    .append("|             " + Colors.ANSI_BLUE + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|                                |                                |                                |\n")
+                    .append("|________________________________|________________________________|________________________________|\n");
 
         return outputMessage.toString();
     }
