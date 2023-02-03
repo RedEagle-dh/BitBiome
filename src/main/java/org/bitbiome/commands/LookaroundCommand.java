@@ -20,15 +20,9 @@ public class LookaroundCommand implements CommandAPI{
         StringBuilder s = new StringBuilder();
         Location location = travelEngine.getPlayer().getLocation();
         JsonParser jp = new JsonParser();
-        JSONObject o = jp.getJSONObject("gameconfig.json");
-        JSONArray locations = o.getJSONArray("locations");
-        JSONObject locationObject = locations.getJSONObject(0);
-
-        for (int i = 1; i < locations.length(); i++) {
-            if(locations.getJSONObject(i).getString("name").equals(location.getName())){
-                locationObject = locations.getJSONObject(i);
-            }
-        }
+        JSONObject gameConfig = jp.getJSONObject("gameconfig.json");
+        JSONArray locations = gameConfig.getJSONArray("locations");
+        JSONObject locationObject = getLocationObject(location.getName(), locations);
         JSONArray items = locationObject.getJSONArray("items");
         JSONArray mobs = locationObject.getJSONArray("mobs");
 
@@ -101,5 +95,14 @@ public class LookaroundCommand implements CommandAPI{
         System.out.println(s);
 
     }
+    public JSONObject getLocationObject(String locationName, JSONArray locations) {
+        for (int i = 1; i < locations.length(); i++) {
+            if(locations.getJSONObject(i).getString("name").equals(locationName)){
+                return locations.getJSONObject(i);
+            }
+        }
+        return locations.getJSONObject(0);
+    }
+
 
 }
