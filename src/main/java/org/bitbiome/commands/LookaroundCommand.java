@@ -65,7 +65,39 @@ public class LookaroundCommand implements CommandAPI{
             Mob randomMob = new Mob (jp2.getString("name"),jp2.getBoolean("isFriendly"),jp2.getFloat("hp"),jp2.getFloat("damage"));
             foundMobs.add(randomMob);
         }
-        s.append(foundItems).append(foundMobs);
+        if (location.getName().equals("Wald")){
+            s.append("Du befindest dich mitten im Wald, um dich herum siehst du hohe Buchen, kleine Sträucher und Farne.\n" +
+                    "Der Boden ist mit weichem Moos, Pilzen und Laub bedeckt, in der Nähe hörst du Vögel munter zwitschern und\n" +
+                    "einen kleinen Bach, der sich durch das dichte Unterholz schlängelt." +
+                    " Schau mal, dort hinten in der Ferne ist ein Eichhörnchen! \n");
+        }
+        if (location.getName().equals("Strand")){
+            s.append("Du befindest dich mitten am Strand und blickst auf das Meer, das sich bis zum Horizont erstreckt.\n" +
+                    "Du spürst den Sand an deinen Füßen, du hörst das weiche Rauschen des Meeres und das Lachen der Möwen über dir.\n" +
+                    "Rechts und links von dir erstreckt sich der weite, weiße Sandstrand, dort hinten bauen Kinder eine Sandburg.\n" +
+                    "Es gibt ein paar Palmen, die den Strand säumen und Strandliegen und -schirme, weit in der Ferne ragen Felsen aus dem Meer.\n");
+
+        }
+        if (randomNumberItems != 0){
+            s.append("Huch, was liegt denn hier rum?\n");
+            for (int i = 0; i < foundItems.size(); i++){
+                s. append( "- ").append(foundItems.get(i).getName()+"\n");
+            }
+            s.append("Schnell, sammel es ein!\n");
+        }
+        else {
+            s.append("Hier gibt es leider nichts für dich zum Einsammeln.\n");
+        }
+        if (randomNumberMobs != 0){
+            s.append("Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n");
+            for (int i = 0; i < foundMobs.size(); i++){
+                s. append( "- ").append(foundMobs.get(i).getName()+"\n");
+            }
+        }
+        //gibt es eigentlich auch Hindernisse, wie zum Beispiel einen umgefallenen Baumstamm, oder Höhle, Hütte, zum Erkunden in der jeweiligen Welt?
+        if((randomNumberMobs ==0) && (randomNumberItems == 0)){
+            s.append("Hier gibt es sonst nichts weiter zu sehen. Reise weiter!\n");
+        }
         System.out.println(s);
 
     }
