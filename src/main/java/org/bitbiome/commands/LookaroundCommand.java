@@ -32,8 +32,39 @@ public class LookaroundCommand implements CommandAPI{
         JSONArray items = locationObject.getJSONArray("items");
         JSONArray mobs = locationObject.getJSONArray("mobs");
 
+        Random random = new Random();
+        int randomNumberItems = random.nextInt(items.length()+1);
+        int randomNumberMobs = random.nextInt(mobs.length()+1);
         ArrayList<Item> foundItems = location.getItemList();
+        foundItems.removeAll(foundItems);
         ArrayList<Mob> foundMobs = location.getMobList();
+        foundMobs.removeAll(foundMobs);
+
+        for (int i=0; i<randomNumberItems; i++){
+            String s1 = items.getString(random.nextInt(items.length()));
+            String resourceName = "./../../../items.json";
+            InputStream is = JsonParser.class.getResourceAsStream(resourceName);
+            if (is == null) {
+                throw new NullPointerException("Cannot find resource file " + resourceName);
+            }
+
+            JSONTokener tokener = new JSONTokener(is);
+            JSONArray jp3 = new JSONArray(tokener);
+            JSONObject jp2= jp3.getJSONObject(0);
+            for (int j=1; j<jp3.length(); j++ ){
+                if(jp3.getJSONObject(j).getString("name").equals(s1)){
+                    jp2 = jp3.getJSONObject(j);
+                    break;
+                }
+            }
+            Item randomItem = new Item (jp2.getString("name"),jp2.getBoolean("doesDamage"),jp2.getFloat("damage"),1);
+            foundItems.add(randomItem);
+        }
+        for (int i=0; i<randomNumberMobs; i++){
+            JSONObject jp2 = mobs.getJSONObject(random.nextInt(mobs.length()));
+            Mob randomMob = new Mob (jp2.getString("name"),jp2.getBoolean("isFriendly"),jp2.getFloat("hp"),jp2.getFloat("damage"));
+            foundMobs.add(randomMob);
+        }
         s.append(foundItems).append(foundMobs);
         System.out.println(s);
 
