@@ -34,12 +34,8 @@ public class LookaroundCommand implements CommandAPI{
         ArrayList<Mob> foundMobs = location.getMobList();
         foundMobs.removeAll(foundMobs);
         foundItems = getRandomItem(randomNumberItems, random, items, foundItems);
+        foundMobs = getRandomMob(randomNumberMobs,random,mobs,foundMobs);
 
-        for (int i=0; i<randomNumberMobs; i++){
-            JSONObject jp2 = mobs.getJSONObject(random.nextInt(mobs.length()));
-            Mob randomMob = new Mob (jp2.getString("name"),jp2.getBoolean("isFriendly"),jp2.getFloat("hp"),jp2.getFloat("damage"));
-            foundMobs.add(randomMob);
-        }
         if (location.getName().equals("Wald")){
             s.append("Du befindest dich mitten im Wald, um dich herum siehst du hohe Buchen, kleine Sträucher und Farne.\n" +
                     "Der Boden ist mit weichem Moos, Pilzen und Laub bedeckt, in der Nähe hörst du Vögel munter zwitschern und\n" +
@@ -105,6 +101,14 @@ public class LookaroundCommand implements CommandAPI{
             foundItems.add(randomItem);
         }
         return foundItems;
+    }
+
+    public ArrayList<Mob> getRandomMob(int randomNumberMobs, Random random, JSONArray mobs, ArrayList<Mob> foundMobs){
+        for (int i=0; i<randomNumberMobs; i++){
+            JSONObject jp2 = mobs.getJSONObject(random.nextInt(mobs.length()));
+            Mob randomMob = new Mob (jp2.getString("name"),jp2.getBoolean("isFriendly"),jp2.getFloat("hp"),jp2.getFloat("damage"));
+            foundMobs.add(randomMob);
+        } return foundMobs;
     }
 
 
