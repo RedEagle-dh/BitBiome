@@ -12,6 +12,11 @@ import java.util.Scanner;
 public class CollectCommand implements CommandAPI {
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
+               
+        System.out.println("Was willst du einsammeln?");
+        String item = new String();
+        item = scanner.nextLine();
+
 
     }
 
