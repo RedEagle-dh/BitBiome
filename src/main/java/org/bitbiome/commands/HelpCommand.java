@@ -31,6 +31,8 @@ public class HelpCommand implements CommandAPI {
                 .append("|--------------|-------------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " inventory" + Colors.ANSI_RESET + "    | Gibt dein Inventar aus        |\n")
                 .append("|--------------|-------------------------------|\n")
+                .append("|" + Colors.ANSI_GREEN + " collect " + Colors.ANSI_RESET + "     | Gibt deine Location aus       |\n")
+                .append("|--------------|-------------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " lookaround" + Colors.ANSI_RESET + "   | Zeigt dir deine Umgebung,     |\n")
                 .append("|" + Colors.ANSI_GREEN + "           " + Colors.ANSI_RESET + "   | Items und Mobs in der Nähe    |\n")
                 .append("|______________|_______________________________|\n");
