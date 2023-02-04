@@ -12,12 +12,18 @@ import java.util.Scanner;
 public class CollectCommand implements CommandAPI {
     @Override
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
-               
+        StringBuilder s = new StringBuilder();
+        JsonParser jp = new JsonParser();
+        JSONObject o = jp.getJSONObject("playerconfig.json");
+        JSONArray inventory = o.getJSONArray("inventory");
+
+        ArrayList<Item> location = travelEngine.getPlayer().getLocation().getItemList();
+
         System.out.println("Was willst du einsammeln?");
         String item = new String();
         item = scanner.nextLine();
 
-
+        collectItem(location, item, jp, o, inventory,travelEngine);
     }
 
     public void collectItem(ArrayList<Item> location, String item, JsonParser jp, JSONObject o, JSONArray inventory, TravelEngine travelEngine) {
