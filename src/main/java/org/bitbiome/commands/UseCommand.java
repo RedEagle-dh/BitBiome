@@ -39,7 +39,7 @@ private boolean combat = false;
                         System.out.println(use(scanner, engine));
                         break;
                     case "runaway":
-                        if(runawaySucceeds()) {
+                        if(runawaySucceeds(getRunawayChance())) {
                             combat = false;
                             break COMBAT_LOOP;
                         }
@@ -52,11 +52,22 @@ private boolean combat = false;
         }
     }
 
-    public boolean runawaySucceeds() {
-        int chance = (int)(Math.random()*100);
-        if(chance < 50)
+    public boolean runawaySucceeds(int chance) {
+        int random = (int)(Math.random()*100);
+        if(random >= chance)
             return true;
         return false;
+    }
+
+    public int getRunawayChance() {
+        int chance = 10;
+        for(int i = 0; i<enemies.size(); i++) {
+            Mob mob = enemies.get(i);
+            chance += (int)Math.round(Math.sqrt(mob.getHp() * mob.getDamage() / 3) * (110-chance) / 100) + 1;
+        }
+        if(chance > 100)
+            chance = 100;
+        return chance;
     }
 
     public String use(Scanner scanner, TravelEngine engine) {
