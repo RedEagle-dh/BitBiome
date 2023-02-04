@@ -1,7 +1,6 @@
 package org.bitbiome.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -41,8 +40,6 @@ public class UseCommandTest {
         UseCommand com = new UseCommand();
         assertEquals(true, com.runawaySucceeds(0));
         assertEquals(false, com.runawaySucceeds(101));
-        int random = (int)(Math.random()*100);
-        assertTrue(com.runawaySucceeds(random) || !com.runawaySucceeds(random));
     }
 
     @Test
