@@ -9,10 +9,6 @@ import org.bitbiome.entities.Player;
 import org.junit.jupiter.api.Test;
 
 public class UseCommandTest {
-    public void testUseCommand() {
-        testGetUseMessage();
-    }
-
     @Test
     public void testUseItemMob() {
         UseCommand com = new UseCommand();
