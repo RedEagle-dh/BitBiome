@@ -68,5 +68,17 @@ public class LookaroundCommandTest {
             assertTrue(mob.getName().equals("BigFoot") || mob.getName().equals("Yeti"));
         }
     }
-
+    @Test
+    public void testGetItemsOutputWithItems() {
+        LookaroundCommand command = new LookaroundCommand();
+        int randomNumberItems = 3;
+        StringBuilder outputMessage = new StringBuilder();
+        ArrayList<Item> foundItems = new ArrayList<Item>();
+        foundItems.add(new Item("Holz", true, 10, 1));
+        foundItems.add(new Item("Stein", true, 10, 1));
+        foundItems.add(new Item("Sand", false, 1, 1));
+        command.getItemsOutput(randomNumberItems, outputMessage, foundItems);
+        String expectedOutput = "Huch, was liegt denn hier rum?\n- Holz\n- Stein\n- Sand\nSchnell, sammel es ein!\n";
+        assertEquals(expectedOutput, outputMessage.toString());
+    }
 }
