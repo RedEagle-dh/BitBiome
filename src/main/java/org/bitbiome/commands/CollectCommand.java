@@ -36,12 +36,7 @@ public class CollectCommand implements CommandAPI {
                         getInventory.get(j).setAmount(getInventory.get(j).getAmount() + 1);
                         for (int k = 0; k < inventory.length(); k++) {
                             if (inventory.getJSONObject(k).getString("name").equals(item)) {
-                                JSONObject o2 = new JSONObject();
-                                int amountItemsInPlayerconfig = 0;
-                                amountItemsInPlayerconfig = inventory.getJSONObject(k).getInt("amount");
-                                inventory.getJSONObject(k).put("amount", amountItemsInPlayerconfig + 1);
-                                jp.writeObject("playerconfig.json", o);
-                                System.out.println("Du hast das Item eingesammelt.");
+                                increaseAmountInPlayerConfig(inventory,k,jp,o);
                                 return;
                             }
                         }
@@ -58,6 +53,14 @@ public class CollectCommand implements CommandAPI {
                 location.remove(i);
             }
         } System.out.println("Es gibt kein Item, dass du einsammeln kannst.");
+    }
+    public void increaseAmountInPlayerConfig(JSONArray inventory, int k, JsonParser jp, JSONObject o){
+        JSONObject o2 = new JSONObject();
+        int amountItemsInPlayerconfig = 0;
+        amountItemsInPlayerconfig = inventory.getJSONObject(k).getInt("amount");
+        inventory.getJSONObject(k).put("amount", amountItemsInPlayerconfig + 1);
+        jp.writeObject("playerconfig.json", o);
+        System.out.println("Du hast das Item eingesammelt.");
     }
 }
 
