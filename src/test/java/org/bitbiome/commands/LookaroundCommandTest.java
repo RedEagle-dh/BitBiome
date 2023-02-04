@@ -81,4 +81,14 @@ public class LookaroundCommandTest {
         String expectedOutput = "Huch, was liegt denn hier rum?\n- Holz\n- Stein\n- Sand\nSchnell, sammel es ein!\n";
         assertEquals(expectedOutput, outputMessage.toString());
     }
+    @Test
+    public void testGetItemsOutputWithoutItems() {
+        LookaroundCommand command = new LookaroundCommand();
+        int randomNumberItems = 0;
+        StringBuilder outputMessage = new StringBuilder();
+        ArrayList<Item> foundItems = new ArrayList<Item>();
+        command.getItemsOutput(randomNumberItems, outputMessage, foundItems);
+        String expectedOutput = "Hier gibt es leider nichts für dich zum Einsammeln.\n";
+        assertEquals(expectedOutput, outputMessage.toString());
+    }
 }
