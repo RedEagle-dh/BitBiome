@@ -22,6 +22,8 @@ public class HelpCommandTest {
                 .append("|" + Colors.ANSI_GREEN + " travel" + Colors.ANSI_RESET + "       | Startet das Reise System    |\n")
                 .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " location" + Colors.ANSI_RESET + "     | Gibt deine Location aus     |\n")
+                .append("|______________|_____________________________|\n")
+                .append("|" + Colors.ANSI_GREEN + " use" + Colors.ANSI_RESET + "          | Benutze ein Item            |\n")
                 .append("|______________|_____________________________|\n");
         assertEquals(outputMessage.toString(), helpMessage);
     }
