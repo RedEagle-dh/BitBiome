@@ -42,17 +42,20 @@ public class CollectCommand implements CommandAPI {
                         }
                     }
                 }
-                o1.put("name", location.get(i).getName());
-                o1.put("doesDamage", location.get(i).doesDamage());
-                o1.put("damage", location.get(i).getDamage());
-                o1.put("amount", 1);
-                o1.put("durability", 1000);
-                o.getJSONArray("inventory").put(o1);
-                jp.writeObject("playerconfig.json", o);
-                getInventory.add(location.get(i));
-                location.remove(i);
+                writeNewItem(location, getInventory, o1, inventory, i, jp, o);
             }
         } System.out.println("Es gibt kein Item, dass du einsammeln kannst.");
+    }
+    public void writeNewItem(ArrayList<Item> location, ArrayList<Item> getInventory, JSONObject o1, JSONArray inventory, int i, JsonParser jp, JSONObject o){
+        o1.put("name", location.get(i).getName());
+        o1.put("doesDamage", location.get(i).doesDamage());
+        o1.put("damage", location.get(i).getDamage());
+        o1.put("amount", 1);
+        o1.put("durability", 1000);
+        o.getJSONArray("inventory").put(o1);
+        jp.writeObject("playerconfig.json", o);
+        getInventory.add(location.get(i));
+        location.remove(i);
     }
     public void increaseAmountInPlayerConfig(JSONArray inventory, int k, JsonParser jp, JSONObject o){
         JSONObject o2 = new JSONObject();
