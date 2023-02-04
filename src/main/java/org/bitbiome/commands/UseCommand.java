@@ -27,16 +27,16 @@ private boolean combat = false;
                 Mob mob = enemies.get(i);
                 float hp = player.getHp();
                 hp -= mob.getDamage();
-                System.out.println(mob.getName() + " attacked you for " + mob.getDamage() + " damage.");
+                System.out.println(mob.getName() + " hat dich angegriffen und " + mob.getDamage() + " Schaden zugefügt.");
                 if(hp <= 0) {
                     player.setHp(0);
-                    System.out.println("You died.");
+                    System.out.println("Du bist gestorben.");
                     System.exit(0);
                 }
                 player.setHp(hp);
             }
             COMBAT_LOOP:do {
-                System.out.println("What do you want to do?");
+                System.out.println("Was willst du tun?");
                 String input = scanner.nextLine();
                 switch(input) {
                     case "use":
@@ -44,27 +44,27 @@ private boolean combat = false;
                         break COMBAT_LOOP;
                     case "runaway":
                         if(runawaySucceeds(getRunawayChance())) {
-                            System.out.println("You successfully ran away.");
+                            System.out.println("Du bist erfolgreich geflüchtet.");
                             combat = false;
                             break COMBAT_LOOP;
                         }
-                        System.out.println("You failed to run away.");
+                        System.out.println("Dein Fluchtversuch ist fehlgeschlagen.");
                         break;
                     case "help":
                         new HelpCommand().performCommand(scanner, true, "", engine);
                         break;
                     case "exit":
                     case "quit":
-                        System.out.println("You cannot quit while in combat.");
+                        System.out.println("Du kannst nicht während eines Kampfes das Spiel verlassen.");
                         break;
                     case "location":
                         new LocationCommand().performCommand(scanner, true, "", engine);
                         break;
                     case "travel":
-                        System.out.println("You cannot travel while in combat.");
+                        System.out.println("Du kannst nicht während eines Kampfes reisen.");
                         break;
                     default:
-                        System.out.println("That is not a valid command.");
+                        System.out.println("Unbekannter Befehl - Siehe " + Colors.ANSI_PURPLE + "help" + Colors.ANSI_RESET);
                         break;
                 }
             } while(true);
@@ -89,9 +89,9 @@ private boolean combat = false;
     }
 
     public String use(Scanner scanner, TravelEngine engine) {
-        System.out.println("Which item would you like to use?");
+        System.out.println("Welches Item willst du benutzen?");
         String item = scanner.nextLine();
-        System.out.println("On who? (leave blank for self)");
+        System.out.println("Auf welchen Gegner willst du es benutzen? (Leer lassen, um es auf dich selbst anzuwenden)");
         String target = scanner.nextLine();
         if(target.equals(""))
             return getUseMessage(item, engine);
@@ -109,7 +109,7 @@ private boolean combat = false;
             Item item = inv.get(i);
             if(item.getName().toLowerCase().equals(itemName.toLowerCase())) {
                 if(!item.doesDamage())
-                    return "You can't attack with this.";
+                    return "Damit kannst du nicht angreifen.";
                 if(message.length == 1)
                     return useItem(item, player);
                 String targetName = message[1];
@@ -120,22 +120,22 @@ private boolean combat = false;
                     if(mob.getName().toLowerCase().equals(targetName.toLowerCase()))
                         return useItem(item, mob, loc);
                 }
-                return "That target is not available.";
+                return "Dieses Ziel ist nicht verfügbar.";
             }
         }
-        return "That item is not in your inventory.";
+        return "Du bist nicht im Besitz dieses Items.";
     }
 
     public String useItem(Item item, Player target) {
         float hp = target.getHp();
         hp -= item.getDamage();
-        String retString = "You used " + item.getName() + " on yourself";
+        String retString = "Du hast " + item.getName() + " auf dich selbst angewandt";
         if(hp <= 0) {
             target.setHp(0);
-            return retString + " and died.";
+            return retString + " und bist gestorben.";
         }
         target.setHp(hp);
-        return retString;
+        return retString + ".";
     }
 
     public String useItem(Item item, Mob target, Location location) {
@@ -147,11 +147,11 @@ private boolean combat = false;
         if(dmg>=hp) {
             location.getMobList().remove(target);
             enemies.remove(target);
-            return "You killed " + target.getName() + " with " + item.getName();
+            return "Du hast " + target.getName() + " mit " + item.getName() + " getötet.";
         }
         target.setHp(hp-dmg);
         target.setFriendly(false);
-        return "You used " + item.getName() + " on " + target.getName();
+        return "Du hast " + item.getName() + " auf " + target.getName() + " angewandt.";
     }
 
     public void getEnemies(ArrayList<Mob> allMobs) {
