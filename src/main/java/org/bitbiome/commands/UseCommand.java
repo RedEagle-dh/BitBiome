@@ -31,12 +31,18 @@ private boolean combat = false;
                 player.setHp(hp);
             }
             //TODO get input from player
-            do {
+            COMBAT_LOOP:do {
                 System.out.println("What do you want to do?");
                 String input = scanner.nextLine();
                 switch(input) {
                     case "use":
                         use(scanner, engine);
+                        break;
+                    case "runaway":
+                        if(runawaySucceeds()) {
+                            combat = false;
+                            break COMBAT_LOOP;
+                        }
                         break;
                     default:
                         System.out.println("That is not a valid command.");
@@ -44,6 +50,13 @@ private boolean combat = false;
                 }
             } while(true);
         }
+    }
+
+    public boolean runawaySucceeds() {
+        int chance = (int)(Math.random()*100);
+        if(chance < 50)
+            return true;
+        return false;
     }
 
     public void use(Scanner scanner, TravelEngine engine) {
