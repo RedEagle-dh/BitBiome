@@ -44,6 +44,19 @@ private boolean combat = false;
                             break COMBAT_LOOP;
                         }
                         break;
+                    case "help":
+                        new HelpCommand().performCommand(scanner, isRunning, message, engine);
+                        break;
+                    case "exit":
+                    case "quit":
+                        System.out.println("You cannot quit while in combat.");
+                        break;
+                    case "location":
+                        new LocationCommand().performCommand(scanner, isRunning, message, engine);
+                        break;
+                    case "travel":
+                        System.out.println("You cannot travel while in combat.");
+                        break;
                     default:
                         System.out.println("That is not a valid command.");
                         break;
