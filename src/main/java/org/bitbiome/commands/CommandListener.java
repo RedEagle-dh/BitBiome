@@ -20,6 +20,7 @@ public class CommandListener {
         commands.put("use", new UseCommand());
         commands.put("location", new LocationCommand());
         commands.put("travel", new TravelCommand());
+        commands.put("runaway", new RunAwayCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {
