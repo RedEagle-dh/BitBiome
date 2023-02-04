@@ -37,7 +37,7 @@ private boolean combat = false;
                 switch(input) {
                     case "use":
                         System.out.println(use(scanner, engine));
-                        break;
+                        break COMBAT_LOOP;
                     case "runaway":
                         if(runawaySucceeds(getRunawayChance())) {
                             combat = false;
