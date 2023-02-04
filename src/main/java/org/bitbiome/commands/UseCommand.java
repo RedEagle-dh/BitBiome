@@ -16,7 +16,12 @@ private boolean combat = false;
         getEnemies(player.getLocation().getMobList());
         System.out.println(use(scanner, engine));
         while(enemies.size() > 0 && combat) {
-            if(player.getHp() <= 0)
+            combat(player, scanner, engine);
+        }
+    }
+
+    public void combat(Player player, Scanner scanner, TravelEngine engine) {
+        if(player.getHp() <= 0)
                 System.exit(0);
             for(int i = 0; i<enemies.size(); i++) {
                 Mob mob = enemies.get(i);
@@ -30,7 +35,6 @@ private boolean combat = false;
                 }
                 player.setHp(hp);
             }
-            //TODO get input from player
             COMBAT_LOOP:do {
                 System.out.println("What do you want to do?");
                 String input = scanner.nextLine();
@@ -45,14 +49,14 @@ private boolean combat = false;
                         }
                         break;
                     case "help":
-                        new HelpCommand().performCommand(scanner, isRunning, message, engine);
+                        new HelpCommand().performCommand(scanner, true, "", engine);
                         break;
                     case "exit":
                     case "quit":
                         System.out.println("You cannot quit while in combat.");
                         break;
                     case "location":
-                        new LocationCommand().performCommand(scanner, isRunning, message, engine);
+                        new LocationCommand().performCommand(scanner, true, "", engine);
                         break;
                     case "travel":
                         System.out.println("You cannot travel while in combat.");
@@ -62,7 +66,6 @@ private boolean combat = false;
                         break;
                 }
             } while(true);
-        }
     }
 
     public boolean runawaySucceeds(int chance) {
