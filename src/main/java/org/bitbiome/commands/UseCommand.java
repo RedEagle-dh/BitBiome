@@ -49,7 +49,7 @@ private boolean combat = false;
         
         for(int i = 0; i<inv.size(); i++) {
             Item item = inv.get(i);
-            if(item.getName().equals(itemName)) {
+            if(item.getName().toLowerCase().equals(itemName.toLowerCase())) {
                 if(!item.doesDamage())
                     return "You can't attack with this.";
                 if(message.length == 1)
@@ -59,7 +59,7 @@ private boolean combat = false;
                 ArrayList<Mob> mobs = loc.getMobList();
                 for(int j = 0; j<mobs.size(); j++) {
                     Mob mob = mobs.get(j);
-                    if(mob.getName().equals(targetName))
+                    if(mob.getName().toLowerCase().equals(targetName.toLowerCase()))
                         return useItem(item, mob, loc);
                 }
                 return "That target is not available.";

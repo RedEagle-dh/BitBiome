@@ -47,8 +47,11 @@ public class UseCommandTest {
         assertEquals("You can't attack with this.", com.getUseMessage("Fell", engine));
         engine.getPlayer().addToInventory(new Item("Heiliges Schwert der Erzengel", true, 3000));
         assertEquals("That target is not available.", com.getUseMessage("Heiliges Schwert der Erzengel on Wolf", engine));
+        assertEquals("That target is not available.", com.getUseMessage("hEiLiGeS sChWeRt DeR eRzEnGeL on WoLf", engine));
         engine.getPlayer().getLocation().getMobList().add(new Mob("Wolf", false, 11, 10));
         assertEquals("You killed Wolf with Heiliges Schwert der Erzengel", com.getUseMessage("Heiliges Schwert der Erzengel on Wolf", engine));
         assertEquals("That target is not available.", com.getUseMessage("Heiliges Schwert der Erzengel on Wolf", engine));
+        engine.getPlayer().getLocation().getMobList().add(new Mob("Wolf", false, 11, 10));
+        assertEquals("You killed Wolf with Heiliges Schwert der Erzengel", com.getUseMessage("hEiLiGeS sChWeRt DeR eRzEnGeL on WoLf", engine));
     }
 }
