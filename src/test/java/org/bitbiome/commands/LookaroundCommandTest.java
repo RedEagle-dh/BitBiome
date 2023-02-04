@@ -91,4 +91,19 @@ public class LookaroundCommandTest {
         String expectedOutput = "Hier gibt es leider nichts für dich zum Einsammeln.\n";
         assertEquals(expectedOutput, outputMessage.toString());
     }
+    @Test
+    public void testGetMobsOutputWithMobs() {
+        LookaroundCommand command = new LookaroundCommand();
+        int randomNumberMobs = 2;
+        int randomNumberItems = 0;
+        StringBuilder outputMessage = new StringBuilder();
+        ArrayList<Mob> foundMobs = new ArrayList<>();
+        foundMobs.add(new Mob("Big Foot", true, 50, 15));
+        foundMobs.add(new Mob("Yeti", false, 70, 30));
+
+        command.getMobsOutput( randomNumberItems,randomNumberMobs, outputMessage, foundMobs);
+
+        String expectedOutput = "Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n- Big Foot\n- Yeti\n";
+        assertEquals(expectedOutput, outputMessage.toString());
+    }
 }
