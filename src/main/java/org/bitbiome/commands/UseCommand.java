@@ -14,14 +14,7 @@ private boolean combat = false;
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine engine) {
         Player player = engine.getPlayer();
         getEnemies(player.getLocation().getMobList());
-        System.out.println("Which item would you like to use?");
-        String item = scanner.nextLine();
-        System.out.println("On who? (leave blank for self)");
-        String target = scanner.nextLine();
-        if(target.equals(""))
-            System.out.println(getUseMessage(item, engine));
-        else
-            System.out.println(getUseMessage(item + " on " + target, engine));
+        use(scanner, engine);
         while(enemies.size() > 0 && combat) {
             if(player.getHp() <= 0)
                 System.exit(0);
@@ -39,6 +32,17 @@ private boolean combat = false;
             }
             //TODO get input from player
         }
+    }
+
+    public void use(Scanner scanner, TravelEngine engine) {
+        System.out.println("Which item would you like to use?");
+        String item = scanner.nextLine();
+        System.out.println("On who? (leave blank for self)");
+        String target = scanner.nextLine();
+        if(target.equals(""))
+            System.out.println(getUseMessage(item, engine));
+        else
+            System.out.println(getUseMessage(item + " on " + target, engine));
     }
 
     public String getUseMessage(String msg, TravelEngine engine) {
