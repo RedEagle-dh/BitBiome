@@ -106,4 +106,17 @@ public class LookaroundCommandTest {
         String expectedOutput = "Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n- Big Foot\n- Yeti\n";
         assertEquals(expectedOutput, outputMessage.toString());
     }
+    @Test
+    public void testGetMobsOutputWithoutMobsAndItems() {
+        LookaroundCommand command = new LookaroundCommand();
+        int randomNumberMobs = 0;
+        int randomNumberItems = 0;
+        StringBuilder outputMessage = new StringBuilder();
+        ArrayList<Mob> foundMobs = new ArrayList<>();
+
+        command.getMobsOutput(randomNumberMobs, randomNumberItems, outputMessage, foundMobs);
+
+        String expectedOutput = "Hier gibt es sonst nichts weiter zu sehen. Reise weiter!\n";
+        assertEquals(expectedOutput, outputMessage.toString());
+    }
 }
