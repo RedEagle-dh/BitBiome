@@ -2,6 +2,8 @@ package org.bitbiome.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.entities.Item;
 import org.bitbiome.entities.Mob;
@@ -9,6 +11,30 @@ import org.bitbiome.entities.Player;
 import org.junit.jupiter.api.Test;
 
 public class UseCommandTest {
+    @Test
+    public void testGetRunawayChance() {
+        UseCommand com = new UseCommand();
+        assertEquals(10, com.getRunawayChance());
+        ArrayList<Mob> enemies = new ArrayList<Mob>();
+        enemies.add(new Mob("Wolf", false, 11, 10));
+        com.getEnemies(enemies);
+        assertEquals(17, com.getRunawayChance());
+        enemies.add(new Mob("Drache", false, 55, 20));
+        com.getEnemies(enemies);
+        assertEquals(41, com.getRunawayChance());
+        enemies.add(new Mob("Drache", false, 55, 20));
+        enemies.add(new Mob("Drache", false, 55, 20));
+        enemies.add(new Mob("Drache", false, 55, 20));
+        enemies.add(new Mob("Drache", false, 55, 20));
+        enemies.add(new Mob("Drache", false, 55, 20));
+        com.getEnemies(enemies);
+        assertEquals(96, com.getRunawayChance());
+        enemies = new ArrayList<Mob>();
+        enemies.add(new Mob("Cthulhu", false, 15000, 10000));
+        com.getEnemies(enemies);
+        assertEquals(100, com.getRunawayChance());
+    }
+
     @Test
     public void testUseItemMob() {
         UseCommand com = new UseCommand();
