@@ -30,6 +30,8 @@ public class HelpCommand implements CommandAPI {
                 .append("|" + Colors.ANSI_GREEN + " location" + Colors.ANSI_RESET + "     | Gibt deine Location aus     |\n")
                 .append("|______________|_____________________________|\n")
                 .append("|" + Colors.ANSI_GREEN + " use" + Colors.ANSI_RESET + "          | Benutze ein Item            |\n")
+                .append("|______________|_____________________________|\n")
+                .append("|" + Colors.ANSI_GREEN + " runaway" + Colors.ANSI_RESET + "      | Fliehe aus einem Kampf      |\n")
                 .append("|______________|_____________________________|\n");
 
         return outputMessage.toString();
