@@ -44,9 +44,11 @@ private boolean combat = false;
                         break COMBAT_LOOP;
                     case "runaway":
                         if(runawaySucceeds(getRunawayChance())) {
+                            System.out.println("You successfully ran away.");
                             combat = false;
                             break COMBAT_LOOP;
                         }
+                        System.out.println("You failed to run away.");
                         break;
                     case "help":
                         new HelpCommand().performCommand(scanner, true, "", engine);
