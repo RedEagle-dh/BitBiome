@@ -104,7 +104,7 @@ public class MapCommandTest {
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
-                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Wueste" + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + "Gruenland" + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BRIGHT_BLACK + "Winterland" + Colors.ANSI_RESET + "           |" + "\n")
+                .append("|             " + Colors.ANSI_GREEN + "Wueste" + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + "Gruenland" + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BRIGHT_BLACK + "Winterland" + Colors.ANSI_RESET + "           |" + "\n")
                 .append("|                                |                                |                                |\n")
                 .append("|________________________________|________________________________|________________________________|\n")
                 .append("|                                |                                |                                |\n")
