@@ -17,7 +17,7 @@ public class MapCommand implements CommandAPI{
         JSONArray locations = travelEngine.getLocationList();
         if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wald")) {
             outputMessage
-                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + "Zu den blau markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
+                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
                     .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
@@ -32,7 +32,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n");
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Strand")) {
             outputMessage
-                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + "Zu den blau markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
+                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
                     .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
@@ -48,7 +48,7 @@ public class MapCommand implements CommandAPI{
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Berge")) {
             outputMessage
-                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + "Zu den blau markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
+                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
                     .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
@@ -64,7 +64,7 @@ public class MapCommand implements CommandAPI{
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wueste")) {
             outputMessage
-                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + "Zu den blau markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
+                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
                     .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
@@ -80,7 +80,7 @@ public class MapCommand implements CommandAPI{
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Gruenland")) {
             outputMessage
-                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + "Zu den blau markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
+                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
                     .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
@@ -96,7 +96,7 @@ public class MapCommand implements CommandAPI{
 
         } else {
             outputMessage
-                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET)
+                    .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
                     .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
