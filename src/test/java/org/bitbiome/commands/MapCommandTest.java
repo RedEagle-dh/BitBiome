@@ -21,8 +21,8 @@ public class MapCommandTest {
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
-                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Wald" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append("Du befindest dich gerade hier: " + Colors.ANSI_GREEN + "Wald" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                .append("Deine Karte:\n\n")
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
@@ -47,8 +47,8 @@ public class MapCommandTest {
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
-                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Strand" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append("Du befindest dich gerade hier: " + Colors.ANSI_GREEN + "Strand" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                .append("Deine Karte:\n\n")
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
@@ -73,8 +73,8 @@ public class MapCommandTest {
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
-                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Berge" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append("Du befindest dich gerade hier: " + Colors.ANSI_GREEN + "Berge" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                .append("Deine Karte:\n\n")
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
@@ -99,8 +99,8 @@ public class MapCommandTest {
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
-                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Wueste" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append("Du befindest dich gerade hier: " + Colors.ANSI_GREEN + "Wueste" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                .append("Deine Karte:\n\n")
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
@@ -125,8 +125,8 @@ public class MapCommandTest {
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
-                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Gruenland" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append("Du befindest dich gerade hier: " + Colors.ANSI_GREEN + "Gruenland" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                .append("Deine Karte:\n\n")
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
@@ -151,8 +151,8 @@ public class MapCommandTest {
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
-                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Winterland" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
-                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append("Du befindest dich gerade hier: " + Colors.ANSI_GREEN + "Winterland" + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                .append("Deine Karte:\n\n")
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
