@@ -89,6 +89,15 @@ public class TravelEngine {
         return found;
     }
 
+    public boolean locationExistsWueste(String name) {
+        boolean found = false;
+        for (int i = 0; i < locations.length(); i++)
+            if (locations.getJSONObject(1).getString("name").equals(name) | locations.getJSONObject(4).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
     public Location getLocationByName(String name) {
         JsonParser jp = new JsonParser();
         JSONObject gameconfig = jp.getJSONObject("gameconfig.json");

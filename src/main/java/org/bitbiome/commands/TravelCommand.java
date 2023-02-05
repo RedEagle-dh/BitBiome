@@ -73,12 +73,11 @@ public class TravelCommand implements CommandAPI {
                 System.out.println(Colors.ANSI_BLUE + "Du hast dein Travel-Pad weggesteckt." + Colors.ANSI_RESET);
             }
 
-        } else {
-            for (int i = 0; i < locations.length(); i++) {
-                System.out.println("- " + locations.getJSONObject(i).getString("name"));
-            }
+        } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wueste")) {
+            System.out.println("- " + locations.getJSONObject(1).getString("name") + "\n" + "- " + locations.getJSONObject(4).getString("name"));
+
             String locationName = scanner.nextLine();
-            if (travelEngine.locationExists(locationName)) {
+            if (travelEngine.locationExistsWueste(locationName)) {
                 travelEngine.travelTo(new Location(locationName, new ArrayList<Mob>(), new ArrayList<Item>()));
                 System.out.println(Colors.ANSI_BLUE + "Du bist nun hierhin gereist: " + locationName + "\n" + Colors.ANSI_RESET);
             } else {
