@@ -142,11 +142,11 @@ public class MapCommandTest {
         assertEquals(outputMessage.toString(), mapMessage);
     }
     @Test
-    public void testMapCommand() {
+    public void testWinterlandMapCommand() {
         Player Test = new Player("name");
         TravelEngine outputtest = new TravelEngine(Test);
-        Location Winter = outputtest.getLocationByName("Winterland");
-        outputtest.travelTo(Winter);
+        Location Winterland = outputtest.getLocationByName("Winterland");
+        outputtest.travelTo(Winterland);
         String mapMessage = MapCommand.getMapMessage(outputtest);
         StringBuilder outputMessage = new StringBuilder();
         outputMessage
@@ -155,12 +155,12 @@ public class MapCommandTest {
                 .append(" __________________________________________________________________________________________________\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
-                .append("|             " + Colors.ANSI_BLUE + "Wueste" + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + "Gruenland" + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BLUE + "Winterland" + Colors.ANSI_RESET + "           |" + "\n")
+                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Wueste" + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + "Gruenland" + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BRIGHT_BLACK + "Winterland" + Colors.ANSI_RESET + "           |" + "\n")
                 .append("|                                |                                |                                |\n")
                 .append("|________________________________|________________________________|________________________________|\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
-                .append("|             " + Colors.ANSI_BLUE + "Strand" + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + "Wald" + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + "Berge" + Colors.ANSI_RESET + "             |" + "\n")
+                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Strand" + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + "Wald" + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + "Berge" + Colors.ANSI_RESET + "             |" + "\n")
                 .append("|                                |                                |                                |\n")
                 .append("|________________________________|________________________________|________________________________|\n");
 
