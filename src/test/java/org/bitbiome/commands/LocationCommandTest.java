@@ -14,7 +14,7 @@ public class LocationCommandTest {
     public void testLocationCommand() {
         Player p = new Player("Unit");
         TravelEngine tE = new TravelEngine(p);
-        String[] standorte = {"Wald", "Strand"};
+        String[] standorte = {"Wald", "Strand", "Berge", "Wueste", "Winterland", "Gruenland"};
         String locationMessage = LocationCommand.getLocationMessage(tE).split(": ")[1];
         assertTrue(Arrays.asList(standorte).contains(locationMessage));
     }
