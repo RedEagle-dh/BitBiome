@@ -80,7 +80,7 @@
     "gold": 5
   },
   {
-    "name": "Löwenkralle",
+    "name": "Loewenkralle",
     "damage": "10",
     "crafting": true,
     "durability": 1000,
@@ -94,6 +94,14 @@
     "durability": 1000,
     "amountShop": 1500,
     "gold": 2
+  },
+  {
+    "name": "Quellwasser",
+    "damage": "0",
+    "crafting": true,
+    "durability": 5,
+    "amountShop": 1500,
+    "gold": 1
   },
   {
     "name": "Lehm",
