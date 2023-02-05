@@ -52,10 +52,20 @@ public class TravelEngine {
             }
         return found;
     }
+
     public boolean locationExistsStrand(String name) {
         boolean found = false;
         for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(5).getString("name").equals(name) | locations.getJSONObject(0).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsGruenland(String name) {
+        boolean found = false;
+        for (int i = 0; i < locations.length(); i++)
+            if (locations.getJSONObject(5).getString("name").equals(name) | locations.getJSONObject(0).getString("name").equals(name) | locations.getJSONObject(2).getString("name").equals(name)) {
                 found = true;
             }
         return found;
