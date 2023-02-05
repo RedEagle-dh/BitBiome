@@ -65,6 +65,32 @@ public class MapCommandTest {
         assertEquals(outputMessage.toString(), mapMessage);
     }
     @Test
+    public void testBergeMapCommand() {
+        Player Test = new Player("name");
+        TravelEngine outputtest = new TravelEngine(Test);
+        Location Berge = outputtest.getLocationByName("Berge");
+        outputtest.travelTo(Berge);
+        String mapMessage = MapCommand.getMapMessage(outputtest);
+        StringBuilder outputMessage = new StringBuilder();
+        outputMessage
+                .append(Colors.ANSI_BLUE + "Du befindest dich gerade hier: Berge" + "\n" + "Zu den blau markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
+                .append(Colors.ANSI_BLUE + "Deine Karte:\n\n" + Colors.ANSI_RESET)
+                .append(" __________________________________________________________________________________________________\n")
+                .append("|                                |                                |                                |\n")
+                .append("|                                |                                |                                |\n")
+                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Wueste" + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BRIGHT_BLACK + "Gruenland" + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BLUE + "Winterland" + Colors.ANSI_RESET + "           |" + "\n")
+                .append("|                                |                                |                                |\n")
+                .append("|________________________________|________________________________|________________________________|\n")
+                .append("|                                |                                |                                |\n")
+                .append("|                                |                                |                                |\n")
+                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Strand" + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + "Wald" + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + "Berge" + Colors.ANSI_RESET + "             |" + "\n")
+                .append("|                                |                                |                                |\n")
+                .append("|________________________________|________________________________|________________________________|\n");
+
+
+        assertEquals(outputMessage.toString(), mapMessage);
+    }
+    @Test
     public void testMapCommand() {
         Player Test = new Player("name");
         TravelEngine outputtest = new TravelEngine(Test);
