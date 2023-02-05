@@ -83,7 +83,7 @@ public class MapCommandTest {
                 .append("|________________________________|________________________________|________________________________|\n")
                 .append("|                                |                                |                                |\n")
                 .append("|                                |                                |                                |\n")
-                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Strand" + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + "Wald" + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + "Berge" + Colors.ANSI_RESET + "             |" + "\n")
+                .append("|             " + Colors.ANSI_BRIGHT_BLACK + "Strand" + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + "Wald" + Colors.ANSI_RESET + "              |              " + Colors.ANSI_GREEN + "Berge" + Colors.ANSI_RESET + "             |" + "\n")
                 .append("|                                |                                |                                |\n")
                 .append("|________________________________|________________________________|________________________________|\n");
 
