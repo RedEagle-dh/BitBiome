@@ -18,6 +18,7 @@ public class MapCommand implements CommandAPI{
         String locationWueste = locations.getJSONObject(5).getString("name");
         String locationGruenland = locations.getJSONObject(4).getString("name");
         String locationWinterland = locations.getJSONObject(2).getString("name");
+        String locationStrand = locations.getJSONObject(1).getString("name");
         if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wald")) {
             outputMessage
                     .append(Colors.ANSI_BLUE + getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n" + Colors.ANSI_RESET)
@@ -30,7 +31,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BLUE + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_GREEN + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + Colors.ANSI_BLUE + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_GREEN + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Strand")) {
@@ -45,7 +46,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_GREEN + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + Colors.ANSI_GREEN + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
@@ -61,7 +62,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_GREEN + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_GREEN + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
@@ -77,7 +78,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BLUE + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + Colors.ANSI_BLUE + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
@@ -93,7 +94,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
@@ -109,7 +110,7 @@ public class MapCommand implements CommandAPI{
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(1).getString("name") + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + locations.getJSONObject(0).getString("name") + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locations.getJSONObject(3).getString("name") + Colors.ANSI_RESET + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
         }
