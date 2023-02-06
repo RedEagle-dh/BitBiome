@@ -45,7 +45,7 @@ public class QuizCommand implements CommandAPI {
             print("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
         }
 
-        print(endmessage());
+        print(endMessage());
 
         Date d = new Date();
         long lastPlayed = d.getTime();
@@ -96,7 +96,7 @@ public class QuizCommand implements CommandAPI {
 
     }
 
-    public static String endmessage(){
+    public static String endMessage(){
         return "Das Quiz ist vorbei!";
     }
 }
