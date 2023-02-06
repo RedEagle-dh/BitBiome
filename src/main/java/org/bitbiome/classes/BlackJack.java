@@ -1,5 +1,7 @@
 package org.bitbiome.classes;
 
+import java.util.Random;
+
 public class BlackJack {
 
     public enum Entity {
@@ -65,5 +67,26 @@ public class BlackJack {
     public void addPoints(Entity entity, int points) {
         if (entity == Entity.BOT) botPoints += points;
         if (entity == Entity.PLAYER) playerPoints += points;
+    }
+
+    public boolean botWantsToPlay() {
+        if (botIn) {
+            if (botPoints <= 10) {
+                return true;
+            } else if (botPoints <= 17) {
+                int r = new Random().nextInt(1, 9);
+                if (r <= 3) {
+                    botIn = false;
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                botIn = false;
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }
