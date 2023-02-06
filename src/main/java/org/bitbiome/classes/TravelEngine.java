@@ -1,11 +1,15 @@
 package org.bitbiome.classes;
 
+import org.bitbiome.entities.Item;
 import org.bitbiome.entities.Location;
+import org.bitbiome.entities.Mob;
 import org.bitbiome.entities.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.bitbiome.classes.TravelEngine;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TravelEngine {
 
@@ -46,7 +50,6 @@ public class TravelEngine {
 
     public boolean locationExistsWald(String name) {
         boolean found = false;
-        for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(1).getString("name").equals(name) | locations.getJSONObject(4).getString("name").equals(name) | locations.getJSONObject(3).getString("name").equals(name)) {
                 found = true;
             }
@@ -55,7 +58,6 @@ public class TravelEngine {
 
     public boolean locationExistsStrand(String name) {
         boolean found = false;
-        for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(5).getString("name").equals(name) | locations.getJSONObject(0).getString("name").equals(name)) {
                 found = true;
             }
@@ -64,7 +66,6 @@ public class TravelEngine {
 
     public boolean locationExistsGruenland(String name) {
         boolean found = false;
-        for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(5).getString("name").equals(name) | locations.getJSONObject(0).getString("name").equals(name) | locations.getJSONObject(2).getString("name").equals(name)) {
                 found = true;
             }
@@ -73,7 +74,6 @@ public class TravelEngine {
 
     public boolean locationExistsBerge(String name) {
         boolean found = false;
-        for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(0).getString("name").equals(name) | locations.getJSONObject(2).getString("name").equals(name)) {
                 found = true;
             }
@@ -82,7 +82,6 @@ public class TravelEngine {
 
     public boolean locationExistsWinterland(String name) {
         boolean found = false;
-        for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(4).getString("name").equals(name) | locations.getJSONObject(3).getString("name").equals(name)) {
                 found = true;
             }
@@ -91,7 +90,6 @@ public class TravelEngine {
 
     public boolean locationExistsWueste(String name) {
         boolean found = false;
-        for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(1).getString("name").equals(name) | locations.getJSONObject(4).getString("name").equals(name)) {
                 found = true;
             }
