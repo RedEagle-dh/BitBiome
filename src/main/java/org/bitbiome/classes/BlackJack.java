@@ -61,4 +61,9 @@ public class BlackJack {
     public Entity getEntity(int ID) {
         return Entity.getEventStatusById(ID);
     }
+
+    public void addPoints(Entity entity, int points) {
+        if (entity == Entity.BOT) botPoints += points;
+        if (entity == Entity.PLAYER) playerPoints += points;
+    }
 }
