@@ -3,8 +3,7 @@ package org.bitbiome.classes;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BlackJackTest {
 
@@ -38,4 +37,8 @@ public class BlackJackTest {
         assertTrue(bj.isIn(BlackJack.Entity.PLAYER));
     }
 
+    @Test
+    public void testBotIsIn() {
+        assertTrue(bj.isIn(BlackJack.Entity.BOT));
+    }
 }
