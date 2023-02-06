@@ -32,7 +32,7 @@ public class QuizCommand implements CommandAPI {
 
         String korrekteAntwort = frage.getString("korrekteAntwort");
 
-        print(anfangsnachricht());
+        print(starterMessage());
 
         print(generateQuestion(frage, antworten));
 
@@ -91,7 +91,7 @@ public class QuizCommand implements CommandAPI {
         return minTime - currentTime;
     }
 
-    public static String anfangsnachricht(){
+    public static String starterMessage(){
         return "Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n";
 
     }
