@@ -53,4 +53,8 @@ public class BlackJack {
     public int getPoints(Entity entity) {
         return entity == Entity.PLAYER ? playerPoints : botPoints;
     }
+
+    public boolean isIn(Entity entity) {
+        return entity == Entity.PLAYER ? playerIn : botIn;
+    }
 }
