@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BlackJackTest {
 
@@ -30,6 +31,11 @@ public class BlackJackTest {
     @Test
     public void testBotName() {
         assertEquals("BitBiome", bj.getPlayerName(BlackJack.Entity.BOT));
+    }
+
+    @Test
+    public void testPlayerIsIn() {
+        assertTrue(bj.isIn(BlackJack.Entity.PLAYER));
     }
 
 }
