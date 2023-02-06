@@ -18,8 +18,14 @@ public class TravelCommand implements CommandAPI {
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
         System.out.println(Colors.ANSI_BLUE + "Du hast dein Travel-Pad gezückt. Wohin möchtest du reisen?" + Colors.ANSI_RESET);
         JSONArray locations = travelEngine.getLocationList();
+        String locationWueste = locations.getJSONObject(5).getString("name");
+        String locationGruenland = locations.getJSONObject(4).getString("name");
+        String locationWinterland = locations.getJSONObject(2).getString("name");
+        String locationStrand = locations.getJSONObject(1).getString("name");
+        String locationWald = locations.getJSONObject(0).getString("name");
+        String locationBerge = locations.getJSONObject(3).getString("name");
         if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wald")) {
-            System.out.println("- " + locations.getJSONObject(1).getString("name") + "\n" + "- " + locations.getJSONObject(4).getString("name") + "\n" + "- " + locations.getJSONObject(3).getString("name"));
+            System.out.println("- " + locationStrand + "\n" + "- " + locationGruenland + "\n" + "- " + locationBerge);
 
             String locationName = scanner.nextLine();
             if (travelEngine.locationExistsWald(locationName)) {
@@ -30,7 +36,7 @@ public class TravelCommand implements CommandAPI {
             }
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Strand")) {
-            System.out.println("- " + locations.getJSONObject(5).getString("name") + "\n" + "- " + locations.getJSONObject(0).getString("name"));
+            System.out.println("- " + locationWueste + "\n" + "- " + locationWald);
 
             String locationName = scanner.nextLine();
             if (travelEngine.locationExistsStrand(locationName)) {
@@ -41,7 +47,7 @@ public class TravelCommand implements CommandAPI {
             }
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Gruenland")) {
-            System.out.println("- " + locations.getJSONObject(5).getString("name") + "\n" + "- " + locations.getJSONObject(0).getString("name") + "\n" + "- " + locations.getJSONObject(2).getString("name"));
+            System.out.println("- " + locationWueste + "\n" + "- " + locationWald + "\n" + "- " + locationWinterland);
 
             String locationName = scanner.nextLine();
             if (travelEngine.locationExistsGruenland(locationName)) {
@@ -52,7 +58,7 @@ public class TravelCommand implements CommandAPI {
             }
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Berge")) {
-            System.out.println("- " + locations.getJSONObject(0).getString("name") + "\n" + "- " + locations.getJSONObject(2).getString("name"));
+            System.out.println("- " + locationWald + "\n" + "- " + locationWinterland);
 
             String locationName = scanner.nextLine();
             if (travelEngine.locationExistsBerge(locationName)) {
@@ -63,7 +69,7 @@ public class TravelCommand implements CommandAPI {
             }
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Winterland")) {
-            System.out.println("- " + locations.getJSONObject(4).getString("name") + "\n" + "- " + locations.getJSONObject(3).getString("name"));
+            System.out.println("- " + locationGruenland + "\n" + "- " + locationBerge);
 
             String locationName = scanner.nextLine();
             if (travelEngine.locationExistsWinterland(locationName)) {
@@ -74,7 +80,7 @@ public class TravelCommand implements CommandAPI {
             }
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wueste")) {
-            System.out.println("- " + locations.getJSONObject(1).getString("name") + "\n" + "- " + locations.getJSONObject(4).getString("name"));
+            System.out.println("- " + locationStrand + "\n" + "- " + locationGruenland);
 
             String locationName = scanner.nextLine();
             if (travelEngine.locationExistsWueste(locationName)) {
