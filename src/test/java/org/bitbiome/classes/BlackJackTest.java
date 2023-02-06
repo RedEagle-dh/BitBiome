@@ -17,4 +17,9 @@ public class BlackJackTest {
         assertEquals(BlackJack.Entity.PLAYER, bj.getEntity(1));
     }
 
+    @Test
+    public void testGetEntityBot() {
+        assertEquals(BlackJack.Entity.BOT, bj.getEntity(2));
+    }
+
 }
