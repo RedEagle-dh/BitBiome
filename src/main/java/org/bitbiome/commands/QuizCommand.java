@@ -45,7 +45,7 @@ public class QuizCommand implements CommandAPI {
             print("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
         }
 
-        print("Das Quiz ist vorbei.");
+        print(endmessage());
 
         Date d = new Date();
         long lastPlayed = d.getTime();
@@ -94,6 +94,10 @@ public class QuizCommand implements CommandAPI {
     public static String anfangsnachricht(){
         return "Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n";
 
+    }
+
+    public static String endmessage(){
+        return "Das Quiz ist vorbei!";
     }
 }
 
