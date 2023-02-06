@@ -57,4 +57,8 @@ public class BlackJack {
     public boolean isIn(Entity entity) {
         return entity == Entity.PLAYER ? playerIn : botIn;
     }
+
+    public Entity getEntity(int ID) {
+        return Entity.getEventStatusById(ID);
+    }
 }
