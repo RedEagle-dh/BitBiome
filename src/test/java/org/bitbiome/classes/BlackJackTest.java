@@ -27,4 +27,9 @@ public class BlackJackTest {
         assertEquals("UnitTest", bj.getPlayerName(BlackJack.Entity.PLAYER));
     }
 
+    @Test
+    public void testBotName() {
+        assertEquals("BitBiome", bj.getPlayerName(BlackJack.Entity.BOT));
+    }
+
 }
