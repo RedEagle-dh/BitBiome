@@ -32,4 +32,10 @@ public class BlackJack {
         }
     }
 
+    private String playerName;
+
+    public BlackJack(String playerName) {
+        this.playerName = playerName;
+    }
+
 }
