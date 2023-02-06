@@ -2,7 +2,7 @@ package org.bitbiome.commands;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class QuizCommandTest {
 
@@ -14,5 +14,11 @@ public class QuizCommandTest {
     @Test
     public void testEndMessage() {
         assertEquals("Das Quiz ist vorbei!", QuizCommand.endMessage());
+    }
+
+    @Test
+    public void testLastTimePlayed() {
+        long lastTimePlayed = System.currentTimeMillis();
+        assertTrue(QuizCommand.canPlayAgain(lastTimePlayed) < lastTimePlayed);
     }
 }
