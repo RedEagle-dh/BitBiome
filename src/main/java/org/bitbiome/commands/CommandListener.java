@@ -18,10 +18,6 @@ public class CommandListener {
         commands.put("blackjack", new BlackJackCommand());
     }
 
-    public HashMap<String, CommandAPI> returnCommands() {
-        return commands;
-    }
-
 
     public boolean perform(String command, Scanner scanner, boolean isRunning, String message) {
 
