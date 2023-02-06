@@ -89,4 +89,8 @@ public class BlackJack {
             return false;
         }
     }
+
+    public void playerOut() {
+        this.playerIn = false;
+    }
 }
