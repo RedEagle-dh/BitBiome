@@ -36,12 +36,14 @@ public class BlackJack {
     private int playerPoints;
     private int botPoints;
     private boolean playerIn;
+    private boolean botIn;
 
     public BlackJack(String playerName) {
         this.playerName = playerName;
         this.playerPoints = 0;
         this.botPoints = 0;
         this.playerIn = true;
+        this.botIn = true;
     }
 
 }
