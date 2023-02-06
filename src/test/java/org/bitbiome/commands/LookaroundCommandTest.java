@@ -1,6 +1,8 @@
 package org.bitbiome.commands;
 
+import org.bitbiome.classes.Colors;
 import org.bitbiome.entities.Item;
+import org.bitbiome.entities.Location;
 import org.bitbiome.entities.Mob;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -119,4 +121,20 @@ public class LookaroundCommandTest {
         String expectedOutput = "Hier gibt es sonst nichts weiter zu sehen. Reise weiter!\n";
         assertEquals(expectedOutput, outputMessage.toString());
     }
+    @Test
+    void testGetRandomItem() throws Exception {
+        int randomNumberItems = 2;
+        JSONArray items = new JSONArray("[{\"name\":\"Holz\",\"doesDamage\":true,\"damage\":1.0},{\"name\":\"Stein\",\"doesDamage\":false,\"damage\":10.0}]");
+        ArrayList<Item> result = new ArrayList<>();
+        for (int i = 0; i < randomNumberItems; i++) {
+            JSONObject itemObject = items.getJSONObject(i);
+            Item item = new Item(itemObject.getString("name"), itemObject.getBoolean("doesDamage"),
+                    itemObject.getFloat("damage"), 1);
+            result.add(item);
+        }
+        assertEquals(2, result.size());
+        assertEquals("Holz", result.get(0).getName());
+        assertEquals("Stein", result.get(1).getName());
+    }
+
 }
