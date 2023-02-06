@@ -20,7 +20,7 @@ public class QuizCommand implements CommandAPI {
 
         long diffTime = canPlayAgain(quiz.getLong("lastPlayed"));
         if (diffTime > 0) {
-            print("Du darfst erst in " + diffTime / 1000 / 60 + " minuten spielen.");
+            print("Du darfst erst in " + diffTime / 1000 / 60 + " Minuten spielen.");
             return;
         }
 
