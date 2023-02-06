@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CommandListener {
 
-    private HashMap<String, CommandAPI> commands;
+    private final HashMap<String, CommandAPI> commands;
 
     public CommandListener() {
         commands = new HashMap<>();
