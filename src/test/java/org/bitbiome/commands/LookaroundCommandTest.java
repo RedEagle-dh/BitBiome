@@ -174,5 +174,19 @@ public class LookaroundCommandTest {
 
         assertEquals(expectedDescription, outputMessage.toString());
     }
+    @Test
+    public void testUnknownLocationDescription() {
+        LookaroundCommand command = new LookaroundCommand();
+        ArrayList<Mob> enemies = new ArrayList<Mob>();
+        enemies.add(new Mob("unknown", false, 50,20));
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(new Item("unknown",true, 10, 1));
+        Location location = new Location("Unknown",enemies, items);
+        StringBuilder outputMessage = new StringBuilder();
+
+        command.getLocationDescription(location, outputMessage);
+
+        assertEquals("", outputMessage.toString());
+    }
 
 }
