@@ -15,4 +15,9 @@ public class ColorsTest {
     public void testBlueCode() {
         assertEquals("\u001B[34m", Colors.ANSI_BLUE);
     }
+
+    @Test
+    public void testCyanCode() {
+        assertEquals("\u001B[36m", Colors.ANSI_CYAN);
+    }
 }
