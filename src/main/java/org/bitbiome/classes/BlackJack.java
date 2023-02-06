@@ -33,9 +33,11 @@ public class BlackJack {
     }
 
     private String playerName;
+    private int playerPoints;
 
     public BlackJack(String playerName) {
         this.playerName = playerName;
+        this.playerPoints = 0;
     }
 
 }
