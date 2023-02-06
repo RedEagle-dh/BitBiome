@@ -136,5 +136,24 @@ public class LookaroundCommandTest {
         assertEquals("Holz", result.get(0).getName());
         assertEquals("Stein", result.get(1).getName());
     }
+    @Test
+    public void testWaldDescription() {
+        LookaroundCommand command = new LookaroundCommand();
+        ArrayList<Mob> enemies = new ArrayList<Mob>();
+        enemies.add(new Mob("Bigfoot", false, 50,20));
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(new Item("Holz",true, 10, 1));
+        Location location = new Location("Wald",enemies, items);
+        StringBuilder outputMessage = new StringBuilder();
+
+        command.getLocationDescription(location, outputMessage);
+
+        String expectedDescription = "Du befindest dich mitten im Wald, um dich herum siehst du hohe Buchen, kleine Sträucher und Farne.\n" +
+                "Der Boden ist mit weichem Moos, Pilzen und Laub bedeckt, in der Nähe hörst du Vögel munter zwitschern und\n" +
+                "einen kleinen Bach, der sich durch das dichte Unterholz schlängelt." +
+                " Schau mal, dort hinten in der Ferne ist ein Eichhörnchen! \n";
+
+        assertEquals(expectedDescription, outputMessage.toString());
+    }
 
 }
