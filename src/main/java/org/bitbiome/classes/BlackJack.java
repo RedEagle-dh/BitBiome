@@ -46,4 +46,7 @@ public class BlackJack {
         this.botIn = true;
     }
 
+    public String getPlayerName(Entity entity) {
+        return entity == Entity.PLAYER ? playerName : "BitBiome";
+    }
 }
