@@ -11,7 +11,7 @@ public class InteractionLoop {
 
     public void run(TravelEngine travelEngine) {
         boolean isRunning = true;
-        if (travelEngine.getPlayer().getName().equals("null")) {
+        if (playerIsNew(travelEngine.getPlayer().getName())) {
             print(Colors.ANSI_BLUE + "Oh, ein Fremder!\nBist du bereit für dein womöglich größtes Abenteuer?\nDann sag mir doch zunächst wie du heißt: " + Colors.ANSI_RESET);
             String name = input.nextLine();
             JsonParser jp = new JsonParser();
@@ -32,6 +32,10 @@ public class InteractionLoop {
     public boolean print(String message) {
         System.out.println(message);
         return true;
+    }
+
+    public boolean playerIsNew(String name) {
+        return name.equalsIgnoreCase("null");
     }
 
 
