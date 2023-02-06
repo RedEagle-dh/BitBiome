@@ -49,4 +49,8 @@ public class BlackJack {
     public String getPlayerName(Entity entity) {
         return entity == Entity.PLAYER ? playerName : "BitBiome";
     }
+
+    public int getPoints(Entity entity) {
+        return entity == Entity.PLAYER ? playerPoints : botPoints;
+    }
 }
