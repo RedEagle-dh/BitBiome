@@ -10,4 +10,9 @@ public class ColorsTest {
     public void testResetCode() {
         assertEquals("\u001B[0m", Colors.ANSI_RESET);
     }
+
+    @Test
+    public void testBlueCode() {
+        assertEquals("\u001B[34m", Colors.ANSI_BLUE);
+    }
 }
