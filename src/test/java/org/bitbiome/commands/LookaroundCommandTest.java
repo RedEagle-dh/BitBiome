@@ -155,5 +155,24 @@ public class LookaroundCommandTest {
 
         assertEquals(expectedDescription, outputMessage.toString());
     }
+    @Test
+    public void testStrandDescription() {
+        LookaroundCommand command = new LookaroundCommand();
+        ArrayList<Mob> enemies = new ArrayList<Mob>();
+        enemies.add(new Mob("Bigfoot", false, 50,20));
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(new Item("Holz",true, 10, 1));
+        Location location = new Location("Strand",enemies, items);
+        StringBuilder outputMessage = new StringBuilder();
+
+        command.getLocationDescription(location, outputMessage);
+
+        String expectedDescription = "Du befindest dich mitten am Strand und blickst auf das Meer, das sich bis zum Horizont erstreckt.\n" +
+                "Du spürst den Sand an deinen Füßen, du hörst das weiche Rauschen des Meeres und das Lachen der Möwen über dir.\n" +
+                "Rechts und links von dir erstreckt sich der weite, weiße Sandstrand, dort hinten bauen Kinder eine Sandburg.\n" +
+                "Es gibt ein paar Palmen, die den Strand säumen und weit in der Ferne ragen Felsen aus dem Meer.\n";
+
+        assertEquals(expectedDescription, outputMessage.toString());
+    }
 
 }
