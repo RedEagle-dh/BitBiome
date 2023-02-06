@@ -1,5 +1,6 @@
 package org.bitbiome.commands;
 
+import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.JsonParser;
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.entities.Item;
@@ -26,7 +27,6 @@ public class CollectCommand implements CommandAPI {
 
         collectItem(location, item, jp, o, inventory,getInventory);
     }
-
     public void collectItem(ArrayList<Item> location, String item, JsonParser jp, JSONObject o, JSONArray inventory, ArrayList<Item> getInventory) {
         for (int i = 0; i < location.size(); i++) {
             if (item.equals(location.get(i).getName())) {
@@ -47,12 +47,8 @@ public class CollectCommand implements CommandAPI {
         } System.out.println("Es gibt kein Item, dass du einsammeln kannst.");
     }
     public void writeNewItem(ArrayList<Item> location, ArrayList<Item> getInventory, JSONObject o1, JSONArray inventory, int i, JsonParser jp, JSONObject o){
-        o1.put("name", location.get(i).getName());
-        o1.put("doesDamage", location.get(i).doesDamage());
-        o1.put("damage", location.get(i).getDamage());
-        o1.put("amount", 1);
-        o1.put("durability", 1000);
-        o.getJSONArray("inventory").put(o1);
+        o1.put("name", location.get(i).getName()).put("doesDamage", location.get(i).doesDamage()).put("damage", location.get(i).getDamage()).put("amount", 1).put("durability", 1000);
+        inventory.put(o1);
         jp.writeObject("playerconfig.json", o);
         getInventory.add(location.get(i));
         location.remove(i);
@@ -63,7 +59,7 @@ public class CollectCommand implements CommandAPI {
         amountItemsInPlayerconfig = inventory.getJSONObject(k).getInt("amount");
         inventory.getJSONObject(k).put("amount", amountItemsInPlayerconfig + 1);
         jp.writeObject("playerconfig.json", o);
-        System.out.println("Du hast das Item eingesammelt.");
+        System.out.println(Colors.ANSI_YELLOW +"Du hast das Item eingesammelt."+ Colors.ANSI_RESET);
     }
 }
 

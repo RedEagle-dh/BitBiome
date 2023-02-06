@@ -20,9 +20,11 @@ public class InventoryCommand implements CommandAPI {
         StringBuilder s = new StringBuilder();
 
         ArrayList<Item> inventory = travelEngine.getPlayer().getInventory();
-        s.append(Colors.ANSI_BRIGHT_RED +"Du möchtest wissen, was in deinem Inventar ist? \nDann lass uns gemeinsam deinen Rucksack öffnen. \nDein Rucksack steckt ja voller Überraschungen! \nDas hast du alles schon gefunden: \n"+ Colors.ANSI_RESET);
+        s.append(Colors.ANSI_PURPLE +"Du möchtest wissen, was in deinem Inventar ist? \n" +
+                "Dann lass uns gemeinsam deinen Rucksack öffnen. \nDein Rucksack steckt ja voller Überraschungen! \n" +
+                "Das hast du alles schon gefunden: \n"+ Colors.ANSI_RESET);
         for (int i=0; i < inventory.size(); i++){
-            s.append(Colors.ANSI_BRIGHT_BG_RED+ Colors.ANSI_BRIGHT_WHITE+ "- ").append(inventory.get(i).getName()).append(" x").append(inventory.get(i).getAmount()).append("  "+ Colors.ANSI_RESET + "\n" );
+            s.append(Colors.ANSI_BG_PURPLE+ Colors.ANSI_BRIGHT_WHITE+ "- ").append(inventory.get(i).getName()).append(" x").append(inventory.get(i).getAmount()).append("  "+ Colors.ANSI_RESET + "\n" );
         }
 
         return s.toString();

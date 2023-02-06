@@ -80,7 +80,9 @@ public class LookaroundCommandTest {
         foundItems.add(new Item("Stein", true, 10, 1));
         foundItems.add(new Item("Sand", false, 1, 1));
         command.getItemsOutput(randomNumberItems, outputMessage, foundItems);
-        String expectedOutput = "Huch, was liegt denn hier rum?\n- Holz\n- Stein\n- Sand\nSchnell, sammel es ein!\n";
+        String expectedOutput = Colors.ANSI_BLUE+ "Huch, was liegt denn hier rum?\n" + Colors.ANSI_RESET+
+                "- Holz\n- Stein\n- Sand\n" +
+                Colors.ANSI_BLUE  +"Schnell, sammel es ein!\n"+ Colors.ANSI_RESET;
         assertEquals(expectedOutput, outputMessage.toString());
     }
     @Test
@@ -90,7 +92,7 @@ public class LookaroundCommandTest {
         StringBuilder outputMessage = new StringBuilder();
         ArrayList<Item> foundItems = new ArrayList<Item>();
         command.getItemsOutput(randomNumberItems, outputMessage, foundItems);
-        String expectedOutput = "Hier gibt es leider nichts für dich zum Einsammeln.\n";
+        String expectedOutput = Colors.ANSI_BLUE+ "Hier gibt es leider nichts für dich zum Einsammeln.\n"+ Colors.ANSI_RESET;
         assertEquals(expectedOutput, outputMessage.toString());
     }
     @Test
@@ -105,7 +107,7 @@ public class LookaroundCommandTest {
 
         command.getMobsOutput( randomNumberItems,randomNumberMobs, outputMessage, foundMobs);
 
-        String expectedOutput = "Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n- Big Foot\n- Yeti\n";
+        String expectedOutput = Colors.ANSI_RED+"Achtung, hier lauern Gefahren!"+Colors.ANSI_RESET +"Sei auf der Hut vor: \n- Big Foot\n- Yeti\n";
         assertEquals(expectedOutput, outputMessage.toString());
     }
     @Test

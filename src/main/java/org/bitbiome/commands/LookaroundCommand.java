@@ -79,21 +79,22 @@ public class LookaroundCommand implements CommandAPI{
             foundMobs.add(randomMob);
         } return foundMobs;
     }
+
     public void getItemsOutput(int randomNumberItems, StringBuilder outputMessage, ArrayList<Item> foundItems){
         if (randomNumberItems != 0){
-            outputMessage.append("Huch, was liegt denn hier rum?\n");
+            outputMessage.append(Colors.ANSI_BLUE  +"Huch, was liegt denn hier rum?\n"+ Colors.ANSI_RESET);
             for (int i = 0; i < foundItems.size(); i++){
                 outputMessage. append("- ").append(foundItems.get(i).getName()+"\n");
             }
-            outputMessage.append("Schnell, sammel es ein!\n");
+            outputMessage.append(Colors.ANSI_BLUE  +"Schnell, sammel es ein!\n"+ Colors.ANSI_RESET);
         }
         else {
-            outputMessage.append("Hier gibt es leider nichts für dich zum Einsammeln.\n");
+            outputMessage.append(Colors.ANSI_BLUE+ "Hier gibt es leider nichts für dich zum Einsammeln.\n"+ Colors.ANSI_RESET);
         }
     }
     public void getMobsOutput(int randomNumberItems, int randomNumberMobs, StringBuilder outputMessage, ArrayList<Mob> foundMobs){
         if (randomNumberMobs != 0){
-            outputMessage.append("Achtung, hier lauern Gefahren! Sei auf der Hut vor: \n");
+            outputMessage.append(Colors.ANSI_RED+"Achtung, hier lauern Gefahren!"+Colors.ANSI_RESET +"Sei auf der Hut vor: \n");
             for (int i = 0; i < foundMobs.size(); i++){
                 outputMessage. append( "- ").append(foundMobs.get(i).getName()+"\n");
             }
@@ -115,22 +116,22 @@ public class LookaroundCommand implements CommandAPI{
                             "Rechts und links von dir erstreckt sich der weite, weiße Sandstrand, dort hinten bauen Kinder eine Sandburg.\n" +
                             "Es gibt ein paar Palmen, die den Strand säumen und weit in der Ferne ragen Felsen aus dem Meer.\n");
             case "Winterland" ->
-                outputMessage.append("Um dich herum ragen hohe Berge in den Himmel, bedeckt von einer dicken Schicht aus Schnee. Du hörst\n" +
-                        "das Knirschen des Schnees unter deinen Füßen und das Rauschen des eisigen Windes. In der Ferne siehst du Tannenbäume,\n" +
-                        "die sich unter der Last des Schnees biegen, und dichte Flocken fallen sanft aus dem grauen Himmel. Es ist kalt, du siehst,\n" +
-                        "wie dein Atem kleine Wolken bildet. Es ist still, aber auch ein wenig unheimlich.\n");
+                    outputMessage.append("Um dich herum ragen hohe Berge in den Himmel, bedeckt von einer dicken Schicht aus Schnee. Du hörst\n" +
+                            "das Knirschen des Schnees unter deinen Füßen und das Rauschen des eisigen Windes. In der Ferne siehst du Tannenbäume,\n" +
+                            "die sich unter der Last des Schnees biegen, und dichte Flocken fallen sanft aus dem grauen Himmel. Es ist kalt, du siehst,\n" +
+                            "wie dein Atem kleine Wolken bildet. Es ist still, aber auch ein wenig unheimlich.\n");
             case "Berge"->
-                outputMessage.append("Du befindest dich in einer majestätischen Berglandschaft mit hohen Gipfen und tiefen Tälern.\n" +
-                        "Die Luft ist frisch und klar, der Klang von rauschenden Bächen und Wasserfällen erfüllt die Umgebung.\n" +
-                        "Die Berge sind mit grünen Wäldern bedeckt und vereinzelt siehst du wilde Tiere herumstreifen.\n");
+                    outputMessage.append("Du befindest dich in einer majestätischen Berglandschaft mit hohen Gipfen und tiefen Tälern.\n" +
+                            "Die Luft ist frisch und klar, der Klang von rauschenden Bächen und Wasserfällen erfüllt die Umgebung.\n" +
+                            "Die Berge sind mit grünen Wäldern bedeckt und vereinzelt siehst du wilde Tiere herumstreifen.\n");
             case "Grünland"->
-                outputMessage.append("Du befindest dich in einer weiten und grünen Landschaft. Überall um dich herum wachsen hohe Gräser und Wildblumen. \n" +
-                        "In der Ferne erkennst du sanfte Hügel mit einer Herde von Schafen und Kühen.Die Luft ist erfüllt von dem Duft der Natur \n" +
-                        "und dem Summen von Insekten. Es herrscht eine friedliche Stille, nur unterbrochen vom gelegentlichen Ruf eines Vogels.");
+                    outputMessage.append("Du befindest dich in einer weiten und grünen Landschaft. Überall um dich herum wachsen hohe Gräser und Wildblumen. \n" +
+                            "In der Ferne erkennst du sanfte Hügel mit einer Herde von Schafen und Kühen.Die Luft ist erfüllt von dem Duft der Natur \n" +
+                            "und dem Summen von Insekten. Es herrscht eine friedliche Stille, nur unterbrochen vom gelegentlichen Ruf eines Vogels.");
             case "Wüste"->
-                outputMessage.append("Du befindest dich mitten in der Wüste. Weit und breit ist nichts anderes zu sehen außer Dünen, vertrocknete Sträucher und Tonnen von Sand.\n" +
-                        "Es ist staubig, der sandige Boden unter deinen Füßen knirscht bei jedem Schritt und die Sonnen brennt auf dich herab. Nimm dich in Acht vor der Wüstenhitze \n" +
-                        "und den Gefahren, die hinter den Dünen lauern. Beeil dich, aus dieser unendlichen Ebene zu entkommen.\n");
+                    outputMessage.append("Du befindest dich mitten in der Wüste. Weit und breit ist nichts anderes zu sehen außer Dünen, vertrocknete Sträucher und Tonnen von Sand.\n" +
+                            "Es ist staubig, der sandige Boden unter deinen Füßen knirscht bei jedem Schritt und die Sonnen brennt auf dich herab. Nimm dich in Acht vor der Wüstenhitze \n" +
+                            "und den Gefahren, die hinter den Dünen lauern. Beeil dich, aus dieser unendlichen Ebene zu entkommen.\n");
             default -> {
             }
             //location description not found
