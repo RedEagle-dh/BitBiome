@@ -28,4 +28,9 @@ public class QuizCommandTest {
         int getRandom = QuizCommand.random(3);
         assertTrue(getRandom >= 0 && getRandom <= 3);
     }
+
+    @Test
+    public void testPrintFunction() {
+        assertEquals("I am a unit test!", QuizCommand.print("I am a unit test!"));
+    }
 }
