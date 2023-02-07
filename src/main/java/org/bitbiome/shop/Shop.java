@@ -2,6 +2,11 @@ package org.bitbiome.shop;
 
 import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.JsonParser;
+import org.bitbiome.classes.TravelEngine;
+import org.bitbiome.commands.BlackJackCommand;
+import org.bitbiome.commands.QuitCommand;
+import org.bitbiome.commands.QuizCommand;
+import org.bitbiome.commands.ShopCommand;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -12,13 +17,25 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Shop {
     public ArrayList<Item> allItems;
     public ArrayList<Item> currentShopItems;
     public JsonParser jsonParser = new JsonParser();
+    public QuizCommand quizCommand = new QuizCommand();
+    public BlackJackCommand blackJackCommand = new BlackJackCommand();
+    public Scanner scanner;
+    public boolean isRunning;
+    public String message;
+    public TravelEngine travelEngine;
 
-    public Shop() {
+    public Shop(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngin) {
+        this.scanner = scanner;
+        this.message = message;
+        this.isRunning = isRunning;
+        this.travelEngine = travelEngin;
+
         try {
             allItems = loadAllItems();
             currentShopItems = loadPartofItems(allItems, 3);
@@ -216,9 +233,14 @@ public class Shop {
     }
 
     public void quiz(){
-        //ToDo
+        quizCommand.performCommand(scanner, isRunning, message, travelEngine);
     }
 
+    public void blackJack(){
+        System.out.println("");
+        blackJackCommand.performCommand(scanner, isRunning, message, travelEngine);
+        System.out.println("");
+    }
     private void printArrayList(ArrayList<Item> arrayList){
         System.out.println("");
         for(int i = 0; i < arrayList.size(); i++){

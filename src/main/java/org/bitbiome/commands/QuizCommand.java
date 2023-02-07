@@ -11,9 +11,9 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
-public class QuizCommand implements CommandAPI {
+public class QuizCommand {
     private Scanner quizScanner;
-    @Override
+
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
         quizScanner = new Scanner(System.in);
 
@@ -78,7 +78,7 @@ public class QuizCommand implements CommandAPI {
     }
 
     public static int addGold() {
-        String playerpath = "src/main/resources/ssplayerconfig.json";
+        String playerpath = "src/main/resources/playerconfig.json";
         JSONObject playerconfig = JsonParser.getJSONObject(playerpath);
         int gold = playerconfig.getInt("gold");
         gold = gold + 5;

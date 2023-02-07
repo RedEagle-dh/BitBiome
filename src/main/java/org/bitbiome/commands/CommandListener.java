@@ -18,9 +18,6 @@ public class CommandListener {
         commands.put("quit", new QuitCommand());
         commands.put("location", new LocationCommand());
         commands.put("travel", new TravelCommand());
-        commands.put("quiz", new QuizCommand());
-        commands.put("blackjack", new BlackJackCommand());
-
         commands.put("shop", new ShopCommand());
 
     }
