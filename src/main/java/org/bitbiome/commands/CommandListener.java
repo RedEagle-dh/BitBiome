@@ -1,11 +1,15 @@
 package org.bitbiome.commands;
 
+import org.bitbiome.classes.TravelEngine;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class CommandListener {
-
-    private final HashMap<String, CommandAPI> commands;
+    // This class is the API between the command interface and the user input
+    // This class is used to handle all the commands
+    // The commands are stored in a hashmap
+    private HashMap<String, CommandAPI> commands;
 
     public CommandListener() {
         commands = new HashMap<>();
@@ -14,16 +18,18 @@ public class CommandListener {
 
         commands.put("exit", new QuitCommand());
         commands.put("quit", new QuitCommand());
+        commands.put("location", new LocationCommand());
+        commands.put("travel", new TravelCommand());
         commands.put("quiz", new QuizCommand());
         commands.put("blackjack", new BlackJackCommand());
     }
 
 
-    public boolean perform(String command, Scanner scanner, boolean isRunning, String message) {
+    public boolean perform(String command, Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
 
         CommandAPI cmd;
         if ((cmd = commands.get(command)) != null) {
-            cmd.performCommand(scanner, isRunning, message);
+            cmd.performCommand(scanner, isRunning, message, travelEngine);
             return true;
         }
         return false;

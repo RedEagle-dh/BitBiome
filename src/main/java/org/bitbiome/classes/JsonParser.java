@@ -3,9 +3,9 @@ package org.bitbiome.classes;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.FileReader;
 import java.io.InputStream;
 
 
@@ -57,5 +57,19 @@ public class JsonParser {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void writeObject(String fileName, JSONObject object) {
+
+        String resourceName = System.getProperty("user.dir") + "/src/main/resources/" + fileName;
+        try {
+            FileWriter fw = new FileWriter(resourceName, false);
+            fw.write(object.toString(1));
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }
