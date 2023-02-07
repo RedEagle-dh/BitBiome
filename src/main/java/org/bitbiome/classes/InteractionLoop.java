@@ -40,10 +40,10 @@ public class InteractionLoop {
                 + Colors.ANSI_RESET);
         String name = input.nextLine();
         JsonParser jp = new JsonParser();
-        JSONObject playerconf = jp.getJSONObject("playerconfig.json");
+        JSONObject playerconf = JsonParser.getJSONObject("src/main/resources/playerconfig.json");
         playerconf.put("name", name);
         travelEngine.getPlayer().setName(name);
-        jp.writeObject("playerconfig.json", playerconf);
+        JsonParser.writeObject("src/main/resources/playerconfig.json", playerconf);
     }
 
 }

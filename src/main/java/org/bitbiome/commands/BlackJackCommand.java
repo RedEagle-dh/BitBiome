@@ -2,6 +2,7 @@ package org.bitbiome.commands;
 
 
 import org.bitbiome.classes.BlackJack;
+import org.bitbiome.classes.TravelEngine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public class BlackJackCommand implements CommandAPI {
     private boolean over;
     @Override
-    public void performCommand(Scanner scanner, boolean isRunning, String message) {
+    public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
 
         System.out.println("Du hast das Spiel BlackJack gestartet. Die Spielregeln lauten wie folgt: Du und dein Gegner bekommen jede Runde Zahlen von 4 - 11. \nDerjenige, der zuerst 21 Punkte hat gewinnt. Derjenige, der über 21 Punkte hat verliert. Möchte keiner mehr Karten ziehen, gewinnt der mit dem höchsten Blatt!\nViel Spaß!");
 

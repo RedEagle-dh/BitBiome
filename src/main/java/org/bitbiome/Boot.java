@@ -26,8 +26,7 @@ public class Boot {
 
     private Player getPlayerSave() {
         String name;
-        JsonParser jp = new JsonParser();
-        JSONObject playerconfig = jp.getJSONObject("playerconfig.json");
+        JSONObject playerconfig = JsonParser.getJSONObject("src/main/resources/playerconfig.json");
         name = playerconfig.getString("name");
         return new Player(name);
     }
