@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public class Player {
     private String name;
     private float hp;
+
+
+
+    private float gold;
     private Location location;
 
     private ArrayList<Item> inventory;
@@ -20,6 +24,7 @@ public class Player {
         hp = 100.0F;
         location = new Location(jp.getJSONObject("playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
         inventory = new ArrayList<>();
+        gold = jp.getJSONObject("playerconfig.json").getFloat("gold");
     }
 
     public String getName() {
@@ -57,5 +62,9 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
+    public float getGold() { return gold; }
+
+    public void setGold(float gold) { this.gold = gold; }
 
 }

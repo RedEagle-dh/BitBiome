@@ -19,6 +19,7 @@ public class CommandListener {
         commands.put("location", new LocationCommand());
         commands.put("travel", new TravelCommand());
         commands.put("map", new MapCommand());
+        commands.put("gold", new GoldCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {
