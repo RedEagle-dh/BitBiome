@@ -10,7 +10,20 @@ public class MapCommand implements CommandAPI{
         System.out.println(getMapMessage(travelEngine));
     }
     public static String getLocationMessage(TravelEngine travelEngine) {
-        return "Du befindest dich gerade hier: " + Colors.ANSI_GREEN + travelEngine.getPlayer().getLocation().getName();
+        return "Du befindest dich gerade hier: " + Colors.ANSI_GREEN + travelEngine.getPlayer().getLocation().getName() + "\n" + Colors.ANSI_RESET;
+    }
+    private static String textColor(String text, String color) {
+        return color + text + Colors.ANSI_RESET;
+    }
+
+    private static String textBlack(String text) {
+        return textColor(text,Colors.ANSI_BRIGHT_BLACK);
+    }
+    private static String textBlue(String text) {
+        return textColor(text,Colors.ANSI_BLUE);
+    }
+    private static String textGreen(String text) {
+        return textColor(text,Colors.ANSI_GREEN);
     }
     public static String getMapMessage(TravelEngine travelEngine) {
         StringBuilder outputMessage = new StringBuilder();
@@ -23,96 +36,96 @@ public class MapCommand implements CommandAPI{
         String locationBerge = locations.getJSONObject(3).getString("name");
         if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wald")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
                     .append("Deine Karte:\n\n")
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationWueste + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + locationGruenland + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BRIGHT_BLACK + locationWinterland + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|             " + textBlack(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BLUE + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_GREEN + locationWald + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locationBerge + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + textBlue(locationStrand) + "             |              " + textGreen(locationWald) + "              |              " + textBlue(locationBerge) + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Strand")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
                     .append("Deine Karte:\n\n")
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BLUE + locationWueste + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BRIGHT_BLACK + locationGruenland + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BRIGHT_BLACK + locationWinterland + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|             " + textBlue(locationWueste) + "             |           " + textBlack(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_GREEN + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locationWald + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locationBerge + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + textGreen(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Berge")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
                     .append("Deine Karte:\n\n")
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationWueste + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BRIGHT_BLACK + locationGruenland + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BLUE + locationWinterland + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|             " + textBlack(locationWueste) + "             |           " + textBlack(locationGruenland) + "            |           " + textBlue(locationWinterland) + "           |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locationWald + Colors.ANSI_RESET + "              |              " + Colors.ANSI_GREEN + locationBerge + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + textBlack(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textGreen(locationBerge) + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wueste")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
                     .append("Deine Karte:\n\n")
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_GREEN + locationWueste + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + locationGruenland + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BRIGHT_BLACK + locationWinterland + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|             " + textGreen(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BLUE + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + locationWald + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locationBerge + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + textBlue(locationStrand) + "             |              " + textBlack(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Gruenland")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
                     .append("Deine Karte:\n\n")
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BLUE + locationWueste + Colors.ANSI_RESET + "             |           " + Colors.ANSI_GREEN + locationGruenland + Colors.ANSI_RESET + "            |           " + Colors.ANSI_BLUE + locationWinterland + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|             " + textBlue(locationWueste) + "             |           " + textGreen(locationGruenland) + "            |           " + textBlue(locationWinterland) + "           |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BLUE + locationWald + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BRIGHT_BLACK + locationBerge + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + textBlack(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
 
         } else {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "\n" + Colors.ANSI_RESET + "Zu den " + Colors.ANSI_BLUE + "blau " + Colors.ANSI_RESET + "markierten Standorten kannst du reisen\n\n")
+                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
                     .append("Deine Karte:\n\n")
                     .append(" __________________________________________________________________________________________________\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationWueste + Colors.ANSI_RESET + "             |           " + Colors.ANSI_BLUE + locationGruenland + Colors.ANSI_RESET + "            |           " + Colors.ANSI_GREEN + locationWinterland + Colors.ANSI_RESET + "           |" + "\n")
+                    .append("|             " + textBlack(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textGreen(locationWinterland) + "           |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n")
                     .append("|                                |                                |                                |\n")
                     .append("|                                |                                |                                |\n")
-                    .append("|             " + Colors.ANSI_BRIGHT_BLACK + locationStrand + Colors.ANSI_RESET + "             |              " + Colors.ANSI_BRIGHT_BLACK + locationWald + Colors.ANSI_RESET + "              |              " + Colors.ANSI_BLUE + locationBerge + Colors.ANSI_RESET + "             |" + "\n")
+                    .append("|             " + textBlack(locationStrand) + "             |              " + textBlack(locationWald) + "              |              " + textBlue(locationBerge) + "             |" + "\n")
                     .append("|                                |                                |                                |\n")
                     .append("|________________________________|________________________________|________________________________|\n");
         }
