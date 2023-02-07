@@ -1,6 +1,6 @@
 package org.bitbiome.entities;
 
-import org.bitbiome.classes.CreateLocations;
+
 import org.bitbiome.classes.JsonParser;
 
 import java.util.ArrayList;
@@ -12,14 +12,17 @@ public class Player {
 
     private ArrayList<Item> inventory;
 
-    private JsonParser jp;
+
 
     public Player(String name) {
-        jp = new JsonParser();
         this.name = name;
         hp = 100.0F;
-        location = new Location(jp.getJSONObject("playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
+        location = new Location(JsonParser.getJSONObject("src/main/resources/playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
         inventory = new ArrayList<>();
+    }
+
+    public Player() {
+        
     }
 
     public String getName() {
