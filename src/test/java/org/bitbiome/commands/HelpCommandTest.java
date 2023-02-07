@@ -24,6 +24,8 @@ public class HelpCommandTest {
                 .append("|" + Colors.ANSI_GREEN + " location" + Colors.ANSI_RESET + "     | Gibt deine Location aus     |\n")
                 .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " map" + Colors.ANSI_RESET + "          | Zeigt dir deinen Karte      |\n")
+                .append("|--------------|-----------------------------|\n")
+                .append("|" + Colors.ANSI_GREEN + " gold" + Colors.ANSI_RESET + "         | Gibt dein Gold an           |\n")
                 .append("|______________|_____________________________|\n");
         assertEquals(outputMessage.toString(), helpMessage);
     }
