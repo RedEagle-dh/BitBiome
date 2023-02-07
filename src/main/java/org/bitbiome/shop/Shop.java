@@ -4,14 +4,11 @@ import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.JsonParser;
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.commands.BlackJackCommand;
-import org.bitbiome.commands.QuitCommand;
 import org.bitbiome.commands.QuizCommand;
-import org.bitbiome.commands.ShopCommand;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
