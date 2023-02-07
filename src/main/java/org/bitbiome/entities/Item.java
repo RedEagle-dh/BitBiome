@@ -4,13 +4,17 @@ public class Item {
 
     private String name;
     private boolean doesDamage;
-    private float damage;
+    private String damage;
+    private int amount;
+    private int gold;
 
 
-    public Item(String name, boolean doesDamage, float damage) {
+    public Item(String name, boolean doesDamage, String damage, int amount, int gold) {
         this.name = name;
         this.doesDamage = doesDamage;
         this.damage = damage;
+        this.amount = amount;
+        this.gold = gold;
     }
 
     public Item() {
@@ -21,8 +25,24 @@ public class Item {
         return name;
     }
 
-    public float getDamage() {
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getDamage() {
         return damage;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold){
+        this.gold = gold;
     }
 
     public boolean doesDamage() {
@@ -33,7 +53,7 @@ public class Item {
         this.name = name;
     }
 
-    public void setDamage(float damage) {
+    public void setDamage(String damage) {
         this.damage = damage;
     }
 

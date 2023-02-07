@@ -15,7 +15,7 @@ public class ItemTest {
     public static void setItem() {
         item = new Item();
         item.setName("Unit");
-        item.setDamage(12.5F);
+        item.setDamage("12,5");
         item.changeDoesDamage(true);
     }
 
@@ -26,13 +26,13 @@ public class ItemTest {
 
     @Test 
     public void testGetDamage() {
-        assertEquals(12.5, item.getDamage());
+        assertEquals("12,5", item.getDamage());
     }
 
     @Test 
     public void testDoesDamage() {
         boolean doesDamage = item.doesDamage();
-        assumeTrue(item.getDamage() > 0);
+        assumeTrue(item.getDamage().equals("12,5"));
         assumeTrue(doesDamage);
     }
 }

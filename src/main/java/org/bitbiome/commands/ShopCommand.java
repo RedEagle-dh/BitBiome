@@ -2,9 +2,9 @@ package org.bitbiome.commands;
 
 import org.bitbiome.classes.BlackJack;
 import org.bitbiome.classes.Colors;
+import org.bitbiome.classes.Shop;
 import org.bitbiome.classes.TravelEngine;
-import org.bitbiome.shop.Item;
-import org.bitbiome.shop.Shop;
+import org.bitbiome.entities.Item;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -37,7 +37,7 @@ public class ShopCommand implements CommandAPI{
                 if(input.equals("1")){
                     System.out.println("Folgende Items sind im Shop: ");
                     for(int i = 0; i < currentItems.size(); i++){
-                        System.out.println((i + 1) + ". " + currentItems.get(i).name + " | Anzahl: " + currentItems.get(i).amount + " | Gold: " + currentItems.get(i).gold);
+                        System.out.println((i + 1) + ". " + currentItems.get(i).getName() + " | Anzahl: " + currentItems.get(i).getAmount() + " | Gold: " + currentItems.get(i).getGold());
                     }
                     System.out.println("0 Eingeben um den Shop zu verlassen.");
                     System.out.println("");
@@ -47,8 +47,8 @@ public class ShopCommand implements CommandAPI{
                         System.out.print("Anzahl eingeben: ");
                         String amount = scanner.nextLine();
                         try {
-                            if ((Integer.parseInt(amount) <= currentItems.get(Integer.parseInt(itemNumber) - 1).amount) && ((Integer.parseInt(amount) - 1) > -1)) {
-                                boolean bool = shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).name, Integer.parseInt(amount));
+                            if ((Integer.parseInt(amount) <= currentItems.get(Integer.parseInt(itemNumber) - 1).getAmount()) && ((Integer.parseInt(amount) - 1) > -1)) {
+                                boolean bool = shop.buy(currentItems.get(Integer.parseInt(itemNumber) - 1).getName(), Integer.parseInt(amount));
                                 currentItems = shop.loadCurrentShopItems();
                                 if (bool) {
                                     System.out.println("");

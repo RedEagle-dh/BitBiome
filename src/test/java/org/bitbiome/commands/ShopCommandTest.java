@@ -1,9 +1,10 @@
 package org.bitbiome.commands;
 
-import org.bitbiome.shop.Shop;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.bitbiome.classes.Shop;
 
 public class ShopCommandTest {
     final Shop shop = new Shop(null, true, null, null);
