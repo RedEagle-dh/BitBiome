@@ -11,7 +11,7 @@ public class Player {
 
 
 
-    private float gold;
+    private int gold;
     private Location location;
 
     private ArrayList<Item> inventory;
@@ -24,7 +24,6 @@ public class Player {
         hp = 100.0F;
         location = new Location(jp.getJSONObject("playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
         inventory = new ArrayList<>();
-        gold = jp.getJSONObject("playerconfig.json").getInt("gold");
     }
 
     public String getName() {
