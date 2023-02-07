@@ -17,10 +17,10 @@ public class BlackJackCommand implements CommandAPI {
         over = false;
         spielen();
     }
-
+    Scanner sc;
     public void spielen() {
         BlackJack bj = new BlackJack("Dave");
-        Scanner sc = new Scanner(System.in);
+        sc = new Scanner(System.in);
         BlackJack.Entity player = bj.getEntity(1);
         while (!over) {
             int r = new Random().nextInt(4, 11);

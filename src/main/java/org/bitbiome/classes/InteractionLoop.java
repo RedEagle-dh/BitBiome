@@ -40,7 +40,6 @@ public class InteractionLoop {
                 + "Oh, ein Fremder!\nBist du bereit für dein womöglich größtes Abenteuer?\nDann sag mir doch zunächst wie du heißt: "
                 + Colors.ANSI_RESET);
         String name = input.nextLine();
-        JsonParser jp = new JsonParser();
         JSONObject playerconf = JsonParser.getJSONObject("src/main/resources/playerconfig.json");
         playerconf.put("name", name);
         travelEngine.getPlayer().setName(name);
