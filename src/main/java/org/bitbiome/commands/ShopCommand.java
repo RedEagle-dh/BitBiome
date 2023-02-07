@@ -27,10 +27,10 @@ public class ShopCommand implements CommandAPI{
         //whileloop for userinputs in the shop
         while (true){
             System.out.println("Was willst Du hier im Shop?");
-            System.out.println("Etwas kaufen: 1");
+            System.out.println(Colors.ANSI_CYAN + "Etwas kaufen: 1");
             System.out.println("Das Quiz spielen: 2");
             System.out.println("Blackjack spielen: 3");
-            System.out.println("Den Shop verlassen: 4");
+            System.out.println("Den Shop verlassen: 4" + Colors.ANSI_RESET);
 
             String input = scanner.nextLine();
             if(validInput(input)){
@@ -69,7 +69,7 @@ public class ShopCommand implements CommandAPI{
                 } else if(input.equals("3")){
                     shop.blackJack();
                 }else if(input.equals("4")){
-                    System.out.println("Der Shop wurde verlassen!");
+                    System.out.println(Colors.ANSI_BG_YELLOW + "Der Shop wurde verlassen!" + Colors.ANSI_RESET);
                     break;
                 }
             }else {

@@ -1,6 +1,7 @@
 package org.bitbiome.commands;
 
 
+import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class QuizCommand {
 
         long diffTime = canPlayAgain(quiz.getLong("lastPlayed"));
         if (diffTime > 0) {
-            print("Du darfst erst in " + diffTime / 1000 / 60 + " Minuten spielen.");
+            print(Colors.ANSI_BG_RED + "Du darfst erst in " + diffTime / 1000 / 60 + " Minuten spielen." + Colors.ANSI_RESET + "\n");
             return;
         }
 
@@ -42,9 +43,9 @@ public class QuizCommand {
 
         if (answerIsCorrect(eingabe, korrekteAntwort, antworten)) {
             int neuerStand = addGold();
-            print("Richtig! Du hast 5 Münzen verdient.\nDein Münzstand beträgt: " + neuerStand);
+            print(Colors.ANSI_BG_GREEN + "Richtig! Du hast 5 Münzen verdient." + Colors.ANSI_RESET + Colors.ANSI_CYAN + "\nDein Münzstand beträgt: " + Colors.ANSI_RESET + Colors.ANSI_BLUE + neuerStand + Colors.ANSI_RESET);
         } else {
-            print("Leider falsch... Richtig ist: " + korrekteAntwort + "\n");
+            print(Colors.ANSI_BG_RED + "Leider falsch... Richtig ist: " + korrekteAntwort + Colors.ANSI_RESET + "\n");
         }
 
         print(endMessage());
@@ -94,12 +95,12 @@ public class QuizCommand {
     }
 
     public static String starterMessage(){
-        return "Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg! \n";
+        return Colors.ANSI_CYAN + "Du hast das Quiz gestartet! Hinweis: Wähle deine Antwort, indem du die Zahl (1-4) eingibst. Ist deine Lösung richtig, erhälst du 5 Münzen. Viel Erfolg!" + Colors.ANSI_RESET + " \n";
 
     }
 
     public static String endMessage(){
-        return "Das Quiz ist vorbei!";
+        return Colors.ANSI_CYAN + "Das Quiz ist vorbei!" + Colors.ANSI_RESET;
     }
 }
 
