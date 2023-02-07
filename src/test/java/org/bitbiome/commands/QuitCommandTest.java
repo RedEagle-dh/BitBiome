@@ -3,13 +3,14 @@ package org.bitbiome.commands;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class QuitCommandTest {
 
 
     @Test
     public void testQuitCommand() {
-        assertEquals("You quitted!", QuitCommand.getQuitMessage());
+        assertTrue(QuitCommand.getQuitMessage().contains("Spiel beendet!"));
     }
 
 }
