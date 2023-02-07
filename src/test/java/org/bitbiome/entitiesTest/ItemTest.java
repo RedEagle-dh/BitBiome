@@ -18,6 +18,7 @@ public class ItemTest {
         item.setDamage("12,5");
         item.changeDoesDamage(true);
         item.setAmount(5);
+        item.setGold(100);
     }
 
     @Test 
@@ -40,5 +41,10 @@ public class ItemTest {
     @Test
     public void testGetAmount() {
         assumeTrue(item.getAmount() == 5);
+    }
+
+    @Test
+    public void testGetGold() {
+        assumeTrue(item.getGold() == 100);
     }
 }
