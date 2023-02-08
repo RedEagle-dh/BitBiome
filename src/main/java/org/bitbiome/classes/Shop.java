@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -155,7 +156,7 @@ public class Shop {
         File file = new File("src/main/resources/items.json");
         JSONArray itemJSON = null;
         try {
-            String content3 = new String(Files.readAllBytes(Paths.get(file.toURI())), "UTF-8");
+            String content3 = new String(Files.readAllBytes(Paths.get(file.toURI())), StandardCharsets.UTF_8);
             itemJSON = new JSONArray(content3);
         } catch (Exception e) {
             e.printStackTrace();
@@ -192,7 +193,7 @@ public class Shop {
             } else {
                 damage = tempJSON.getString("damage");
             }
-            doesDmg = !damage.equals("0") ? false : true;
+            doesDmg = damage.equals("0");
             arrayList.add(new Item(tempJSON.getString("name"), doesDmg, damage, tempJSON.getInt(key),
                     tempJSON.getInt("gold")));
         }
