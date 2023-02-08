@@ -1,4 +1,4 @@
-*Hier Logo*
+<img src="src/main/resources/LogoBitbiome.png">
 ---
 # BitBiome - TextAdventure
 ## What is the game about?
