@@ -190,5 +190,24 @@ public class LookaroundCommandTest {
 
         assertEquals("", outputMessage.toString());
     }
+    @Test
+    public void testWinterlandDescription() {
+        LookaroundCommand command = new LookaroundCommand();
+        ArrayList<Mob> enemies = new ArrayList<Mob>();
+        enemies.add(new Mob("Yeti", false, 50,20));
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(new Item("Schnee",true, "10", 1, 5));
+        Location location = new Location("Winterland",enemies, items);
+        StringBuilder outputMessage = new StringBuilder();
+
+        command.getLocationDescription(location, outputMessage);
+
+        String expectedDescription = "Um dich herum ragen hohe Berge in den Himmel, bedeckt von einer dicken Schicht aus Schnee. Du hörst\n" +
+                "das Knirschen des Schnees unter deinen Füßen und das Rauschen des eisigen Windes. In der Ferne siehst du Tannenbäume,\n" +
+                "die sich unter der Last des Schnees biegen, und dichte Flocken fallen sanft aus dem grauen Himmel. Es ist kalt, du siehst,\n" +
+                "wie dein Atem kleine Wolken bildet. Es ist still, aber auch ein wenig unheimlich.\n";
+
+        assertEquals(expectedDescription, outputMessage.toString());
+    }
 
 }
