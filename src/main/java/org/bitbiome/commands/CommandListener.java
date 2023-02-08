@@ -16,6 +16,8 @@ public class CommandListener {
 
         commands.put("exit", new QuitCommand());
         commands.put("quit", new QuitCommand());
+
+        commands.put("use", new UseCommand());
         commands.put("location", new LocationCommand());
         commands.put("travel", new TravelCommand());
         commands.put("inventory", new InventoryCommand());
@@ -24,6 +26,7 @@ public class CommandListener {
         commands.put("map", new MapCommand());
         commands.put("gold", new GoldCommand());
         commands.put("shop", new ShopCommand());
+        commands.put("runaway", new RunAwayCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {

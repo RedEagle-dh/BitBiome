@@ -27,10 +27,6 @@ public class HelpCommand implements CommandAPI {
                 .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " travel" + Colors.ANSI_RESET + "       | Startet das Reise System    |\n")
                 .append("|--------------|-----------------------------|\n")
-                .append("|" + Colors.ANSI_GREEN + " quiz" + Colors.ANSI_RESET + "         | Startet das quiz im shop    |\n")
-                .append("|--------------|-----------------------------|\n")
-                .append("|" + Colors.ANSI_GREEN + " blackjack" + Colors.ANSI_RESET + "    | Startet blackjack im shop   |\n")
-                .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " location" + Colors.ANSI_RESET + "     | Gibt deine Location aus     |\n")
                 .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " quiz" + Colors.ANSI_RESET + "         | Startet das quiz im shop    |\n")
@@ -47,6 +43,10 @@ public class HelpCommand implements CommandAPI {
                 .append("|" + Colors.ANSI_GREEN + " map" + Colors.ANSI_RESET + "          | Zeigt dir deinen Karte      |\n")
                 .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " gold" + Colors.ANSI_RESET + "         | Gibt dein Gold an           |\n")
+                .append("|______________|_____________________________|\n")
+                .append("|" + Colors.ANSI_GREEN + " use" + Colors.ANSI_RESET + "          | Benutze ein Item            |\n")
+                .append("|______________|_____________________________|\n")
+                .append("|" + Colors.ANSI_GREEN + " runaway" + Colors.ANSI_RESET + "      | Fliehe aus einem Kampf      |\n")
                 .append("|______________|_____________________________|\n");
 
         return outputMessage.toString();
