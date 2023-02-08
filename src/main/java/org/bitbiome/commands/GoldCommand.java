@@ -12,7 +12,7 @@ public class GoldCommand implements CommandAPI{
 
 
     public static String getGoldMessage(Player player) {
-        return "Dein Gold: " + player.getGold();
+        return "Du hast " + player.getGold() + " Gold";
     }
 
     @Override

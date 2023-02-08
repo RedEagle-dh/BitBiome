@@ -24,7 +24,7 @@ public class Player {
         hp = 100.0F;
         location = new Location(jp.getJSONObject("playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
         inventory = new ArrayList<>();
-        gold = jp.getJSONObject("playerconfig.json").getFloat("gold");
+        gold = jp.getJSONObject("playerconfig.json").getInt("gold");
     }
 
     public String getName() {
@@ -63,8 +63,8 @@ public class Player {
         this.name = name;
     }
 
-    public float getGold() { return gold; }
+    public int getGold() { return (int) gold; }
 
-    public void setGold(float gold) { this.gold = gold; }
+    public int setGold(int gold) { this.gold = gold; return gold; }
 
 }
