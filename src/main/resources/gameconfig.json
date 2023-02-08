@@ -6,25 +6,19 @@
    "name": "Holz"
   },
   {
-   "gold": 1000,
-   "amount": 1,
-   "name": "Heiliges Schwert der Engel"
+   "gold": 3,
+   "amount": 400,
+   "name": "Loewenkralle"
   },
   {
-   "gold": 2,
-   "amount": 1500,
-   "name": "Stein"
+   "gold": 3,
+   "amount": 200,
+   "name": "Drachenhaut"
   }
  ],
  "locations": [
   {
-   "mobs": [{
-    "isFriendly": true,
-    "damage": "15",
-    "name": "Big Foot",
-    "hp": 50,
-    "items": ["Fell"]
-   }],
+   "mobs": ["Big Foot"],
    "name": "Wald",
    "items": [
     "Holz",
@@ -32,17 +26,43 @@
    ]
   },
   {
-   "mobs": [{
-    "isFriendly": true,
-    "damage": "15",
-    "name": "Big Foot",
-    "hp": 50,
-    "items": ["Fell"]
-   }],
+   "mobs": ["Riesenkrabbe"],
    "name": "Strand",
    "items": [
-    "Holz",
-    "Stein"
+    "Sand",
+    "Treibholz"
+   ]
+  },
+  {
+   "mobs": ["Yeti"],
+   "name": "Winterland",
+   "items": [
+    "Eiszapfen",
+    "Schnee"
+   ]
+  },
+  {
+   "mobs": ["Loewe"],
+   "name": "Berge",
+   "items": [
+    "Quellwasser",
+    "Feuerstein"
+   ]
+  },
+  {
+   "mobs": ["Drache"],
+   "name": "Gruenland",
+   "items": [
+    "Lehm",
+    "Giftblume"
+   ]
+  },
+  {
+   "mobs": ["Mumie"],
+   "name": "Wueste",
+   "items": [
+    "Sand",
+    "Kaktus"
    ]
   }
  ]

@@ -37,15 +37,18 @@ public class HelpCommand implements CommandAPI {
                 .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " blackjack" + Colors.ANSI_RESET + "    | Startet blackjack im shop   |\n")
                 .append("|--------------|-----------------------------|\n")
-                .append("|" + Colors.ANSI_GREEN + " location" + Colors.ANSI_RESET + "     | Gibt deine Location aus     |\n")
-                .append("|--------------|-----------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " inventory" + Colors.ANSI_RESET + "    | Gibt dein Inventar aus        |\n")
                 .append("|--------------|-------------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " collect " + Colors.ANSI_RESET + "     | Gibt deine Location aus       |\n")
                 .append("|--------------|-------------------------------|\n")
                 .append("|" + Colors.ANSI_GREEN + " lookaround" + Colors.ANSI_RESET + "   | Zeigt dir deine Umgebung,     |\n")
                 .append("|" + Colors.ANSI_GREEN + "           " + Colors.ANSI_RESET + "   | Items und Mobs in der Nähe    |\n")
-                .append("|______________|_______________________________|\n");
+                .append("|--------------|-----------------------------|\n")
+                .append("|" + Colors.ANSI_GREEN + " map" + Colors.ANSI_RESET + "          | Zeigt dir deinen Karte      |\n")
+                .append("|--------------|-----------------------------|\n")
+                .append("|" + Colors.ANSI_GREEN + " gold" + Colors.ANSI_RESET + "         | Gibt dein Gold an           |\n")
+                .append("|______________|_____________________________|\n");
+
         return outputMessage.toString();
     }
 

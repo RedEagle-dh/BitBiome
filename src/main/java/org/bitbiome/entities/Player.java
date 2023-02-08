@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class Player {
     private String name;
     private float hp;
+
+
+
+    private int gold;
     private Location location;
 
     private ArrayList<Item> inventory;
@@ -71,6 +75,10 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getGold() { return (int) gold; }
+
+    public int setGold(int gold) { this.gold = gold; return gold; }
 
     public void setInventory(ArrayList<Item> inventory) {
         this.inventory = inventory;

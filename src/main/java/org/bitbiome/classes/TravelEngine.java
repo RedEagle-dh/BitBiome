@@ -1,11 +1,15 @@
 package org.bitbiome.classes;
 
+
 import org.bitbiome.entities.Location;
+
 import org.bitbiome.entities.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 import java.util.ArrayList;
+
 
 public class TravelEngine {
 
@@ -37,6 +41,54 @@ public class TravelEngine {
         boolean found = false;
         for (int i = 0; i < locations.length(); i++)
             if (locations.getJSONObject(i).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsWald(String name) {
+        boolean found = false;
+            if (locations.getJSONObject(1).getString("name").equals(name) | locations.getJSONObject(4).getString("name").equals(name) | locations.getJSONObject(3).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsStrand(String name) {
+        boolean found = false;
+            if (locations.getJSONObject(5).getString("name").equals(name) | locations.getJSONObject(0).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsGruenland(String name) {
+        boolean found = false;
+            if (locations.getJSONObject(5).getString("name").equals(name) | locations.getJSONObject(0).getString("name").equals(name) | locations.getJSONObject(2).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsBerge(String name) {
+        boolean found = false;
+            if (locations.getJSONObject(0).getString("name").equals(name) | locations.getJSONObject(2).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsWinterland(String name) {
+        boolean found = false;
+            if (locations.getJSONObject(4).getString("name").equals(name) | locations.getJSONObject(3).getString("name").equals(name)) {
+                found = true;
+            }
+        return found;
+    }
+
+    public boolean locationExistsWueste(String name) {
+        boolean found = false;
+            if (locations.getJSONObject(1).getString("name").equals(name) | locations.getJSONObject(4).getString("name").equals(name)) {
                 found = true;
             }
         return found;
