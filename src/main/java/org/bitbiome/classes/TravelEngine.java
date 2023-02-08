@@ -108,8 +108,7 @@ public class TravelEngine {
             //TODO Create Location by name and add mobs and times to the location
             JSONArray items = location.getJSONArray("items");
             JSONArray mobs = location.getJSONArray("mobs");
-            System.out.println(items.toString(1));
-            System.out.println(mobs.toString(1));
+
             return new Location(name, new ArrayList<>(), new ArrayList<>());
         } else {
             return null;
