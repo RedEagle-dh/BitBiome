@@ -2,7 +2,8 @@
   {
     "name": "Big Foot",
     "hp": 50,
-    "damage": "10-15",
+    "damage": "15",
+    "isFriendly": true,
     "items": [
       "Fell"
     ]
@@ -10,7 +11,8 @@
   {
     "name": "Riesenkrabbe",
     "hp": 50,
-    "damage": "10-15",
+    "damage": "9",
+    "isFriendly": false,
     "items": [
       "Krabbenschere"
     ]
@@ -18,7 +20,8 @@
   {
     "name": "Yeti",
     "hp": 55,
-    "damage": "20-25",
+    "damage": "17",
+    "isFriendly": true,
     "items": [
       "Fell",
       "Yetikralle"
@@ -27,7 +30,8 @@
   {
     "name": "Loewe",
     "hp": 30,
-    "damage": "10-15",
+    "damage": "15",
+    "isFriendly": false,
     "items": [
       "Fell",
       "Loewenkralle"
@@ -36,7 +40,8 @@
   {
     "name": "Drache",
     "hp": 55,
-    "damage": "15-20",
+    "damage": "20",
+    "isFriendly": false,
     "items": [
       "Drachenzahn",
       "Drachenhaut"
@@ -45,7 +50,8 @@
   {
     "name": "Mumie",
     "hp": 40,
-    "damage": "10-15",
+    "damage": "12",
+    "isFriendly": false,
     "items": [
       "Knochen"
     ]
