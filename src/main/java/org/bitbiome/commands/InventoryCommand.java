@@ -1,10 +1,8 @@
 package org.bitbiome.commands;
 
 import org.bitbiome.classes.Colors;
-import org.bitbiome.classes.JsonParser;
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.entities.Item;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Scanner;

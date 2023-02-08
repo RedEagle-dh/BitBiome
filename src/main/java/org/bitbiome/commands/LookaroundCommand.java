@@ -7,9 +7,7 @@ import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.entities.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,8 +17,7 @@ public class LookaroundCommand implements CommandAPI{
     public void performCommand(Scanner scanner, boolean isRunning, String message, TravelEngine travelEngine) {
         StringBuilder outputMessage = new StringBuilder();
         Location location = travelEngine.getPlayer().getLocation();
-        JsonParser jp = new JsonParser();
-        JSONObject gameConfig = jp.getJSONObject("src/main/resources/gameconfig.json");
+        JSONObject gameConfig = JsonParser.getJSONObject("src/main/resources/gameconfig.json");
         JSONArray locations = gameConfig.getJSONArray("locations");
         JSONObject locationObject = getLocationObject(location.getName(), locations);
         JSONArray items = locationObject.getJSONArray("items");

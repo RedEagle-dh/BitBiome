@@ -106,8 +106,8 @@ public class TravelEngine {
             }
             assert location != null;
             //TODO Create Location by name and add mobs and times to the location
-            JSONArray items = location.getJSONArray("items");
-            JSONArray mobs = location.getJSONArray("mobs");
+            // JSONArray items = location.getJSONArray("items");
+            // JSONArray mobs = location.getJSONArray("mobs");
 
             return new Location(name, new ArrayList<>(), new ArrayList<>());
         } else {
