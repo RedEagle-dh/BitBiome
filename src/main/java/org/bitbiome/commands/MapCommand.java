@@ -25,6 +25,24 @@ public class MapCommand implements CommandAPI{
     private static String textGreen(String text) {
         return textColor(text,Colors.ANSI_GREEN);
     }
+    private static String signup() {
+        return (" __________________________________________________________________________________________________\n");
+    }
+    private static String signdown() {
+        return ("|________________________________|________________________________|________________________________|\n");
+    }
+    private static String signmiddle() {
+        return ("|                                |                                |                                |\n");
+    }
+    private static String mapup(TravelEngine travelEngine) {
+        return getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\nDeine Karte:\n\n" + signup() + signmiddle() + signmiddle();
+    }
+    private static String mapmiddle() {
+        return signmiddle() + signdown() + signmiddle() + signmiddle();
+    }
+    private static String mapdown() {
+        return signmiddle() + signdown();
+    }
     public static String getMapMessage(TravelEngine travelEngine) {
         StringBuilder outputMessage = new StringBuilder();
         JSONArray locations = travelEngine.getLocationList();
@@ -34,100 +52,53 @@ public class MapCommand implements CommandAPI{
         String locationStrand = locations.getJSONObject(1).getString("name");
         String locationWald = locations.getJSONObject(0).getString("name");
         String locationBerge = locations.getJSONObject(3).getString("name");
+        
         if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wald")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
-                    .append("Deine Karte:\n\n")
-                    .append(" __________________________________________________________________________________________________\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapup(travelEngine))
                     .append("|             " + textBlack(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapmiddle())
                     .append("|             " + textBlue(locationStrand) + "             |              " + textGreen(locationWald) + "              |              " + textBlue(locationBerge) + "             |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n");
+                    .append(mapdown());
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Strand")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
-                    .append("Deine Karte:\n\n")
-                    .append(" __________________________________________________________________________________________________\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapup(travelEngine))
                     .append("|             " + textBlue(locationWueste) + "             |           " + textBlack(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapmiddle())
                     .append("|             " + textGreen(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n");
+                    .append(mapdown());
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Berge")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
-                    .append("Deine Karte:\n\n")
-                    .append(" __________________________________________________________________________________________________\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapup(travelEngine))
                     .append("|             " + textBlack(locationWueste) + "             |           " + textBlack(locationGruenland) + "            |           " + textBlue(locationWinterland) + "           |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapmiddle())
                     .append("|             " + textBlack(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textGreen(locationBerge) + "             |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n");
+                    .append(mapdown());
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wueste")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
-                    .append("Deine Karte:\n\n")
-                    .append(" __________________________________________________________________________________________________\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapup(travelEngine))
                     .append("|             " + textGreen(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapmiddle())
                     .append("|             " + textBlue(locationStrand) + "             |              " + textBlack(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n");
+                    .append(mapdown());
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Gruenland")) {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
-                    .append("Deine Karte:\n\n")
-                    .append(" __________________________________________________________________________________________________\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapup(travelEngine))
                     .append("|             " + textBlue(locationWueste) + "             |           " + textGreen(locationGruenland) + "            |           " + textBlue(locationWinterland) + "           |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapmiddle())
                     .append("|             " + textBlack(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n");
+                    .append(mapdown());
 
         } else {
             outputMessage
-                    .append(getLocationMessage(travelEngine) + "Zu den " + textBlue("blau ") + "markierten Standorten kannst du reisen\n\n")
-                    .append("Deine Karte:\n\n")
-                    .append(" __________________________________________________________________________________________________\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapup(travelEngine))
                     .append("|             " + textBlack(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textGreen(locationWinterland) + "           |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|                                |                                |                                |\n")
+                    .append(mapmiddle())
                     .append("|             " + textBlack(locationStrand) + "             |              " + textBlack(locationWald) + "              |              " + textBlue(locationBerge) + "             |" + "\n")
-                    .append("|                                |                                |                                |\n")
-                    .append("|________________________________|________________________________|________________________________|\n");
+                    .append(mapdown());
         }
         return outputMessage.toString();
     }
