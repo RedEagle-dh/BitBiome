@@ -55,49 +55,37 @@ public class MapCommand implements CommandAPI{
         
         if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wald")) {
             outputMessage
-                    .append(mapup(travelEngine))
-                    .append("|             " + textBlack(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
-                    .append(mapmiddle())
-                    .append("|             " + textBlue(locationStrand) + "             |              " + textGreen(locationWald) + "              |              " + textBlue(locationBerge) + "             |" + "\n")
+                    .append(mapup(travelEngine)).append("|             ").append(textBlack(locationWueste)).append("             |           ").append(textBlue(locationGruenland)).append("            |           ").append(textBlack(locationWinterland)).append("           |").append("\n")
+                    .append(mapmiddle()).append("|             ").append(textBlue(locationStrand)).append("             |              ").append(textGreen(locationWald)).append("              |              ").append(textBlue(locationBerge)).append("             |").append("\n")
                     .append(mapdown());
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Strand")) {
             outputMessage
-                    .append(mapup(travelEngine))
-                    .append("|             " + textBlue(locationWueste) + "             |           " + textBlack(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
-                    .append(mapmiddle())
-                    .append("|             " + textGreen(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
+                    .append(mapup(travelEngine)).append("|             ").append(textBlue(locationWueste)).append("             |           ").append(textBlack(locationGruenland)).append("            |           ").append(textBlack(locationWinterland)).append("           |").append("\n")
+                    .append(mapmiddle()).append("|             ").append(textGreen(locationStrand)).append("             |              ").append(textBlue(locationWald)).append("              |              ").append(textBlack(locationBerge)).append("             |").append("\n")
                     .append(mapdown());
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Berge")) {
             outputMessage
-                    .append(mapup(travelEngine))
-                    .append("|             " + textBlack(locationWueste) + "             |           " + textBlack(locationGruenland) + "            |           " + textBlue(locationWinterland) + "           |" + "\n")
-                    .append(mapmiddle())
-                    .append("|             " + textBlack(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textGreen(locationBerge) + "             |" + "\n")
+                    .append(mapup(travelEngine)).append("|             ").append(textBlack(locationWueste)).append("             |           ").append(textBlack(locationGruenland)).append("            |           ").append(textBlue(locationWinterland)).append("           |").append("\n")
+                    .append(mapmiddle()).append("|             ").append(textBlack(locationStrand)).append("             |              ").append(textBlue(locationWald)).append("              |              ").append(textGreen(locationBerge)).append("             |").append("\n")
                     .append(mapdown());
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Wueste")) {
             outputMessage
-                    .append(mapup(travelEngine))
-                    .append("|             " + textGreen(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textBlack(locationWinterland) + "           |" + "\n")
-                    .append(mapmiddle())
-                    .append("|             " + textBlue(locationStrand) + "             |              " + textBlack(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
+                    .append(mapup(travelEngine)).append("|             ").append(textGreen(locationWueste)).append("             |           ").append(textBlue(locationGruenland)).append("            |           ").append(textBlack(locationWinterland)).append("           |").append("\n")
+                    .append(mapmiddle()).append("|             ").append(textBlue(locationStrand)).append("             |              ").append(textBlack(locationWald)).append("              |              ").append(textBlack(locationBerge)).append("             |").append("\n")
                     .append(mapdown());
 
         } else if (travelEngine.getPlayer().getLocation().getName().equalsIgnoreCase("Gruenland")) {
             outputMessage
-                    .append(mapup(travelEngine))
-                    .append("|             " + textBlue(locationWueste) + "             |           " + textGreen(locationGruenland) + "            |           " + textBlue(locationWinterland) + "           |" + "\n")
-                    .append(mapmiddle())
-                    .append("|             " + textBlack(locationStrand) + "             |              " + textBlue(locationWald) + "              |              " + textBlack(locationBerge) + "             |" + "\n")
+                    .append(mapup(travelEngine)).append("|             ").append(textBlue(locationWueste)).append("             |           ").append(textGreen(locationGruenland)).append("            |           ").append(textBlue(locationWinterland)).append("           |").append("\n")
+                    .append(mapmiddle()).append("|             ").append(textBlack(locationStrand)).append("             |              ").append(textBlue(locationWald)).append("              |              ").append(textBlack(locationBerge)).append("             |").append("\n")
                     .append(mapdown());
 
         } else {
             outputMessage
-                    .append(mapup(travelEngine))
-                    .append("|             " + textBlack(locationWueste) + "             |           " + textBlue(locationGruenland) + "            |           " + textGreen(locationWinterland) + "           |" + "\n")
-                    .append(mapmiddle())
-                    .append("|             " + textBlack(locationStrand) + "             |              " + textBlack(locationWald) + "              |              " + textBlue(locationBerge) + "             |" + "\n")
+                    .append(mapup(travelEngine)).append("|             ").append(textBlack(locationWueste)).append("             |           ").append(textBlue(locationGruenland)).append("            |           ").append(textGreen(locationWinterland)).append("           |").append("\n")
+                    .append(mapmiddle()).append("|             ").append(textBlack(locationStrand)).append("             |              ").append(textBlack(locationWald)).append("              |              ").append(textBlue(locationBerge)).append("             |").append("\n")
                     .append(mapdown());
         }
         return outputMessage.toString();
