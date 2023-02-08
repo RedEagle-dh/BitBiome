@@ -21,7 +21,7 @@ public class CommandListener {
         commands.put("inventory", new InventoryCommand());
         commands.put("lookaround", new LookaroundCommand());
         commands.put("collect", new CollectCommand());
-
+        commands.put("shop", new ShopCommand());
     }
 
     public HashMap<String, CommandAPI> returnCommands() {

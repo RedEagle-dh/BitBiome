@@ -54,12 +54,12 @@ public class LookaroundCommandTest {
         mob1.put("name", "BigFoot");
         mob1.put("isFriendly", true);
         mob1.put("hp", 10);
-        mob1.put("damage", 5);
+        mob1.put("damage", "5");
         JSONObject mob2 = new JSONObject();
         mob2.put("name", "Yeti");
         mob2.put("isFriendly", false);
         mob2.put("hp", 20);
-        mob2.put("damage", 10);
+        mob2.put("damage", "10");
         mobs.put(mob1);
         mobs.put(mob2);
         ArrayList<Mob> foundMobs = new ArrayList<>();
@@ -76,9 +76,9 @@ public class LookaroundCommandTest {
         int randomNumberItems = 3;
         StringBuilder outputMessage = new StringBuilder();
         ArrayList<Item> foundItems = new ArrayList<Item>();
-        foundItems.add(new Item("Holz", true, 10, 1));
-        foundItems.add(new Item("Stein", true, 10, 1));
-        foundItems.add(new Item("Sand", false, 1, 1));
+        foundItems.add(new Item("Holz", true, "10", 1,2));
+        foundItems.add(new Item("Stein", true, "10", 1, 3));
+        foundItems.add(new Item("Sand", false, "1", 1,3));
         command.getItemsOutput(randomNumberItems, outputMessage, foundItems);
         String expectedOutput = Colors.ANSI_BLUE+ "Huch, was liegt denn hier rum?\n" + Colors.ANSI_RESET+
                 "- Holz\n- Stein\n- Sand\n" +
@@ -126,12 +126,12 @@ public class LookaroundCommandTest {
     @Test
     void testGetRandomItem() throws Exception {
         int randomNumberItems = 2;
-        JSONArray items = new JSONArray("[{\"name\":\"Holz\",\"doesDamage\":true,\"damage\":1.0},{\"name\":\"Stein\",\"doesDamage\":false,\"damage\":10.0}]");
+        JSONArray items = new JSONArray("[{\"name\":\"Holz\",\"doesDamage\":true,\"damage\":\"1.0\"},{\"name\":\"Stein\",\"doesDamage\":false,\"damage\":\"10.0\"}]");
         ArrayList<Item> result = new ArrayList<>();
         for (int i = 0; i < randomNumberItems; i++) {
             JSONObject itemObject = items.getJSONObject(i);
             Item item = new Item(itemObject.getString("name"), itemObject.getBoolean("doesDamage"),
-                    itemObject.getFloat("damage"), 1);
+                    itemObject.getString("damage"), 1, 3);
             result.add(item);
         }
         assertEquals(2, result.size());
@@ -144,7 +144,7 @@ public class LookaroundCommandTest {
         ArrayList<Mob> enemies = new ArrayList<Mob>();
         enemies.add(new Mob("Bigfoot", false, 50,20));
         ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item("Holz",true, 10, 1));
+        items.add(new Item("Holz",true, "10", 1,3));
         Location location = new Location("Wald",enemies, items);
         StringBuilder outputMessage = new StringBuilder();
 
@@ -163,7 +163,7 @@ public class LookaroundCommandTest {
         ArrayList<Mob> enemies = new ArrayList<Mob>();
         enemies.add(new Mob("Bigfoot", false, 50,20));
         ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item("Holz",true, 10, 1));
+        items.add(new Item("Holz",true, "10", 1, 5));
         Location location = new Location("Strand",enemies, items);
         StringBuilder outputMessage = new StringBuilder();
 
@@ -182,7 +182,7 @@ public class LookaroundCommandTest {
         ArrayList<Mob> enemies = new ArrayList<Mob>();
         enemies.add(new Mob("unknown", false, 50,20));
         ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item("unknown",true, 10, 1));
+        items.add(new Item("unknown",true, "10", 1, 5));
         Location location = new Location("Unknown",enemies, items);
         StringBuilder outputMessage = new StringBuilder();
 

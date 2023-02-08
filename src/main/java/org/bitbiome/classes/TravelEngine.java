@@ -10,21 +10,19 @@ import java.util.ArrayList;
 public class TravelEngine {
 
     private JSONArray locations;
-    private JsonParser jp;
     private Player player;
 
     public TravelEngine(Player player) {
-        jp = new JsonParser();
-        locations = jp.getJSONObject("gameconfig.json").getJSONArray("locations");
+        locations = JsonParser.getJSONObject("src/main/resources/gameconfig.json").getJSONArray("locations");
         this.player = player;
     }
 
     public void travelTo(Location location) {
         player.setLocation(location);
-        JSONObject jObj = jp.getJSONObject("playerconfig.json");
+        JSONObject jObj = JsonParser.getJSONObject("src/main/resources/playerconfig.json");
         jObj.put("currentLocation", location.getName());
 
-        jp.writeObject("playerconfig.json", jObj);
+        JsonParser.writeObject("src/main/resources/playerconfig.json", jObj);
     }
 
     public Player getPlayer() {
@@ -45,8 +43,7 @@ public class TravelEngine {
     }
 
     public Location getLocationByName(String name) {
-        JsonParser jp = new JsonParser();
-        JSONObject gameconfig = jp.getJSONObject("gameconfig.json");
+        JSONObject gameconfig = JsonParser.getJSONObject("src/main/resources/gameconfig.json");
         JSONArray locations = gameconfig.getJSONArray("locations");
         JSONObject location = null;
         if (locationExists(name)) {

@@ -2,6 +2,7 @@ package org.bitbiome.commands;
 
 import org.bitbiome.classes.Colors;
 import org.bitbiome.classes.JsonParser;
+import org.bitbiome.classes.Shop;
 import org.bitbiome.classes.TravelEngine;
 import org.bitbiome.entities.*;
 import org.json.JSONArray;
@@ -19,7 +20,7 @@ public class LookaroundCommand implements CommandAPI{
         StringBuilder outputMessage = new StringBuilder();
         Location location = travelEngine.getPlayer().getLocation();
         JsonParser jp = new JsonParser();
-        JSONObject gameConfig = jp.getJSONObject("gameconfig.json");
+        JSONObject gameConfig = jp.getJSONObject("src/main/resources/gameconfig.json");
         JSONArray locations = gameConfig.getJSONArray("locations");
         JSONObject locationObject = getLocationObject(location.getName(), locations);
         JSONArray items = locationObject.getJSONArray("items");
@@ -52,13 +53,8 @@ public class LookaroundCommand implements CommandAPI{
     public ArrayList<Item> getRandomItem(int randomNumberItems, Random random, JSONArray items, ArrayList<Item> foundItems ) {
         for (int i=0; i<randomNumberItems; i++){
             String s1 = items.getString(random.nextInt(items.length()));
-            String resourceName = "./../../../items.json";
-            InputStream is = JsonParser.class.getResourceAsStream(resourceName);
-            if (is == null) {
-                throw new NullPointerException("Cannot find resource file " + resourceName);
-            }
-            JSONTokener tokener = new JSONTokener(is);
-            JSONArray jp3 = new JSONArray(tokener);
+
+            JSONArray jp3 = Shop.returnJSONArrayOfAllItems();
             JSONObject jp2= jp3.getJSONObject(0);
             for (int j=1; j<jp3.length(); j++ ){
                 if(jp3.getJSONObject(j).getString("name").equals(s1)){
@@ -66,7 +62,7 @@ public class LookaroundCommand implements CommandAPI{
                     break;
                 }
             }
-            Item randomItem = new Item (jp2.getString("name"),jp2.getBoolean("doesDamage"),jp2.getFloat("damage"),1);
+            Item randomItem = new Item (jp2.getString("name"),jp2.getBoolean("doesDamage"),jp2.getString("damage"),1, jp2.getInt("gold"));
             foundItems.add(randomItem);
         }
         return foundItems;

@@ -1,6 +1,6 @@
 package org.bitbiome.entities;
 
-import org.bitbiome.classes.CreateLocations;
+
 import org.bitbiome.classes.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,22 +15,25 @@ public class Player {
 
     private ArrayList<Item> inventory;
 
-    private JsonParser jp;
+
 
     public Player(String name) {
-        jp = new JsonParser();
         this.name = name;
         hp = 100.0F;
-        location = new Location(jp.getJSONObject("playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
+        location = new Location(JsonParser.getJSONObject("src/main/resources/playerconfig.json").getString("currentLocation"), new ArrayList<>(), new ArrayList<>());
         inventory = new ArrayList<>();
-        JSONArray items = jp.getJSONObject("playerconfig.json").getJSONArray("inventory");
+        JSONArray items = JsonParser.getJSONObject("src/main/resources/playerconfig.json").getJSONArray("inventory");
         for (int i = 0; i < items.length(); i++) {
             JSONObject o = items.getJSONObject(i);
-            inventory.add(new Item(o.getString("name"), o.getBoolean("doesDamage"), o.getFloat("damage"), o.getInt("amount")));
+            inventory.add(new Item(o.getString("name"), o.getBoolean("doesDamage"), o.getString("damage"), o.getInt("amount"), o.getInt("gold")));
         }
 
 
 
+    }
+
+    public Player() {
+        
     }
 
     public String getName() {

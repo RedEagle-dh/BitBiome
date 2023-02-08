@@ -15,8 +15,8 @@ public class InventoryCommandTest {
         InventoryCommand command = new InventoryCommand();
         TravelEngine travelEngine = new TravelEngine(new Player("Unit"));
         ArrayList<Item> inventory = new ArrayList<>();
-        inventory.add(new Item("Holz", false, 0,5));
-        inventory.add(new Item("Stein", true, 10, 5));
+        inventory.add(new Item("Holz", false, "0",5, 3));
+        inventory.add(new Item("Stein", true, "10", 5, 4));
         travelEngine.getPlayer().setInventory(inventory);
 
         String expectedResult = Colors.ANSI_PURPLE + "Du möchtest wissen, was in deinem Inventar ist? \n" +

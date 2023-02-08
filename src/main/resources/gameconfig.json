@@ -1,57 +1,49 @@
 {
-  "shopitems": [
-    {
-      "name": "Holz",
-      "amount": 10,
-      "gold": 10
-    },
-    {
-      "name": "Heiliges Schwert der Engel",
-      "amount": 1,
-      "gold": 1000
-    },
-    {
-      "name": "Stein",
-      "amount": 5,
-      "gold": 100
-    }
-  ],
-  "locations": [
-    {
-      "name": "Wald",
-      "items": [
-        "Holz",
-        "Stein"
-      ],
-      "mobs": [
-        {
-          "name": "Big Foot",
-          "hp": 50,
-          "damage": 15,
-          "isFriendly": true,
-          "items": [
-            "Fell"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Strand",
-      "items": [
-        "Holz",
-        "Stein"
-      ],
-      "mobs": [
-        {
-          "name": "Big Foot",
-          "hp": 50,
-          "damage": 15,
-          "isFriendly": true,
-          "items": [
-            "Fell"
-          ]
-        }
-      ]
-    }
-  ]
+ "shopitems": [
+  {
+   "gold": 1000,
+   "amount": 1,
+   "name": "Heiliges Schwert der Engel"
+  },
+  {
+   "gold": 2,
+   "amount": 1500,
+   "name": "Stein"
+  },
+  {
+   "gold": 10,
+   "amount": 10,
+   "name": "Holz"
+  }
+ ],
+ "locations": [
+  {
+   "mobs": [{
+    "isFriendly": true,
+    "damage": "15",
+    "name": "Big Foot",
+    "hp": 50,
+    "items": ["Fell"]
+   }],
+   "name": "Wald",
+   "items": [
+    "Holz",
+    "Stein"
+   ]
+  },
+  {
+   "mobs": [{
+    "isFriendly": true,
+    "damage": "15",
+    "name": "Big Foot",
+    "hp": 50,
+    "items": ["Fell"]
+   }],
+   "name": "Strand",
+   "items": [
+    "Holz",
+    "Stein"
+   ]
+  }
+ ]
 }

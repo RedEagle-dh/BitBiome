@@ -14,7 +14,7 @@ public class CollectCommandTest {
     public void testIncreaseAmountInPlayerConfig() {
         CollectCommand command = new CollectCommand();
         JsonParser jp = new JsonParser();
-        JSONObject o = jp.getJSONObject("playerconfig.json");
+        JSONObject o = jp.getJSONObject("src/main/resources/playerconfig.json");
         JSONArray inventory = o.getJSONArray("inventory");
         int k = 0;
         int initialAmount = inventory.getJSONObject(k).getInt("amount");
