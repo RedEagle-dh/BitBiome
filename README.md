@@ -1,5 +1,5 @@
-<img src="src/main/resources/LogoBitbiome.png">
----
+![BitBiome Logo](src/main/resources/LogoBitbiome.png)
+
 # BitBiome - TextAdventure
 ## What is the game about?
 BitBiome is an exciting text adventure. Whether you want to travel through exciting biomes or measure with dangerous opponents. You can prove your knowledge in a quiz and buy new items in the shop as a reward.
