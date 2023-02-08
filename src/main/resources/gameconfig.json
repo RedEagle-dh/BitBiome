@@ -1,81 +1,69 @@
 {
-  "shopitems": [
-    {
-      "name": "Holz",
-      "amount": 10,
-      "gold": 10
-    },
-    {
-      "name": "Heiliges Schwert der Engel",
-      "amount": 1,
-      "gold": 1000
-    },
-    {
-      "name": "Stein",
-      "amount": 5,
-      "gold": 100
-    }
-  ],
-  "locations": [
-    {
-      "name": "Wald",
-      "items": [
-        "Holz",
-        "Stein"
-      ],
-      "mobs": [
-        "Big Foot"
-      ]
-    },
-    {
-      "name": "Strand",
-      "items": [
-        "Sand",
-        "Treibholz"
-      ],
-      "mobs": [
-        "Riesenkrabbe"
-      ]
-    },
-    {
-      "name": "Winterland",
-      "items": [
-        "Eiszapfen",
-        "Schnee"
-      ],
-      "mobs": [
-        "Yeti"
-      ]
-    },
-    {
-      "name": "Berge",
-      "items": [
-        "Quellwasser",
-        "Feuerstein"
-      ],
-      "mobs": [
-        "Loewe"
-      ]
-    },
-    {
-      "name": "Gruenland",
-      "items": [
-        "Lehm",
-        "Giftblume"
-      ],
-      "mobs": [
-        "Drache"
-      ]
-    },
-    {
-      "name": "Wueste",
-      "items": [
-        "Sand",
-        "Kaktus"
-      ],
-      "mobs": [
-        "Mumie"
-      ]
-    }
-  ]
+ "shopitems": [
+  {
+   "gold": 1000,
+   "amount": 1,
+   "name": "Heiliges Schwert der Engel"
+  },
+  {
+   "gold": 2,
+   "amount": 450,
+   "name": "Knochen"
+  },
+  {
+   "gold": 1,
+   "amount": 100,
+   "name": "Schnee"
+  }
+ ],
+ "locations": [
+  {
+   "mobs": ["Big Foot"],
+   "name": "Wald",
+   "items": [
+    "Holz",
+    "Stein"
+   ]
+  },
+  {
+   "mobs": ["Riesenkrabbe"],
+   "name": "Strand",
+   "items": [
+    "Sand",
+    "Treibholz"
+   ]
+  },
+  {
+   "mobs": ["Yeti"],
+   "name": "Winterland",
+   "items": [
+    "Eiszapfen",
+    "Schnee"
+   ]
+  },
+  {
+   "mobs": ["Loewe"],
+   "name": "Berge",
+   "items": [
+    "Quellwasser",
+    "Feuerstein"
+   ]
+  },
+  {
+   "mobs": ["Drache"],
+   "name": "Gruenland",
+   "items": [
+    "Lehm",
+    "Giftblume"
+   ]
+  },
+  {
+   "mobs": ["Mumie"],
+   "name": "Wueste",
+   "items": [
+    "Sand",
+    "Kaktus"
+   ]
+  }
+ ]
 }

@@ -15,6 +15,10 @@ public class Location {
         this.itemList = itemList;
     }
 
+    public Location() {
+
+    }
+
 
     public String getName() {
         return name;
@@ -26,6 +30,10 @@ public class Location {
 
     public ArrayList<Item> getItemList() {
         return itemList;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 

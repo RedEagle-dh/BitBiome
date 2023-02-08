@@ -15,6 +15,10 @@ public class Mob {
         this.damage = damage;
     }
 
+    public Mob() {
+        
+    }
+
     public String getName() {
         return name;
     }
