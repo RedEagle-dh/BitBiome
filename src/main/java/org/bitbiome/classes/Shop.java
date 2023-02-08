@@ -152,7 +152,7 @@ public class Shop {
         return arrayList;
     }
 
-    public JSONArray returnJSONArrayOfAllItems() {
+    public static JSONArray returnJSONArrayOfAllItems() {
         File file = new File("src/main/resources/items.json");
         JSONArray itemJSON = null;
         try {

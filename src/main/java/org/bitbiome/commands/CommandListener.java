@@ -18,8 +18,10 @@ public class CommandListener {
         commands.put("quit", new QuitCommand());
         commands.put("location", new LocationCommand());
         commands.put("travel", new TravelCommand());
+        commands.put("inventory", new InventoryCommand());
+        commands.put("lookaround", new LookaroundCommand());
+        commands.put("collect", new CollectCommand());
         commands.put("shop", new ShopCommand());
-
     }
 
     public HashMap<String, CommandAPI> returnCommands() {

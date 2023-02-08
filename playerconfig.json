@@ -1,12 +1,12 @@
 {
  "gold": 0,
- "name": "null",
+ "name": "Julia",
  "hp": 10,
  "inventory": [
   {
    "gold": 5,
    "damage": "10",
-   "amount": 5,
+   "amount": 6,
    "durability": 1000,
    "name": "Holz",
    "doesDamage": true
